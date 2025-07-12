@@ -1,0 +1,2257 @@
+/* ======================================================
+   RESET BASE
+====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Body con sfondo nero e testo bianco */
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================================================
+   HEADER / NAVBAR
+====================================================== */
+header {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+header.scrolled {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+header .navbar {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  transition: padding 0.3s ease;
+}
+
+header .navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+header .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header .nav-link:hover,
+header .nav-link.active {
+  color: red;
+}
+
+/* ======================================================
+   HERO SECTION (Index)
+====================================================== */
+.hero {
+  position: relative;
+  height: 85vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background-color: transparent;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.hero-overlay h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero-overlay p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: auto;
+  color: #ffffff;
+}
+
+/* ======================================================
+   HERO SECTION WITH IMAGE
+====================================================== */
+.hero-with-image {
+  position: relative;
+  min-height: 85vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-text-center {
+  flex: 1;
+  text-align: center;
+  color: white;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.hero-text-center h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero-text-center p {
+  font-size: 1.3rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+  animation: fadeInRight 1s ease-out 0.3s backwards;
+}
+
+.hero-image .sphere-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;  /* Aggiungi questa riga per limitare l'altezza */
+  object-fit: cover;  /* Aggiungi questa per mantenere le proporzioni */
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================================
+   SMALL HERO SECTION (Manutenzione, Sicurezza, Formazione)
+====================================================== */
+.small-hero {
+  height: 40vh;
+  background-color: #000000;
+  padding-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-hero .hero-overlay {
+  background-color: transparent;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+.small-hero .hero-overlay h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* ======================================================
+   COMPETENZE BAR & MISSION SECTION
+====================================================== */
+.mission-full-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.competenze-bar {
+  background-color: #333333;
+  color: white;
+  padding: 10px 0;
+  text-align: left;
+  animation: slideDown 0.8s ease-out 1s backwards;
+}
+
+.competenze-bar h2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.mission-white-bg {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 60px 0;
+  min-height: 60vh;
+}
+
+.mission-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mission-white-bg .mission-text p {
+  color: #333333;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.mission-white-bg .mission-text strong {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* ======================================================
+   ANIMAZIONI HERO SECTION
+====================================================== */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======================================================
+   ANIMAZIONI SCROLL MISSION SECTION
+====================================================== */
+.mission-text p {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.mission-text p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay progressivo per ogni paragrafo */
+.mission-text p:nth-child(1) { transition-delay: 0.1s; }
+.mission-text p:nth-child(2) { transition-delay: 0.2s; }
+.mission-text p:nth-child(3) { transition-delay: 0.3s; }
+.mission-text p:nth-child(4) { transition-delay: 0.4s; }
+.mission-text p:nth-child(5) { transition-delay: 0.5s; }
+
+/* ======================================================
+   SECTION - Servizi (Manutenzione, Sicurezza)
+====================================================== */
+#servizi {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+#servizi h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+#servizi ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+#servizi li {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  background: #000000;
+  color: #eee;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer-social {
+  margin: 20px 0;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-social img {
+  height: 32px !important;
+  width: 32px !important;
+  max-width: 32px;
+  max-height: 32px;
+  margin: 0 8px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s;
+}
+
+.footer-social img:hover {
+  opacity: 0.7;
+}
+
+.footer-info {
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.footer-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #333333;
+  color: #fff;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.footer-button:hover {
+  background: #555555;
+}
+
+.footer-copy {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* ======================================================
+   CHI SIAMO PAGE - SENZA DOPPIO SFONDO
+====================================================== */
+#chi-siamo-content {
+  color: #ffffff;
+  padding: 4rem 0;
+}
+
+.content-box {
+  background-color: #1a1a1a;
+  padding: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.content-box h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.content-box .lead {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #ffffff;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-lg-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  padding: 0 15px;
+}
+
+.col-lg-10 {
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+  padding: 0 15px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* ======================================================
+   NAVBAR STILE DELOITTE
+====================================================== */
+.deloitte-navbar {
+  background-color: #000000;
+  border-bottom: 1px solid #333333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  gap: 0;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.navbar-brand .brand-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.navbar-brand .dot {
+  display: none;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: none !important;
+  justify-content: flex-start !important;
+  margin-left: 2rem;
+}
+
+.navbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 18px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-toggle:hover {
+  background-color: #1a1a1a;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+  width: 20px;
+  height: 20px;
+}
+
+.dropdown.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #333333;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #2a2a2a;
+  color: red;
+}
+
+.navbar-icon {
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.navbar-icon:hover {
+  background-color: #1a1a1a;
+}
+
+.language-menu {
+  right: 0;
+  left: auto;
+  min-width: 180px;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #333333;
+  cursor: pointer;
+  text-align: left;
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-option:hover {
+  background-color: #2a2a2a;
+  color: red;
+}
+
+.language-option.active {
+  background-color: #2a2a2a;
+  color: red;
+}
+
+.language-option .flag {
+  font-size: 16px;
+}
+
+.navbar-icon.location {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.selected-flag {
+  font-size: 16px;
+  margin: 0 4px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  gap: 3px;
+}
+
+.mobile-menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333333;
+  padding: 20px;
+}
+
+.mobile-menu a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid #333333;
+  font-size: 16px;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu a:hover {
+  color: red;
+}
+
+/* ======================================================
+   MEGA MENU STILE DELOITTE
+====================================================== */
+.mega-dropdown {
+  position: relative;
+}
+
+.mega-menu {
+  position: fixed !important;
+  top: 60px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  max-width: none !important;
+  min-width: 100vw !important;
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 0 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: slideDownFromTop 0.5s ease forwards;
+}
+
+@keyframes slideDownFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-menu.closing {
+  animation: slideUpToTop 1s ease forwards;
+}
+
+@keyframes slideUpToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.mega-menu-content {
+  display: flex;
+  min-height: 300px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mega-menu-dynamic {
+  min-width: 1200px !important;
+  max-width: 1400px !important;
+}
+
+.mega-layout {
+  display: flex !important;
+  min-height: 400px !important;
+}
+
+.mega-sidebar {
+  width: 200px;
+  background-color: #2a2a2a;
+  border-radius: 8px 0 0 8px;
+  padding: 20px 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 0.6s ease 0.2s forwards;
+}
+
+.mega-sidebar-dynamic {
+  width: 300px !important;
+  background-color: #2a2a2a !important;
+  border-radius: 8px 0 0 8px !important;
+  padding: 20px 0 !important;
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  padding: 0;
+}
+
+.sidebar-item a {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-item:hover a,
+.sidebar-item.active a {
+  background-color: #3a3a3a;
+  color: red;
+  border-left-color: red;
+}
+
+.sidebar-button {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.mega-sidebar-dynamic .sidebar-item a,
+.mega-sidebar-dynamic .sidebar-item .sidebar-button {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.mega-sidebar-dynamic .sidebar-item:hover a,
+.mega-sidebar-dynamic .sidebar-item:hover .sidebar-button,
+.mega-sidebar-dynamic .sidebar-item.active a,
+.mega-sidebar-dynamic .sidebar-item.active .sidebar-button {
+  background-color: #3a3a3a;
+  color: red;
+  border-left-color: #0078d4;
+}
+
+.mega-main {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 0.6s ease 0.3s forwards;
+}
+
+.mega-center {
+  flex: 1;
+  padding: 30px 40px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.mega-accordion {
+  width: 100%;
+  max-width: 600px;
+}
+
+.accordion-section {
+  margin-bottom: 1.5rem;
+}
+
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #333333;
+  transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+  color: red;
+  border-bottom-color: #0078d4;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  color: #ffffff;
+}
+
+.accordion-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 1rem 0;
+  animation: slideDownAccordion 0.3s ease;
+}
+
+@keyframes slideDownAccordion {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.mega-services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6rem;
+  row-gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mega-service-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.25rem 0;
+}
+
+.bullet {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.mega-right {
+  width: 300px;
+  background-color: #1a1a1a;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-left: 1px solid #333333;
+}
+
+.mega-card {
+  text-align: center;
+  max-width: 300px;
+}
+
+.mega-card-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.mega-right .mega-card {
+  text-align: center;
+  max-width: 250px;
+}
+
+.mega-right .mega-card-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mcbalance-icon {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.icon-square {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 2px;
+}
+
+.icon-square:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.icon-square:nth-child(2) {
+  top: 21px;
+  left: 21px;
+}
+
+.icon-square:nth-child(3) {
+  top: 42px;
+  left: 42px;
+}
+
+.icon-square.red {
+  background: red !important;
+}
+
+.mega-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.mega-card p {
+  font-size: 14px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.mega-right .mega-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.mega-right .mega-card p {
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix: logo squadrato come Chi siamo */
+.mega-right, .mega-right .mega-card, .mega-right .mega-card-icon, .mcbalance-icon, .icon-square {
+  border-radius: 0 !important;
+}
+
+.mega-service-item-link {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.mega-service-item-link:hover {
+  background-color: #3a3a3a;
+  color: white;
+  border-left-color: white;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 20rem auto;
+  padding: 2rem;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.page-content p,
+.page-content li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.page-content ul {
+  padding-left: 2rem;
+}
+
+.page-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.page-content .text-block {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.page-content .text-block p {
+  margin-bottom: 1rem;
+}
+
+.page-content .text-block ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-content .text-block li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+/* ======================================================
+   ANIMAZIONI PAGINA CHI SIAMO
+====================================================== */
+
+/* Animazione Hero Section */
+.animate-hero {
+  opacity: 0;
+  animation: heroFadeIn 1s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione Titolo "La nostra storia" */
+.animate-title {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  animation: titleAnimation 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animazione Content Box */
+.animate-content {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: contentSlideUp 1s ease-out 0.5s forwards;
+  position: relative;
+}
+
+@keyframes contentSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazioni per elementi interni con fade */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-loaded .animate-fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays per animazione sequenziale */
+.delay-1 { transition-delay: 0.8s; }
+.delay-2 { transition-delay: 1s; }
+.delay-3 { transition-delay: 1.2s; }
+
+/* Effetto glow sul titolo McBalance */
+.animate-content h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.page-loaded .animate-content h2 {
+  animation: textGlow 2s ease-in-out 1.5s;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Effetto particelle fluttuanti per hero (opzionale) */
+.small-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes floatBackground {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ======================================================
+   RESPONSIVE - MOBILE
+====================================================== */
+@media (max-width: 1024px) {
+  .navbar-menu {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .mega-menu {
+    left: -100px;
+    min-width: 400px;
+  }
+  
+  .mega-menu-content {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .mega-sidebar {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .mega-main {
+    padding: 20px;
+  }
+  
+  .mega-menu-dynamic {
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  .mega-layout {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  
+  .mega-sidebar-dynamic {
+    width: 100% !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 15px 0 !important;
+  }
+  
+  .mega-center {
+    padding: 20px !important;
+  }
+  
+  .mega-right {
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid #333333 !important;
+    padding: 20px !important;
+  }
+  
+  .mega-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: none !important;
+  }
+}
+
+/* Responsive per Hero con immagine */
+@media (max-width: 992px) {
+  .hero-content-wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .hero-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero-image .sphere-image {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 15px;
+  }
+  
+  .navbar-brand {
+    font-size: 20px;
+  }
+  
+  .navbar-actions {
+    gap: 4px;
+  }
+  
+  .navbar-icon.location {
+    display: none;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .hero-overlay p {
+    font-size: 1rem !important;
+  }
+  
+  .hero-overlay {
+    padding: 2rem 1rem !important;
+    width: 95% !important;
+  }
+  
+  .hero-text-center h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-text-center p {
+    font-size: 1rem;
+  }
+  
+  .hero-image .sphere-image {
+    max-width: 350px;
+  }
+  
+  .small-hero .hero-overlay h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+  
+  .col-lg-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .col-lg-10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .content-box {
+    padding: 2rem;
+  }
+  
+  .content-box h2 {
+    font-size: 2rem;
+  }
+  
+  .content-box .lead {
+    font-size: 1.1rem;
+  }
+  
+  .small-hero .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  
+  .competenze-bar h2 {
+    font-size: 1.4rem;
+  }
+  
+  .mission-white-bg {
+    padding: 40px 0;
+  }
+  
+  /* Animazione mobile Chi Siamo */
+  .animate-title {
+    animation: titleAnimationMobile 1s ease-out 0.3s forwards;
+  }
+  
+  @keyframes titleAnimationMobile {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-content {
+    animation: contentSlideUpMobile 0.8s ease-out 0.4s forwards;
+  }
+  
+  @keyframes contentSlideUpMobile {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .hero-overlay p {
+    font-size: 0.9rem !important;
+  }
+  
+  .hero-text-center h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-text-center p {
+    font-size: 0.9rem;
+  }
+  
+  .hero-image .sphere-image {
+    max-width: 300px;
+  }
+}
+/* ======================================================
+   DELOITTE-STYLE LAYOUT (Servizi/Settori)
+====================================================== */
+.deloitte-layout {
+  padding: 60px 0;
+  background-color: #000000;
+}
+
+.layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px; /* Ridotto da un valore maggiore */
+  min-height: 500px;
+}
+
+/* Sidebar Sinistra */
+.layout-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.sidebar-menu {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 20px 0;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-button {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #2a2a2a;
+  color: red;
+  border-left-color: red;
+}
+
+/* Area Centrale */
+.layout-center {
+  flex: 1;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.services-grid {
+  display: flex;
+  gap: 0px; /* Ridotto da un valore maggiore per avvicinare le colonne */
+}
+
+.services-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-item {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 0;
+  border-bottom: 1px solid #333333;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 20px;
+  /* Aggiungi max-width per forzare il text wrapping */
+  
+  word-wrap: break-word;
+ white-space: nowrap;
+  line-height: 1.4;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: red;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.service-item:hover {
+  color: red;
+  transform: translateX(5px);
+}
+
+/* Area Destra */
+.layout-right {
+  width: 350px; /* Ridotto da un valore maggiore */
+  flex-shrink: 0;
+}
+
+.service-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 40px 30px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon {
+  margin-bottom: 30px;
+}
+
+.service-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Sezioni dettagliate servizi */
+.services-detail {
+  margin-top: 80px;
+}
+
+.service-detail-section {
+  padding: 80px 0;
+  background-color: #0a0a0a;
+  border-top: 1px solid #333333;
+}
+
+.service-detail-section:nth-child(even) {
+  background-color: #111111;
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.service-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.text-block {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-block p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.text-block ul {
+  padding-left: 30px;
+  margin: 30px 0;
+}
+
+.text-block li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  list-style: none;
+  position: relative;
+  padding-left: 25px;
+}
+
+.text-block li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .layout-container {
+    gap: 30px;
+  }
+  
+  .services-grid {
+    gap: 40px;
+  }
+  
+  .layout-right {
+    width: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .layout-container {
+    flex-direction: column;
+  }
+  
+  .layout-sidebar {
+    width: 100%;
+  }
+  
+  .sidebar-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .layout-right {
+    width: 100%;
+  }
+  
+  .service-card {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .service-item {
+    max-width: 100%;
+  }
+  
+  .service-content h2 {
+    font-size: 2rem;
+  }
+  
+  .text-block {
+    padding: 0 15px;
+  }
+}
+/* ======================================================
+   FIX PER CHI SIAMO - IMMAGINE FULL WIDTH
+====================================================== */
+
+/* Rimuove la barra grigia dal titolo */
+.small-hero {
+  background-color: #000000 !important;
+  border-bottom: none !important;
+}
+
+/* Stili per l'immagine della mano elettrica - FULL WIDTH */
+.chi-siamo-image-container {
+  width: 99.5vw; /* Larghezza viewport completa */
+  max-width: 100vw; /* Assicura larghezza piena */
+  margin: 3rem 0; /* Solo margini sopra e sotto */
+  padding: 0; /* Nessun padding */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  text-align: center;
+  background-color: transparent !important;
+  background: none !important;
+}
+
+.chi-siamo-image {
+  width: 100%;
+  height: auto;
+  max-height: 700px; /* Aumentato per bilanciare la larghezza */
+  object-fit: cover; /* Cambiato in cover per riempire lo spazio */
+  border-radius: 0; /* Rimosso il border radius per full width */
+  box-shadow: none;
+  filter: contrast(1.2) brightness(0.9);
+}
+
+/* Contenuto trasparente senza sfondo grigio */
+.content-transparent {
+  background-color: transparent !important;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: none !important;
+}
+
+/* Testo Chi Siamo */
+.chi-siamo-text-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.chi-siamo-text-container .lead {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+/* Assicura che la sezione sia completamente nera */
+#chi-siamo-content {
+  background-color: #000000 !important;
+}
+
+/* ======================================================
+   RESPONSIVE FIX CHI SIAMO
+====================================================== */
+@media (max-width: 768px) {
+  .chi-siamo-image {
+    max-height: 300px;
+  }
+  
+  .chi-siamo-text-container {
+    padding: 0 15px;
+  }
+  
+  .content-transparent {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chi-siamo-image {
+    max-height: 250px;
+  }
+}
+/* ======================================================
+   ANIMAZIONI PAGINA OVERVIEW
+====================================================== */
+
+/* Animazione Hero Section Overview */
+.overview-animate-hero {
+  opacity: 0;
+  animation: overviewHeroFade 1s ease-out forwards;
+}
+
+@keyframes overviewHeroFade {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animazione per il titolo Overview */
+.overview-animate-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: overviewTitleSlide 1.2s ease-out 0.2s forwards;
+}
+
+@keyframes overviewTitleSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione per il content box */
+.overview-animate-content {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  animation: overviewContentReveal 1s ease-out 0.4s forwards;
+}
+
+@keyframes overviewContentReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animazione per il titolo h2 dentro il box */
+.overview-animate-h2 {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: overviewH2Slide 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes overviewH2Slide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animazioni per i paragrafi che appaiono in sequenza */
+.overview-animate-p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: overviewParagraphFade 0.8s ease-out forwards;
+}
+
+.overview-animate-p:nth-child(1) { animation-delay: 0.8s; }
+.overview-animate-p:nth-child(2) { animation-delay: 1s; }
+.overview-animate-p:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes overviewParagraphFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effetto linea che si espande sotto il titolo */
+.overview-title-line {
+  position: relative;
+  display: inline-block;
+}
+
+.overview-title-line::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff0000;
+  animation: lineExpand 1s ease-out 1s forwards;
+}
+
+@keyframes lineExpand {
+  to {
+    width: 100%;
+  }
+}
+
+/* Effetto glow sul content box al caricamento */
+.overview-glow {
+  animation: boxGlow 2s ease-out 0.5s;
+}
+
+@keyframes boxGlow {
+  0% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Rimuovi lo sfondo grigio dal content-box se necessario */
+#overview-content .content-box {
+  background-color: #1a1a1a !important; /* Sfondo grigio scuro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Assicura che tutto il testo sia bianco e visibile */
+#overview-content .content-box h2,
+#overview-content .content-box p,
+#overview-content .content-box .lead {
+  color: #ffffff !important;
+}
+/* ======================================================
+   FIX OVERVIEW - VERSIONE SEMPLIFICATA
+   AGGIUNGI QUESTO AL TUO CSS
+====================================================== */
+
+/* Nasconde il container con classe content-box */
+#overview-content .content-box {
+  display: none !important;
+}
+
+/* Container per il nuovo layout */
+#overview-content .container {
+  max-width: 1200px !important;
+}
+
+/* Layout a due colonne FORZATO */
+.overview-layout {
+  display: flex !important;
+  gap: 4rem !important;
+  align-items: center !important;
+  padding: 4rem 20px !important;
+}
+
+/* Testo a sinistra */
+.overview-text {
+  flex: 1 !important;
+  text-align: left !important;
+}
+
+.overview-text h2 {
+  color: #ffffff !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 2rem !important;
+  text-align: left !important;
+}
+
+.overview-text p {
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: left !important;
+}
+
+/* Immagine a destra */
+.overview-image-container {
+  flex: 0 0 45% !important;
+  max-width: 500px !important;
+}
+
+.overview-image-container img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .overview-layout {
+    flex-direction: column !important;
+  }
+  
+  .overview-image-container {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 2rem !important;
+  }
+}
+/* ======================================================
+   IMMAGINE OVERVIEW - ALTEZZA PIENA
+   AGGIUNGI QUESTO AL TUO CSS
+====================================================== */
+
+/* Rimuovi altezza fissa dall'immagine */
+.overview-image-container {
+  flex: 0 0 60% !important;
+  align-self: stretch !important; /* Si estende per tutta l'altezza */
+  display: flex !important;
+  align-items: center !important;
+}
+
+.overview-image-container img {
+  width: 100% !important;
+  height: 100% !important; /* Occupa tutta l'altezza disponibile */
+  object-fit: cover !important; /* Copre tutto lo spazio mantenendo le proporzioni */
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+/* Assicura che il layout sia allineato al top */
+.overview-layout {
+  align-items: stretch !important; /* Cambiato da center a stretch */
+}
+
+/* Alternative se vuoi l'immagine centrata verticalmente ma alta quanto il testo */
+.overview-image-container.centered {
+  height: 100% !important;
+  min-height: 600px !important; /* Altezza minima per evitare che sia troppo piccola */
+}
+/* ======================================================
+   LAYOUT OVERVIEW SENZA SPAZI LATERALI
+====================================================== */
+
+/* Container più largo */
+#overview-content .container {
+  max-width: 1400px !important; /* Aumentato da 1200px */
+  padding: 0 40px !important; /* Ridotto il padding laterale */
+}
+
+/* Layout che sfrutta tutta la larghezza */
+.overview-layout {
+  display: flex !important;
+  gap: 3rem !important;
+  align-items: stretch !important;
+  padding: 4rem 0 !important; /* Rimosso padding laterale */
+  max-width: 100% !important;
+}
+
+/* Per schermi molto larghi */
+@media (min-width: 1600px) {
+  #overview-content .container {
+    max-width: 1600px !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  #overview-content .container {
+    max-width: 1800px !important;
+  }
+}
+
+/* Mobile responsive aggiornato */
+@media (max-width: 1200px) {
+  #overview-content .container {
+    padding: 0 30px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  #overview-content .container {
+    padding: 0 20px !important;
+  }
+  
+  .overview-layout {
+    padding: 3rem 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #overview-content .container {
+    padding: 0 15px !important;
+  }
+  
+  .overview-layout {
+    padding: 2rem 0 !important;
+  }
+}
+/* ======================================================
+   ANIMAZIONI COMPLETE PER OVERVIEW
+====================================================== */
+
+/* Animazione Hero che scende dall'alto */
+.overview-animate-hero {
+  opacity: 0;
+  animation: heroSlideDown 1s ease-out forwards;
+}
+
+@keyframes heroSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione titolo Panoramica */
+.overview-animate-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: titleFadeUp 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes titleFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione testo che entra da sinistra */
+.overview-animate-text {
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: textSlideFromLeft 1s ease-out 0.5s forwards;
+}
+
+@keyframes textSlideFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animazione titolo h2 con linea rossa */
+.overview-text h2 {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: h2SlideIn 0.8s ease-out 0.6s forwards;
+}
+
+.overview-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 1.2s forwards;
+}
+
+@keyframes h2SlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes redLineExpand {
+  to {
+    width: 100px;
+  }
+}
+
+/* Animazione paragrafi in sequenza */
+.overview-text p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: paragraphFadeIn 0.8s ease-out forwards;
+}
+
+.overview-text p:nth-child(2) { animation-delay: 0.8s; }
+.overview-text p:nth-child(3) { animation-delay: 1s; }
+.overview-text p:nth-child(4) { animation-delay: 1.2s; }
+.overview-text p:nth-child(5) { animation-delay: 1.4s; }
+
+@keyframes paragraphFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione immagine che entra da destra con zoom */
+.overview-animate-image {
+  opacity: 0;
+  transform: translateX(80px) scale(0.9);
+  animation: imageSlideFromRight 1.2s ease-out 0.7s forwards;
+}
+
+@keyframes imageSlideFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Effetto glow pulsante sull'immagine */
+.overview-image-container img {
+  position: relative;
+  animation: imagePulseGlow 3s ease-in-out 2s infinite;
+}
+
+@keyframes imagePulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 150, 255, 0.6),
+                0 0 60px rgba(0, 150, 255, 0.4);
+  }
+}
+
+/* Effetto hover sull'immagine */
+.overview-image-container img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-image-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 150, 255, 0.8);
+}
+
+/* Animazione di entrata per tutto il contenuto */
+.overview-content-wrapper {
+  opacity: 0;
+  animation: contentFadeIn 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes contentFadeIn {
+  to {
+    opacity: 1;
+  }
+}
