@@ -1948,7 +1948,6 @@ footer {
 }
 /* ======================================================
    FIX OVERVIEW - VERSIONE SEMPLIFICATA
-   AGGIUNGI QUESTO AL TUO CSS
 ====================================================== */
 
 /* Nasconde il container con classe content-box */
@@ -2017,7 +2016,6 @@ footer {
 }
 /* ======================================================
    IMMAGINE OVERVIEW - ALTEZZA PIENA
-   AGGIUNGI QUESTO AL TUO CSS
 ====================================================== */
 
 /* Rimuovi altezza fissa dall'immagine */
@@ -2339,5 +2337,571 @@ footer {
   .reliability-image {
     max-height: 300px;
     margin-bottom: 2rem;
+  }
+}
+/* Container per testo e immagine affiancati */
+.pageContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Testo a sinistra */
+.textBlock {
+  flex: 0 0 50%;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: transparent !important;
+  padding: 0 2rem 0 3rem; /* qui aggiungo padding a sinistra */
+  animation: fadeInLeft 1.2s ease forwards;
+}
+
+/* Lista con pallini personalizzati e senza frecce */
+.textBlock ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.textBlock ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.textBlock ul li::before {
+  content: '•'; /* pallino */
+  position: absolute;
+  left: 0;
+  color: #fff; /* colore pallini, cambia se vuoi */
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Immagine a destra */
+.imageBlock {
+  flex: 0 0 50%;
+  animation: fadeInRight 1.2s ease forwards;
+}
+
+.imageBlock img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Animazioni di entrata */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Rimuove le frecce rosse e mette i pallini personalizzati */
+
+.industrial-text ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.industrial-text ul li::before {
+  content: '•'; /* Pallino */
+  position: absolute;
+  left: 0;
+  color: #fff; /* o altro colore che preferisci */
+  font-size: 1.5rem;
+  line-height: 1;
+  top: 0;
+}
+
+/* Animazioni di fadeInLeft e fadeInRight */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.page-content {
+  padding: 2rem 4rem;
+}
+
+.industrial-safety-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.industrial-safety-image {
+  flex: 0 0 50%;
+  animation: fadeInLeft 1.2s ease forwards;
+}
+
+.industrial-safety-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.text-block.industrial-safety-text {
+  flex: 0 0 50%;
+  color: white;
+  animation: fadeInRight 1.2s ease forwards;
+}
+
+.text-block.industrial-safety-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.text-block.industrial-safety-text ul li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.text-block.industrial-safety-text ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Animazioni fadeInLeft e fadeInRight se non le hai già */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Container per testo e immagine affiancati */
+.pageContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+/* Testo a destra */
+.textBlock {
+  flex: 0 0 55%;
+  font-size: 1.45rem;
+  line-height: 1.6;
+  background: transparent !important; /* rimuove sfondo */
+  padding: 0;
+  animation: fadeInRight 1.2s ease forwards;
+  color: white;
+}
+
+/* Lista con pallini personalizzati e senza frecce */
+.textBlock ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.textBlock ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.textBlock ul li::before {
+  content: '•'; /* pallino */
+  position: absolute;
+  left: 0;
+  color: #fff; /* colore pallini */
+  font-size: 1.5rem;
+  line-height: 1;
+  top: 0;
+}
+
+/* Immagine a sinistra */
+.imageBlock {
+  flex: 0 0 45%;
+  animation: fadeInLeft 1.2s ease forwards;
+}
+
+.imageBlock img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Animazioni di entrata */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.training-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+
+.training-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  animation: fadeInLeft 1.2s ease forwards;
+}
+
+.training-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.training-text ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.training-text ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  top: 0;
+}
+
+.training-image {
+  flex: 0 0 50%;
+  animation: fadeInRight 1.2s ease forwards;
+}
+
+.training-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  /* Per far sì che l'immagine abbia la stessa altezza del testo */
+  align-self: stretch;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive per mobile */
+@media (max-width: 768px) {
+  .training-layout {
+    flex-direction: column;
+  }
+
+  .training-image {
+    flex: 0 0 100%;
+    margin-top: 2rem;
+  }
+}
+.maintenance-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: #f5f5f5;
+  flex-direction: row; /* testo a sinistra, immagine a destra */
+}
+
+.maintenance-text {
+  flex: 0 0 50%;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background: transparent !important;
+  padding: 0 2rem;
+}
+
+.maintenance-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.maintenance-text ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.maintenance-image {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end; /* immagine a destra */
+}
+
+.maintenance-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .maintenance-layout {
+    flex-direction: column;
+  }
+
+  .maintenance-image,
+  .maintenance-text {
+    flex: 0 0 100%;
+  }
+
+  .maintenance-image img {
+    max-height: 300px;
+    margin-bottom: 2rem;
+    height: auto;
+  }
+}
+/* Layout per cmms-digitalization: testo a sinistra, immagine a destra */
+.cmms-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+
+/* Testo a sinistra */
+.cmms-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-right: 2rem;
+}
+
+/* Rimuove frecce rosse, aggiunge pallini standard */
+.cmms-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+/* Immagine a destra */
+.cmms-image-container {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Fa allineare l'altezza al testo */
+}
+
+.cmms-image-container img {
+  height: 100%;  /* Prende tutta l'altezza del contenitore */
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.cmms-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.cmms-text {
+  flex: 1;
+}
+
+.cmms-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.cmms-text ul {
+  list-style-type: disc !important;
+  list-style-image: none !important;
+  padding-left: 1.5rem;
+}
+
+.cmms-text ul li::before {
+  content: none !important;
+}
+
+.cmms-text ul li {
+  color: white; /* o il colore che vuoi per i pallini */
+  list-style-type: disc !important;
+  list-style-image: none !important;
+  position: relative;
+}
+.management-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+
+.management-image {
+  flex: 0 0 auto;       /* l’immagine prende solo lo spazio che le serve */
+  max-height: 100%;     /* altezza max uguale al contenitore */
+  max-width: 30%;       /* larghezza massima 50% per non allargare troppo */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.management-image img {
+  height: auto;        /* l’altezza si adatta */
+  max-height: 100%;    /* massimo altezza uguale a contenitore */
+  width: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: contain; /* adatta immagine senza tagliarla */
+}
+
+.management-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s; /* testo parte dopo immagine */
+}
+
+/* Rimuove le frecce rosse, usa pallini */
+.management-text ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+/* Animazione di fade-in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.management-text ul li::before {
+  content: none !important;
+}
+.fade-in-left {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 1s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

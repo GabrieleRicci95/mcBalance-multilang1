@@ -6,11 +6,11 @@ export default function TrainingPage() {
   const { t } = useTranslation();
 
   return (
-    <section className="page-content">
-      <h1>{t('TRAINING')}</h1>
-      <div className="text-block">
+    <section className="page-content training-layout">
+      <div className="training-text">
+        <h1>{t('TRAINING')}</h1>
         <p>{t('training-description')}</p>
-        
+
         <p>{t('training-services-intro')}</p>
 
         <ul>
@@ -21,6 +21,9 @@ export default function TrainingPage() {
         </ul>
 
         <p>{t('training-conclusion')}</p>
+      </div>
+      <div className="training-image">
+        <img src="/img/luce.jpg" alt="Training" />
       </div>
     </section>
   );

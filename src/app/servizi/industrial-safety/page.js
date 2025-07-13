@@ -6,11 +6,17 @@ export default function IndustrialSafetyPage() {
   const { t } = useTranslation();
 
   return (
-    <section className="page-content">
-      <h1>{t('INDUSTRIAL_SAFETY')}</h1>
-      <div className="text-block">
+    <section className="pageContent">
+      <div className="imageBlock">
+        <img
+          src="/img/eggzy-pallet-kmmEDa4Jm5Y-unsplash.jpg"
+          alt="Industrial Safety"
+        />
+      </div>
+      <div className="textBlock">
+        <h1>{t('INDUSTRIAL_SAFETY')}</h1>
         <p>{t('industrial-safety-description')}</p>
-        
+
         <p>{t('industrial-safety-services-intro')}</p>
 
         <ul>

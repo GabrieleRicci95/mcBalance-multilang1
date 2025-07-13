@@ -340,7 +340,7 @@ const translations = {
     'training-conclusion': 'Our training programs are designed to develop advanced technical skills and ensure professional growth of personnel.',
     
     // Footer
-    'footer-text': '© 2024 McBalance. All rights reserved.'
+    'footer-text': '© 2022 McBalance. All rights reserved.'
   },
   es: {
     // Navbar
@@ -508,7 +508,7 @@ const translations = {
     'training-conclusion': 'Nuestros programas formativos están diseñados para desarrollar competencias técnicas avanzadas y garantizar el crecimiento profesional del personal.',
     
     // Footer
-    'footer-text': '© 2024 McBalance. Todos los derechos reservados.'
+    'footer-text': '© 2022 McBalance. Todos los derechos reservados.'
   },
   fr: {
     // Navbar
@@ -844,7 +844,7 @@ const translations = {
     'training-conclusion': 'Unsere Ausbildungsprogramme sind darauf ausgelegt, fortgeschrittene technische Fähigkeiten zu entwickeln und die berufliche Entwicklung des Personals zu gewährleisten.',
     
     // Footer
-    'footer-text': '© 2024 McBalance. Alle Rechte vorbehalten.'
+    'footer-text': '© 2022 McBalance. Alle Rechte vorbehalten.'
   }
 };
 
