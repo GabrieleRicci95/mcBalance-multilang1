@@ -6,11 +6,19 @@ export default function ReliabilityPage() {
   const { t } = useTranslation();
 
   return (
-    <section className="page-content">
-      <h1>{t('RELIABILITY')}</h1>
-      <div className="text-block">
+    <section className="page-content reliability-layout">
+      <div className="reliability-image-container">
+        <img 
+          src="/img/joel-filipe-ZMRMFULofus-unsplash.jpg" 
+          alt="Affidabilità" 
+          className="reliability-image"
+        />
+      </div>
+
+      <div className="text-block reliability-text">
+        <h1>{t('RELIABILITY')}</h1>
+
         <p>{t('reliability-description')}</p>
-        
         <p>{t('reliability-services-intro')}</p>
 
         <ul>
@@ -22,9 +30,7 @@ export default function ReliabilityPage() {
           <li>{t('reliability-service-6')}</li>
         </ul>
 
-        <p>
-          {t('reliability-conclusion')}
-        </p>
+        <p>{t('reliability-conclusion')}</p>
       </div>
     </section>
   );

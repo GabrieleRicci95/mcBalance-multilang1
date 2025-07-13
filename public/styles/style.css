@@ -2255,3 +2255,98 @@ footer {
     opacity: 1;
   }
 }
+/* Layout a due colonne: immagine a sinistra, testo a destra */
+.reliability-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+
+/* Immagine grande e responsiva */
+.reliability-image-container {
+  flex: 0 0 50%;
+}
+
+.reliability-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  animation: fadeInRight 1.2s ease forwards;
+}
+
+/* Testo a destra senza sfondo */
+.reliability-text {
+  flex: 0 0 50%;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background: transparent !important;
+  padding: 0;
+  animation: fadeInLeft 1.2s ease forwards;
+}
+
+/* Rimuove le frecce rosse dalla lista */
+.reliability-text ul li {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.reliability-text ul li::before {
+  content: none;
+}
+
+/* Opzionale: aggiungi un bullet personalizzato (punto nero) */
+.reliability-text ul li::before {
+  content: '•';
+  position: absolute;
+  left: -1.2rem;
+  color: #fff; /* Bianco o altro colore */
+  font-size: 1.2rem;
+}
+
+/* Animazioni di entrata */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive per schermi piccoli */
+@media (max-width: 768px) {
+  .reliability-layout {
+    flex-direction: column;
+  }
+
+  .reliability-image-container,
+  .reliability-text {
+    flex: 0 0 100%;
+  }
+
+  .reliability-image {
+    max-height: 300px;
+    margin-bottom: 2rem;
+  }
+}
