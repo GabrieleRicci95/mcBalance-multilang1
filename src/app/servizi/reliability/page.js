@@ -9,7 +9,7 @@ export default function ReliabilityPage() {
     <section className="page-content reliability-layout">
       <div className="reliability-image-container">
         <img 
-          src="/img/joel-filipe-ZMRMFULofus-unsplash.jpg" 
+          src="/img/joel-filipe.jpg" 
           alt="Affidabilità" 
           className="reliability-image"
         />

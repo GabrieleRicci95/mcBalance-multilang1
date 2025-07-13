@@ -1091,7 +1091,7 @@ footer {
   max-width: 800px;
   margin: 20rem auto;
   padding: 2rem;
-  background-color: #1c1c1c;
+  background-color: transparent !important;
   border-radius: 10px;
   color: #f5f5f5;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
