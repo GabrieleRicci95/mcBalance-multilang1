@@ -2302,15 +2302,6 @@ footer {
   content: none;
 }
 
-/* Opzionale: aggiungi un bullet personalizzato (punto nero) */
-.reliability-text ul li::before {
-  content: '•';
-  position: absolute;
-  left: -1.2rem;
-  color: #fff; /* Bianco o altro colore */
-  font-size: 1.2rem;
-}
-
 /* Animazioni di entrata */
 @keyframes fadeInLeft {
   from {
