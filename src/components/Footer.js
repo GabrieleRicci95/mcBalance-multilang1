@@ -16,6 +16,13 @@ export default function Footer() {
           <p>Sede legale: Viale dello Statuto, 37 Latina 04100 (LT)</p>
           <p>Email: <a href="mailto:info@mcbalance.net">info@mcbalance.net</a></p>
           
+          {/* Informazioni fiscali */}
+          <div className="footer-fiscal-info">
+            <p>Codice Fiscale: 03230700597</p>
+            <p>Partita IVA: 03230700597</p>
+            <p>Emailpec: <a href="mailto:mcbalance@pec.it">mcbalance@pec.it</a></p>
+          </div>
+          
           {/* Sezione Social Media */}
           <div className="footer-social">
             <a 
