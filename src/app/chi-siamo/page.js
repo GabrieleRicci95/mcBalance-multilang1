@@ -36,32 +36,54 @@ export default function ChiSiamoPage() {
 
   return (
     <>
-      {/* Small Hero Section */}
+      {/* Small Hero Section - Titolo rimosso */}
       <section className="small-hero animate-hero">
         <div className="hero-overlay">
-          <h1>{t('nostra-storia')}</h1>
+          {/* Titolo rimosso */}
         </div>
       </section>
 
-      {/* Content Section */}
-      <section id="chi-siamo-content" className="py-5">
-        {/* Immagine centrata con dimensioni controllate */}
-        <div className="chi-siamo-image-container animate-image">
-          <img 
-            src="/img/electric-hand.jpg" 
-            alt="Electric energy visualization" 
-            className="chi-siamo-image"
-          />
-        </div>
+      {/* Content Section con immagine full width */}
+      <section id="chi-siamo-content" style={{ 
+        padding: 0, 
+        position: 'relative',
+        minHeight: '70vh',
+        backgroundImage: 'url(/img/electric-hand.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}>
+        {/* Overlay scuro per leggibilità */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%)'
+        }}></div>
         
-        {/* Testo in container normale */}
-        <div className="container">
-          <div className="chi-siamo-text-container">
-            <div className="content-transparent animate-content">
-              <p className="lead animate-fade-up delay-1">
-                {t('chi-siamo-text')}
-              </p>
-            </div>
+        {/* Container per il testo */}
+        <div className="container" style={{ 
+          position: 'relative', 
+          minHeight: '70vh',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '80px 20px'
+        }}>
+          <div style={{
+            maxWidth: '700px',
+            color: 'white'
+          }}>
+            <p className="lead animate-fade-up delay-1" style={{ 
+              fontSize: '1.3rem',
+              lineHeight: '1.8',
+              textShadow: '2px 2px 6px rgba(0,0,0,0.9)',
+              fontWeight: '400'
+            }}>
+              {t('chi-siamo-text')}
+            </p>
           </div>
         </div>
       </section>

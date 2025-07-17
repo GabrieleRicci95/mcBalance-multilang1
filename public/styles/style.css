@@ -161,7 +161,7 @@ header .nav-link.active {
    SMALL HERO SECTION (Manutenzione, Sicurezza, Formazione)
 ====================================================== */
 .small-hero {
-  height: 40vh;
+  height: 1vh;
   background-color: #000000;
   padding-top: 72px;
   display: flex;
@@ -1814,349 +1814,48 @@ footer {
   }
 }
 /* ======================================================
-   ANIMAZIONI PAGINA OVERVIEW
+   OVERVIEW COMPLETA: LAYOUT, ANIMAZIONI E RESPONSIVE
 ====================================================== */
 
-/* Animazione Hero Section Overview */
-.overview-animate-hero {
-  opacity: 0;
-  animation: overviewHeroFade 1s ease-out forwards;
+/* Reset margini e padding per contenitore principale e figli */
+#overview-content,
+#overview-content > .container,
+.overview-layout,
+.overview-layout > * {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-@keyframes overviewHeroFade {
-  from {
-    opacity: 0;
-    transform: translateY(-40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Animazione per il titolo Overview */
-.overview-animate-title {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: overviewTitleSlide 1.2s ease-out 0.2s forwards;
-}
-
-@keyframes overviewTitleSlide {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animazione per il content box */
-.overview-animate-content {
-  opacity: 0;
-  transform: translateY(50px) scale(0.98);
-  animation: overviewContentReveal 1s ease-out 0.4s forwards;
-}
-
-@keyframes overviewContentReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Animazione per il titolo h2 dentro il box */
-.overview-animate-h2 {
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: overviewH2Slide 0.8s ease-out 0.6s forwards;
-}
-
-@keyframes overviewH2Slide {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animazioni per i paragrafi che appaiono in sequenza */
-.overview-animate-p {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: overviewParagraphFade 0.8s ease-out forwards;
-}
-
-.overview-animate-p:nth-child(1) { animation-delay: 0.8s; }
-.overview-animate-p:nth-child(2) { animation-delay: 1s; }
-.overview-animate-p:nth-child(3) { animation-delay: 1.2s; }
-
-@keyframes overviewParagraphFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Effetto linea che si espande sotto il titolo */
-.overview-title-line {
-  position: relative;
-  display: inline-block;
-}
-
-.overview-title-line::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #ff0000;
-  animation: lineExpand 1s ease-out 1s forwards;
-}
-
-@keyframes lineExpand {
-  to {
-    width: 100%;
-  }
-}
-
-/* Effetto glow sul content box al caricamento */
-.overview-glow {
-  animation: boxGlow 2s ease-out 0.5s;
-}
-
-@keyframes boxGlow {
-  0% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  50% {
-    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-}
-
-/* Rimuovi lo sfondo grigio dal content-box se necessario */
-#overview-content .content-box {
-  background-color: #1a1a1a !important; /* Sfondo grigio scuro */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Assicura che tutto il testo sia bianco e visibile */
-#overview-content .content-box h2,
-#overview-content .content-box p,
-#overview-content .content-box .lead {
-  color: #ffffff !important;
-}
-/* ======================================================
-   FIX OVERVIEW - VERSIONE SEMPLIFICATA
-====================================================== */
-
-/* Nasconde il container con classe content-box */
-#overview-content .content-box {
-  display: none !important;
-}
-
-/* Container per il nuovo layout */
-#overview-content .container {
-  max-width: 1200px !important;
-}
-
-/* Layout a due colonne FORZATO */
+/* Layout principale a due colonne */
 .overview-layout {
   display: flex !important;
   gap: 4rem !important;
-  align-items: center !important;
-  padding: 4rem 20px !important;
+  align-items: flex-start !important; /* Allinea in altezza */
+  padding: 4rem 20px !important; /* Spaziatura verticale e laterale */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Testo a sinistra */
 .overview-text {
   flex: 1 !important;
   text-align: left !important;
+  color: #fff;
+  padding-top: 0 !important;
+  margin-top: 0 !important; /* Aggiungi anche questo */
 }
 
+/* Forza l'allineamento preciso */
 .overview-text h2 {
-  color: #ffffff !important;
-  font-size: 2.5rem !important;
-  margin-bottom: 2rem !important;
-  text-align: left !important;
-}
-
-.overview-text p {
-  color: #ffffff !important;
-  font-size: 1.1rem !important;
-  line-height: 1.8 !important;
-  margin-bottom: 1.5rem !important;
-  text-align: left !important;
-}
-
-/* Immagine a destra */
-.overview-image-container {
-  flex: 0 0 45% !important;
-  max-width: 500px !important;
-}
-
-.overview-image-container img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  border-radius: 8px !important;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .overview-layout {
-    flex-direction: column !important;
-  }
-  
-  .overview-image-container {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    margin-top: 2rem !important;
-  }
-}
-/* ======================================================
-   IMMAGINE OVERVIEW - ALTEZZA PIENA
-====================================================== */
-
-/* Rimuovi altezza fissa dall'immagine */
-.overview-image-container {
-  flex: 0 0 60% !important;
-  align-self: stretch !important; /* Si estende per tutta l'altezza */
-  display: flex !important;
-  align-items: center !important;
-}
-
-.overview-image-container img {
-  width: 100% !important;
-  height: 100% !important; /* Occupa tutta l'altezza disponibile */
-  object-fit: cover !important; /* Copre tutto lo spazio mantenendo le proporzioni */
-  display: block !important;
-  border-radius: 8px !important;
-}
-
-/* Assicura che il layout sia allineato al top */
-.overview-layout {
-  align-items: stretch !important; /* Cambiato da center a stretch */
-}
-
-/* Alternative se vuoi l'immagine centrata verticalmente ma alta quanto il testo */
-.overview-image-container.centered {
-  height: 100% !important;
-  min-height: 600px !important; /* Altezza minima per evitare che sia troppo piccola */
-}
-/* ======================================================
-   LAYOUT OVERVIEW SENZA SPAZI LATERALI
-====================================================== */
-
-/* Container più largo */
-#overview-content .container {
-  max-width: 1400px !important; /* Aumentato da 1200px */
-  padding: 0 40px !important; /* Ridotto il padding laterale */
-}
-
-/* Layout che sfrutta tutta la larghezza */
-.overview-layout {
-  display: flex !important;
-  gap: 3rem !important;
-  align-items: stretch !important;
-  padding: 4rem 0 !important; /* Rimosso padding laterale */
-  max-width: 100% !important;
-}
-
-/* Per schermi molto larghi */
-@media (min-width: 1600px) {
-  #overview-content .container {
-    max-width: 1600px !important;
-  }
-}
-
-@media (min-width: 1920px) {
-  #overview-content .container {
-    max-width: 1800px !important;
-  }
-}
-
-/* Mobile responsive aggiornato */
-@media (max-width: 1200px) {
-  #overview-content .container {
-    padding: 0 30px !important;
-  }
-}
-
-@media (max-width: 992px) {
-  #overview-content .container {
-    padding: 0 20px !important;
-  }
-  
-  .overview-layout {
-    padding: 3rem 0 !important;
-  }
-}
-
-@media (max-width: 768px) {
-  #overview-content .container {
-    padding: 0 15px !important;
-  }
-  
-  .overview-layout {
-    padding: 2rem 0 !important;
-  }
-}
-/* ======================================================
-   ANIMAZIONI COMPLETE PER OVERVIEW
-====================================================== */
-
-/* Animazione Hero che scende dall'alto */
-.overview-animate-hero {
-  opacity: 0;
-  animation: heroSlideDown 1s ease-out forwards;
-}
-
-@keyframes heroSlideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animazione titolo Panoramica */
-.overview-animate-title {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: titleFadeUp 1.2s ease-out 0.3s forwards;
-}
-
-@keyframes titleFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animazione testo che entra da sinistra */
-.overview-animate-text {
-  opacity: 0;
-  transform: translateX(-60px);
-  animation: textSlideFromLeft 1s ease-out 0.5s forwards;
-}
-
-@keyframes textSlideFromLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animazione titolo h2 con linea rossa */
-.overview-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   position: relative;
   opacity: 0;
   transform: translateX(-40px);
   animation: h2SlideIn 0.8s ease-out 0.6s forwards;
+  line-height: 1; /* Aggiungi questa riga per ridurre lo spazio sopra il testo */
 }
 
 .overview-text h2::after {
@@ -2170,6 +1869,50 @@ footer {
   animation: redLineExpand 1s ease-out 1.2s forwards;
 }
 
+.overview-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: paragraphFadeIn 0.8s ease-out forwards;
+}
+
+.overview-text p:nth-child(2) { animation-delay: 0.8s; }
+.overview-text p:nth-child(3) { animation-delay: 1s; }
+.overview-text p:nth-child(4) { animation-delay: 1.2s; }
+.overview-text p:nth-child(5) { animation-delay: 1.4s; }
+
+/* Immagine a destra */
+.overview-image-container {
+  flex: 0 0 45% !important;
+  max-width: 500px;
+  align-self: flex-start !important; /* Cambia da stretch a flex-start */
+  display: flex !important;
+  align-items: flex-start !important; /* Cambia da center a flex-start */
+  padding-top: 0 !important; /* Aggiungi questa riga */
+}
+
+.overview-image-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px !important;
+  position: relative;
+  margin-top: 0 !important; /* Aggiungi questo */
+  padding-top: 0 !important; /* Aggiungi questo */
+  vertical-align: top; /* Aggiungi questo */
+  animation: imagePulseGlow 3s ease-in-out 2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-image-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 150, 255, 0.8);
+}
+
+/* Animazioni generali */
 @keyframes h2SlideIn {
   to {
     opacity: 1;
@@ -2183,43 +1926,11 @@ footer {
   }
 }
 
-/* Animazione paragrafi in sequenza */
-.overview-text p {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: paragraphFadeIn 0.8s ease-out forwards;
-}
-
-.overview-text p:nth-child(2) { animation-delay: 0.8s; }
-.overview-text p:nth-child(3) { animation-delay: 1s; }
-.overview-text p:nth-child(4) { animation-delay: 1.2s; }
-.overview-text p:nth-child(5) { animation-delay: 1.4s; }
-
 @keyframes paragraphFadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Animazione immagine che entra da destra con zoom */
-.overview-animate-image {
-  opacity: 0;
-  transform: translateX(80px) scale(0.9);
-  animation: imageSlideFromRight 1.2s ease-out 0.7s forwards;
-}
-
-@keyframes imageSlideFromRight {
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* Effetto glow pulsante sull'immagine */
-.overview-image-container img {
-  position: relative;
-  animation: imagePulseGlow 3s ease-in-out 2s infinite;
 }
 
 @keyframes imagePulseGlow {
@@ -2232,25 +1943,63 @@ footer {
   }
 }
 
-/* Effetto hover sull'immagine */
-.overview-image-container img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.overview-image-container img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 50px rgba(0, 150, 255, 0.8);
-}
-
-/* Animazione di entrata per tutto il contenuto */
-.overview-content-wrapper {
+/* Animazioni fade in generali (es. testo e immagine) */
+.overview-animate-text {
   opacity: 0;
-  animation: contentFadeIn 0.6s ease-out 0.3s forwards;
+  transform: translateX(-60px);
+  animation: textSlideFromLeft 1s ease-out 0.5s forwards;
 }
 
-@keyframes contentFadeIn {
+@keyframes textSlideFromLeft {
   to {
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive per schermi più piccoli */
+@media (max-width: 992px) {
+  .overview-layout {
+    flex-direction: column !important;
+    padding: 3rem 20px !important;
+  }
+  
+  .overview-image-container {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 2rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .overview-layout {
+    padding: 2rem 15px !important;
+  }
+}
+
+.reliability-text ul li::before {
+  content: none;
+}
+
+/* Animazioni di entrata */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 /* Layout a due colonne: immagine a sinistra, testo a destra */
@@ -2904,4 +2653,384 @@ footer {
     opacity: 1;
     transform: translateX(0);
   }
+}
+/* ======================================================
+   ANIMAZIONE UNIVERSALE PER TUTTE LE IMMAGINI
+   (tranne chi-siamo)
+====================================================== */
+
+/* Animazione pulsante con glow per tutte le immagini */
+.hero-image .sphere-image,
+.reliability-image,
+.textBlock img,
+.imageBlock img,
+.industrial-safety-img,
+.training-image img,
+.maintenance-image img,
+.cmms-image-container img,
+.management-image img {
+  position: relative;
+  animation: imagePulseGlow 3s ease-in-out 2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto hover per tutte le immagini */
+.hero-image .sphere-image:hover,
+.reliability-image:hover,
+.textBlock img:hover,
+.imageBlock img:hover,
+.industrial-safety-img:hover,
+.training-image img:hover,
+.maintenance-image img:hover,
+.cmms-image-container img:hover,
+.management-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 150, 255, 0.8);
+}
+
+/* Assicurati che l'animazione keyframe sia definita una sola volta */
+@keyframes imagePulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 150, 255, 0.6),
+                0 0 60px rgba(0, 150, 255, 0.4);
+  }
+}
+/* ======================================================
+   ANIMAZIONE UNIVERSALE PER TUTTI I TITOLI
+====================================================== */
+
+/* Animazione slide-in per tutti i titoli h2 */
+.hero-overlay h1,
+.hero-text-center h1,
+.small-hero .hero-overlay h1,
+.content-box h2,
+.service-content h2,
+#servizi h2,
+.page-content h1,
+.text-block h2,
+.industrial-safety-content h2,
+.pageContent h2,
+.training-layout h2,
+.maintenance-layout h2,
+.cmms-layout h2,
+.management-layout h2 {
+  position: relative;
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: h2SlideIn 0.8s ease-out 0.6s forwards;
+}
+
+/* Linea rossa animata sotto i titoli */
+.hero-overlay h1::after,
+.hero-text-center h1::after,
+.small-hero .hero-overlay h1::after,
+.content-box h2::after,
+.service-content h2::after,
+#servizi h2::after,
+.page-content h1::after,
+.text-block h2::after,
+.industrial-safety-content h2::after,
+.pageContent h2::after,
+.training-layout h2::after,
+.maintenance-layout h2::after,
+.cmms-layout h2::after,
+.management-layout h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 1.2s forwards;
+}
+
+/* Assicurati che le animazioni keyframe siano definite */
+@keyframes h2SlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes redLineExpand {
+  to {
+    width: 100px;
+  }
+}
+
+/* Per i titoli centrati, la linea rossa parte dal centro */
+.hero-overlay h1::after,
+.hero-text-center h1::after,
+.small-hero .hero-overlay h1::after,
+.service-content h2::after,
+.page-content h1::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* ======================================================
+   UNIFORMAZIONE TESTI - STILE OVERVIEW
+====================================================== */
+
+/* Uniforma tutti i paragrafi e testi */
+.hero-overlay p,
+.hero-text-center p,
+.content-box .lead,
+.mission-white-bg .mission-text p,
+.text-block p,
+.reliability-text p,
+.textBlock p,
+.industrial-safety-text p,
+.training-text p,
+.maintenance-text p,
+.cmms-text p,
+.management-text p,
+.service-card p,
+.mega-card p,
+#servizi p,
+.page-content p {
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Uniforma tutte le liste */
+.text-block ul,
+.text-block li,
+.reliability-text ul,
+.reliability-text li,
+.textBlock ul,
+.textBlock li,
+.industrial-safety-text ul,
+.industrial-safety-text li,
+.training-text ul,
+.training-text li,
+.maintenance-text ul,
+.maintenance-text li,
+.cmms-text ul,
+.cmms-text li,
+.management-text ul,
+.management-text li,
+#servizi ul,
+#servizi li,
+.page-content ul,
+.page-content li {
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Aggiungi l'animazione fade-in come in overview */
+.hero-overlay p,
+.hero-text-center p,
+.content-box .lead,
+.mission-white-bg .mission-text p,
+.text-block p,
+.reliability-text p,
+.textBlock p,
+.industrial-safety-text p,
+.training-text p,
+.maintenance-text p,
+.cmms-text p,
+.management-text p,
+.service-card p,
+.mega-card p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: paragraphFadeIn 0.8s ease-out forwards;
+}
+
+/* Delays progressivi per animazione sequenziale */
+*:nth-child(1) p { animation-delay: 0.8s; }
+*:nth-child(2) p { animation-delay: 1s; }
+*:nth-child(3) p { animation-delay: 1.2s; }
+*:nth-child(4) p { animation-delay: 1.4s; }
+*:nth-child(5) p { animation-delay: 1.6s; }
+
+/* Assicurati che l'animazione keyframe sia definita */
+@keyframes paragraphFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Colori uniformi */
+/* Testi su sfondo nero */
+.hero-overlay p,
+.hero-text-center p,
+.reliability-text p,
+.textBlock p,
+.industrial-safety-text p,
+.training-text p,
+.maintenance-text p,
+.cmms-text p,
+.management-text p,
+.page-content p,
+#servizi p,
+#servizi li {
+  color: #ffffff !important;
+}
+
+/* Testi su sfondo bianco (mission) */
+.mission-white-bg .mission-text p {
+  color: #333333 !important;
+}
+
+/* Testi nelle card */
+.service-card p,
+.mega-card p {
+  color: #cccccc !important;
+}
+/* ======================================================
+   UNIFORMA LINEA ROSSA - SEMPRE DA SINISTRA
+====================================================== */
+
+/* Rimuovi qualsiasi trasformazione centrata esistente */
+.hero-overlay h1::after,
+.hero-text-center h1::after,
+.small-hero .hero-overlay h1::after,
+.service-content h2::after,
+.page-content h1::after,
+.content-box h2::after {
+  left: 0 !important;
+  transform: none !important;
+}
+
+/* Assicurati che TUTTI i titoli abbiano la linea che parte da sinistra */
+h1::after,
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0 !important;
+  width: 0;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 1.2s forwards;
+  transform: none !important;
+}
+/* ======================================================
+   ALLINEA TUTTI I TITOLI A SINISTRA
+====================================================== */
+
+/* Rimuovi l'allineamento centrato da tutti i titoli */
+.hero-overlay h1,
+.hero-text-center h1,
+.small-hero .hero-overlay h1,
+.service-content h2,
+.page-content h1,
+.content-box h2 {
+  text-align: left !important;
+}
+
+/* Assicurati che i contenitori dei titoli hero siano allineati a sinistra */
+.hero-overlay,
+.small-hero .hero-overlay {
+  text-align: left !important;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Per i titoli nelle sezioni di contenuto */
+.service-content,
+.page-content {
+  text-align: left !important;
+}
+
+/* Mantieni la linea rossa che parte da sinistra per tutti */
+h1::after,
+h2::after {
+  left: 0 !important;
+  transform: none !important;
+}
+/* ======================================================
+   RIMUOVI LINEA ROSSA DA TITOLI SPECIFICI HOMEPAGE
+====================================================== */
+
+/* Rimuovi la linea dal titolo "Ti aiutiamo a guardare verso il futuro" */
+.hero-text-center h1::after,
+.hero-with-image h1::after {
+  display: none !important;
+}
+
+/* Rimuovi la linea dal titolo "La nostra missione" */
+.mission-full-section h2::after,
+.competenze-bar h2::after {
+  display: none !important;
+}
+
+/* Se i selettori sopra non funzionano, prova questi più specifici */
+h1:contains("Ti aiutiamo a guardare verso il futuro")::after,
+h2:contains("La nostra missione")::after {
+  display: none !important;
+}
+/* ======================================================
+   RIMUOVI LINEA ROSSA DA "LA NOSTRA MISSIONE"
+====================================================== */
+
+/* Rimuovi la linea dal titolo nella competenze-bar */
+.competenze-bar h1::after {
+  display: none !important;
+}
+
+/* Oppure più specifico */
+.mission-full-section .competenze-bar h1::after {
+  display: none !important;
+}
+/* ======================================================
+   FOOTER BIANCO PER TUTTE LE PAGINE TRANNE HOMEPAGE
+====================================================== */
+
+/* Footer bianco per tutte le pagine che NON hanno hero-with-image (homepage) */
+body:not(:has(.hero-with-image)) footer,
+body:not(:has(.hero-with-image)) .site-footer {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Testi neri nel footer bianco */
+body:not(:has(.hero-with-image)) .site-footer a,
+body:not(:has(.hero-with-image)) .footer-logo,
+body:not(:has(.hero-with-image)) .footer-info,
+body:not(:has(.hero-with-image)) .footer-copy {
+  color: #000000 !important;
+}
+
+/* Icone social nere invece che bianche */
+body:not(:has(.hero-with-image)) .footer-social img {
+  filter: none !important; /* Rimuove il filtro che le rendeva bianche */
+}
+
+/* Bottone footer con sfondo nero e testo bianco per contrasto */
+body:not(:has(.hero-with-image)) .footer-button {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body:not(:has(.hero-with-image)) .footer-button:hover {
+  background: #333333 !important;
+}
+
+/* Se il browser non supporta :has(), usa questo approccio alternativo */
+.small-hero ~ footer,
+.small-hero ~ .site-footer,
+.overview-layout ~ footer,
+.overview-layout ~ .site-footer {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.small-hero ~ footer a,
+.small-hero ~ .site-footer a,
+.overview-layout ~ footer a,
+.overview-layout ~ .site-footer a {
+  color: #000000 !important;
 }

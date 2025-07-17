@@ -77,8 +77,8 @@ export default function Navbar() {
         {/* Logo */}
         <div className="navbar-brand">
           <Link href="/" className="brand-link">
+          <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
             McBalance
-            <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
           </Link>
         </div>
 

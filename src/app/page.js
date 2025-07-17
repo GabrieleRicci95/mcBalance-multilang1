@@ -58,7 +58,7 @@ export default function HomePage() {
       <section id="mission" className="mission-full-section">
         {/* Barra colorata con titolo */}
         <div className="competenze-bar">
-          <h2>La nostra storia</h2>
+          <h1>La nostra missione</h1>
         </div>
         
         {/* Contenuto con sfondo bianco */}

@@ -1,6 +1,4 @@
-
 'use client';
-
 import { useTranslation } from '../../context/TranslationContext';
 import { useEffect } from 'react';
 
@@ -21,7 +19,7 @@ export default function OverviewPage() {
       {/* Small Hero Section */}
       <section className="small-hero overview-animate-hero">
         <div className="hero-overlay">
-          <h1 className="overview-animate-title">{t('overview')}</h1>
+          {/* Titolo rimosso */}
         </div>
       </section>
 
@@ -37,10 +35,9 @@ export default function OverviewPage() {
               <p>{t('overview-paragraph-3')}</p>
             </div>
             {/* Immagine a destra */}
-            {/* Immagine a destra */}
             <div className="overview-image-container overview-animate-image">
               <img
-                src="/img/tech-cubes.jpg"  // <-- Metti qui il nome che hai dato all'immagine
+                src="/img/tech-cubes.jpg"
                 alt="Technology visualization"
               />
             </div>

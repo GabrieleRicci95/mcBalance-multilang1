@@ -53,7 +53,7 @@ const translations = {
     'chi-siamo-card-description': 'La nostra storia e i nostri valori',
     
     // Overview page
-    'overview-title': 'La nostra metodologia',
+    'overview-title': 'Il nostro metodo',
     'overview-paragraph-1': 'Le attività di McBalance sono finalizzate al supporto alle aziende nella implementazione / miglioramento /elaborazione di nuovi processi e pertanto si configurano, nella maggior parte dei casi, come attività di consulenza, sia di direzione che tecnica, e di formazione, sia manageriale che tecnica.',
     'overview-paragraph-2': 'Tutte le attività sia di breve che di medio-lungo termini seguono i principi della gestione orientata al miglioramento continuo (vedi ISO 9001) e pertanto prevedono sempre una fase preliminare di Pianificazione e Organizzazione (PLAN) e successivi steps di controllo e "aggiustamento" durante lo sviluppo o l\'implementazione dei servizi. In particolare, si preferisce dedicare il giusto tempo al Project Management e seguire i progetti di consulenza con un GANTT specifico e momento di revisione / verifica e riesame.',
     'overview-paragraph-3': 'Per i settori Pharma e Food, in tutte le fasi delle attività si tiene conto dei requisiti GMP e/o GXP e più in generale per ogni attività si garantisce quanto richiesto dalle normative di legge e dagli standard ISO, IEC, EN, UNI, CEI, regole tecniche aziendali e best practice di riferimento.',
@@ -221,7 +221,7 @@ const translations = {
     'chi-siamo-card-description': 'Our story and our values',
     
     // Overview page
-    'overview-title': 'Our methodology',
+    'overview-title': ' Our method',
     'overview-paragraph-1': 'McBalance activities are aimed at supporting companies in the implementation / improvement / development of new processes and therefore are configured, in most cases, as consulting activities, both management and technical, and training, both managerial and technical.',
     'overview-paragraph-2': 'All activities, both short and medium-long term, follow the principles of continuous improvement-oriented management (see ISO 9001) and therefore always include a preliminary Planning and Organization phase (PLAN) and subsequent control and "adjustment" steps during the development or implementation of services. In particular, we prefer to dedicate the right time to Project Management and follow consulting projects with a specific GANTT and review / verification and examination moments.',
     'overview-paragraph-3': 'For the Pharma and Food sectors, in all phases of activities, GMP and/or GXP requirements are taken into account and more generally for every activity we guarantee what is required by legal regulations and ISO, IEC, EN, UNI, CEI standards, company technical rules and reference best practices.',
@@ -389,7 +389,7 @@ const translations = {
     'chi-siamo-card-description': 'Nuestra historia y nuestros valores',
     
     // Overview page
-    'overview-title': 'Nuestra metodología',
+    'overview-title': 'Nuestro método',
     'overview-paragraph-1': 'Las actividades de McBalance están dirigidas a apoyar a las empresas en la implementación / mejora / desarrollo de nuevos procesos y por lo tanto se configuran, en la mayoría de los casos, como actividades de consultoría, tanto directiva como técnica, y de formación, tanto gerencial como técnica.',
     'overview-paragraph-2': 'Todas las actividades, tanto de corto como de medio-largo plazo, siguen los principios de gestión orientada a la mejora continua (ver ISO 9001) y por lo tanto siempre incluyen una fase preliminar de Planificación y Organización (PLAN) y pasos posteriores de control y "ajuste" durante el desarrollo o implementación de servicios. En particular, preferimos dedicar el tiempo adecuado al Project Management y seguir los proyectos de consultoría con un GANTT específico y momentos de revisión / verificación y examen.',
     'overview-paragraph-3': 'Para los sectores Pharma y Food, en todas las fases de las actividades se tienen en cuenta los requisitos GMP y/o GXP y más en general para cada actividad garantizamos lo que requieren las normativas legales y los estándares ISO, IEC, EN, UNI, CEI, reglas técnicas empresariales y mejores prácticas de referencia.',
@@ -557,7 +557,7 @@ const translations = {
     'chi-siamo-card-description': 'Notre histoire et nos valeurs',
     
     // Overview page
-    'overview-title': 'Notre méthodologie',
+    'overview-title': 'Notre méthode',
     'overview-paragraph-1': 'Les activités de McBalance visent à soutenir les entreprises dans l\'implémentation / amélioration / développement de nouveaux processus et se configurent donc, dans la plupart des cas, comme des activités de conseil, tant de direction que technique, et de formation, tant managériale que technique.',
     'overview-paragraph-2': 'Toutes les activités, tant à court qu\'à moyen-long terme, suivent les principes de gestion orientée vers l\'amélioration continue (voir ISO 9001) et incluent donc toujours une phase préliminaire de Planification et Organisation (PLAN) et des étapes ultérieures de contrôle et d\'"ajustement" pendant le développement ou l\'implémentation des services. En particulier, nous préférons consacrer le temps approprié au Project Management et suivre les projets de conseil avec un GANTT spécifique et des moments de révision / vérification et examen.',
     'overview-paragraph-3': 'Pour les secteurs Pharma et Food, dans toutes les phases des activités, les exigences GMP et/ou GXP sont prises en compte et plus généralement pour chaque activité nous garantissons ce qui est requis par les réglementations légales et les normes ISO, IEC, EN, UNI, CEI, règles techniques d\'entreprise et meilleures pratiques de référence.',
@@ -725,7 +725,7 @@ const translations = {
     'chi-siamo-card-description': 'Unsere Geschichte und unsere Werte',
     
     // Overview page
-    'overview-title': 'Unsere Methodik',
+    'overview-title': 'Unsere Methode',
     'overview-paragraph-1': 'Die Aktivitäten von McBalance zielen darauf ab, Unternehmen bei der Implementierung / Verbesserung / Entwicklung neuer Prozesse zu unterstützen und konfigurieren sich daher in den meisten Fällen als Beratungsaktivitäten, sowohl Management- als auch technische, und Schulungen, sowohl Management- als auch technische.',
     'overview-paragraph-2': 'Alle Aktivitäten, sowohl kurz- als auch mittel-langfristige, folgen den Prinzipien des kontinuierlichen verbesserungsorientierten Managements (siehe ISO 9001) und umfassen daher immer eine vorläufige Planungs- und Organisationsphase (PLAN) und nachfolgende Kontroll- und "Anpassungs"-Schritte während der Entwicklung oder Implementierung von Dienstleistungen. Insbesondere bevorzugen wir es, die angemessene Zeit dem Projektmanagement zu widmen und Beratungsprojekte mit einem spezifischen GANTT und Überprüfungs- / Verifizierungs- und Prüfungsmomente zu verfolgen.',
     'overview-paragraph-3': 'Für die Pharma- und Food-Sektoren werden in allen Phasen der Aktivitäten GMP- und/oder GXP-Anforderungen berücksichtigt und allgemein für jede Aktivität garantieren wir, was von gesetzlichen Vorschriften und ISO-, IEC-, EN-, UNI-, CEI-Standards, Unternehmenstechnischen Regeln und Referenz-Best-Practices gefordert wird.',
