@@ -151,6 +151,33 @@ header.scrolled {
 .hero-with-image { min-height: 85vh; padding: 4rem 0; }
 .small-hero { height: 1vh; padding-top: 72px; }
 
+/* —————————————————————————————————————————————
+   HERO SECTION WITH IMAGE (wrapper e immagine)
+————————————————————————————————————————————— */
+.hero-with-image .hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+  animation: fadeInRight 1s ease-out .3s backwards;
+}
+
+.hero-image .sphere-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+
 .hero-overlay,
 .hero-text-center {
   background: transparent;
@@ -176,15 +203,6 @@ header.scrolled {
   font-size: 1.3rem;
   max-width: 700px;
   margin: auto;
-}
-
-.hero-image .sphere-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.3);
-  animation: fadeInRight 1s ease-out .3s backwards;
 }
 
 /* ======================================================
@@ -428,6 +446,32 @@ footer,
   object-fit: cover;
 }
 
+/* —————————————————————————————————————————————
+   McBalance “icon-square” per il logo
+————————————————————————————————————————————— */
+.mcbalance-icon {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.icon-square {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 2px;
+}
+
+.icon-square:nth-child(1) { top: 0;  left: 0;   }
+.icon-square:nth-child(2) { top: 21px; left: 21px; }
+.icon-square:nth-child(3) { top: 42px; left: 42px; }
+
+.icon-square.red {
+  background: red !important;
+}
+
 /* ======================================================
    ANIMAZIONI
 ====================================================== */
@@ -448,34 +492,3 @@ footer,
 @keyframes slideDownAccordion { from { max-height: 0; opacity: 0; } to { max-height: 500px; opacity: 1; } }
 @keyframes floatBackground   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 @keyframes paragraphFadeIn   { to { opacity: 1; transform: translateY(0); } }
-@keyframes h2SlideIn         { to { opacity: 1; transform: translateX(0); } }
-@keyframes redLineExpand     { to { width: 100px; } }
-@keyframes imagePulseGlow    { 0%,100% { box-shadow:0 0 20px rgba(0,150,255,.3); } 50% { box-shadow:0 0 40px rgba(0,150,255,.6),0 0 60px rgba(0,150,255,.4); } }
-
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-@media (max-width: 1200px) {
-  .layout-container, .services-grid { gap: 30px; }
-  .layout-right { width: 300px; }
-}
-@media (max-width: 992px) {
-  .navbar-menu { display: none; }
-  .mobile-menu-toggle { display: flex; }
-  .mobile-menu { display: block; }
-  .overview-layout, .layout-container { flex-direction: column; }
-  .hero-content-wrapper { flex-direction: column; gap: 3rem; }
-}
-@media (max-width: 768px) {
-  .navbar-brand { font-size: 1.2rem; }
-  .hero-overlay h1 { font-size: 1.8rem; }
-  .hero-overlay p, .hero-text-center p { font-size: 1rem; }
-  .chi-siamo-image { max-height: 300px; }
-  .overview-layout { padding: 2rem 15px; }
-  .training-layout, .maintenance-layout { flex-direction: column; }
-}
-@media (max-width: 480px) {
-  .hero-overlay h1 { font-size: 1.5rem; }
-  .hero-overlay p { font-size: .9rem; }
-  .overview-image-container, .hero-image .sphere-image { max-width: 300px; }
-}
