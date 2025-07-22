@@ -82,8 +82,18 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="navbar-menu left-menu">
+        {/* Mobile Toggle */}
+        <button
+          className="mobile-menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Menu (desktop e mobile uguale) */}
+        <div className={`navbar-menu left-menu ${isMenuOpen ? 'open' : ''}`}>
           {/* Chi siamo */}
           <div className={`dropdown mega-dropdown ${activeDropdown === 'chi-siamo' ? 'active' : ''}`}>
             <button
@@ -315,114 +325,8 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="mobile-menu-toggle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="mega-menu mobile-menu">
-          <div className="mega-menu-content">
-            {/* Sidebar */}
-            <div className="mega-sidebar mega-sidebar-dynamic">
-              <div className="sidebar-item">
-                <Link href="/overview" onClick={() => setIsMenuOpen(false)}>
-                  {t('overview')}
-                </Link>
-              </div>
-              <div className="sidebar-item">
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleSection('settori');
-                  }}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
-                >
-                  <span>{t('settori')}</span>
-                  <svg
-                    className={`sidebar-arrow ${expandedSection === 'settori' ? 'expanded' : ''}`}
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M9 6l6 6-6 6z" fill="currentColor" />
-                  </svg>
-                </a>
-              </div>
-              <div className="sidebar-item">
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleSection('servizi');
-                  }}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
-                >
-                  <span>{t('servizi')}</span>
-                  <svg
-                    className={`sidebar-arrow ${expandedSection === 'servizi' ? 'expanded' : ''}`}
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M9 6l6 6-6 6z" fill="currentColor" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Contenuto dinamico */}
-            <div className="mega-center">
-              {expandedSection === 'settori' && (
-                <div className="mega-services-list">
-                  {settoriList.map((settore, index) => (
-                    <div key={index} className="mega-service-item">
-                      <span className="bullet">•</span>
-                      <span>{t(settore)}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {expandedSection === 'servizi' && (
-                <div className="mega-services-list">
-                  {serviziList.map((servizio, index) => {
-                    let href = '#';
-                    if (servizio === 'servizio-reliability') href = '/servizi/reliability';
-                    else if (servizio === 'servizio-maintenance-management') href = '/servizi/maintenance';
-                    else if (servizio === 'servizio-asset-management') href = '/servizi/asset-management';
-                    else if (servizio === 'servizio-cmms-digitalization') href = '/servizi/cmms-digitalization';
-                    else if (servizio === 'servizio-industrial-safety') href = '/servizi/industrial-safety';
-                    else if (servizio === 'servizio-management-systems') href = '/servizi/management-systems';
-                    else if (servizio === 'servizio-training') href = '/servizi/training';
-
-                    return (
-                      <Link
-                        key={index}
-                        href={href}
-                        className="mega-service-item-link"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {t(servizio)}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-              {!expandedSection && <div className="mega-placeholder"></div>}
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
