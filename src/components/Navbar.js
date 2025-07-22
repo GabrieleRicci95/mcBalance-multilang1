@@ -77,23 +77,13 @@ export default function Navbar() {
         {/* Logo */}
         <div className="navbar-brand">
           <Link href="/" className="brand-link">
-            <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
+          <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
             McBalance
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="mobile-menu-toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {/* Menu (desktop e mobile uguale) */}
-        <div className={`navbar-menu left-menu ${isMenuOpen ? 'open' : ''}`}>
+        {/* Desktop Menu */}
+        <div className="navbar-menu left-menu">
           {/* Chi siamo */}
           <div className={`dropdown mega-dropdown ${activeDropdown === 'chi-siamo' ? 'active' : ''}`}>
             <button
@@ -325,8 +315,28 @@ export default function Navbar() {
               </div>
             )}
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <Link href="/chi-siamo">{t('chi-siamo')}</Link>
+          <Link href="/overview">{t('overview')}</Link>
+          <button onClick={() => { setExpandedSection('settori'); setIsMenuOpen(false); }}>{t('settori')}</button>
+          <button onClick={() => { setExpandedSection('servizi'); setIsMenuOpen(false); }}>{t('servizi')}</button>
+        </div>
+      )}
     </nav>
   );
 }
