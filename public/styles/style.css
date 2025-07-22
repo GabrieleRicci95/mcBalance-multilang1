@@ -1902,7 +1902,6 @@ footer {
   position: relative;
   margin-top: 0 !important; /* Aggiungi questo */
   padding-top: 0 !important; /* Aggiungi questo */
-  vertical-align: top; /* Aggiungi questo */
   animation: imagePulseGlow 3s ease-in-out 2s infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
