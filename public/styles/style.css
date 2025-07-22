@@ -3037,18 +3037,13 @@ body:not(:has(.hero-with-image)) .footer-button:hover {
 .mobile-menu-button {
   background: none;
   border: none;
-  color: #ffffff;
+  color: white;
   font-weight: bold;
   padding: 12px 0;
   cursor: pointer;
   width: 100%;
   text-align: left;
   font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.mobile-menu-button:hover {
-  color: red;
 }
 
 .mobile-submenu {
@@ -3061,13 +3056,12 @@ body:not(:has(.hero-with-image)) .footer-button:hover {
 .mobile-submenu a {
   display: block;
   padding: 8px 0;
-  color: #ffffff;
+  color: white;
   font-size: 15px;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .mobile-submenu a:hover {
-  color: red;
   text-decoration: underline;
+  color: red;
 }
