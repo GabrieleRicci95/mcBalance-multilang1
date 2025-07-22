@@ -3034,3 +3034,40 @@ body:not(:has(.hero-with-image)) .footer-button:hover {
 .overview-layout ~ .site-footer a {
   color: #000000 !important;
 }
+.mobile-menu-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+  color: red;
+}
+
+.mobile-submenu {
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-left: 2px solid red;
+}
+
+.mobile-submenu a {
+  display: block;
+  padding: 8px 0;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-submenu a:hover {
+  color: red;
+  text-decoration: underline;
+}
