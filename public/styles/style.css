@@ -3084,3 +3084,30 @@ body:not(:has(.hero-with-image)) .footer-button:hover {
     border-radius: 2px;
   }
 }
+/* Nascondi eventuale doppio toggle mobile */
+.mobile-menu-toggle.duplicate {
+  display: none;
+}
+
+/* Stile selettore lingua mobile */
+.mobile-language-selector {
+  margin-top: 1rem;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+}
+
+.mobile-language-selector .language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.mobile-language-selector .language-option.active {
+  background-color: #222;
+}

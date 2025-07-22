@@ -13,7 +13,7 @@ export default function Navbar() {
   const [selectedLanguage, setSelectedLanguage] = useState({
     code: 'it',
     flag: '🇮🇹',
-    name: 'Italiano',
+    name: 'Italiano'
   });
 
   const languages = [
@@ -21,7 +21,7 @@ export default function Navbar() {
     { code: 'en', flag: '🇬🇧', name: 'English' },
     { code: 'es', flag: '🇪🇸', name: 'Español' },
     { code: 'fr', flag: '🇫🇷', name: 'Français' },
-    { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
+    { code: 'de', flag: '🇩🇪', name: 'Deutsch' }
   ];
 
   const settoriList = [
@@ -32,7 +32,7 @@ export default function Navbar() {
     'settore-medical',
     'settore-educations',
     'settore-compliance',
-    'settore-standards',
+    'settore-standards'
   ];
 
   const serviziList = [
@@ -42,7 +42,7 @@ export default function Navbar() {
     'servizio-cmms-digitalization',
     'servizio-industrial-safety',
     'servizio-management-systems',
-    'servizio-training',
+    'servizio-training'
   ];
 
   const toggleDropdown = (menu) => {
@@ -56,6 +56,7 @@ export default function Navbar() {
     setSelectedLanguage(language);
     changeLanguage(language.code);
     setActiveDropdown(null);
+    setIsMenuOpen(false); // Chiudi menu anche su mobile dopo selezione lingua
   };
 
   const toggleSection = (section) => {
@@ -65,7 +66,7 @@ export default function Navbar() {
   const getRightPanelContent = () => {
     return {
       title: t('nostri-servizi'),
-      description: t('servizi-description'),
+      description: t('servizi-description')
     };
   };
 
@@ -77,45 +78,21 @@ export default function Navbar() {
         {/* Logo */}
         <div className="navbar-brand">
           <Link href="/" className="brand-link">
-            <img
-              src="/img/logo-mcbalance.png"
-              alt="McBalance Logo"
-              className="navbar-logo"
-            />
+            <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
             McBalance
           </Link>
         </div>
 
-        {/* Mobile menu toggle */}
-        <button
-          className="mobile-menu-toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {/* Menu desktop + mobile */}
-        <div className={`navbar-menu left-menu ${isMenuOpen ? 'open' : ''}`}>
+        {/* Desktop Menu */}
+        <div className="navbar-menu left-menu">
           {/* Chi siamo */}
-          <div
-            className={`dropdown mega-dropdown ${
-              activeDropdown === 'chi-siamo' ? 'active' : ''
-            }`}
-          >
+          <div className={`dropdown mega-dropdown ${activeDropdown === 'chi-siamo' ? 'active' : ''}`}>
             <button
               className="dropdown-toggle"
               onClick={() => toggleDropdown('chi-siamo')}
             >
               {t('chi-siamo')}
-              <svg
-                className="dropdown-arrow"
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
+              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="20" height="20">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
               </svg>
             </button>
@@ -159,22 +136,13 @@ export default function Navbar() {
           </div>
 
           {/* Cosa facciamo */}
-          <div
-            className={`dropdown mega-dropdown ${
-              activeDropdown === 'cosa-facciamo' ? 'active' : ''
-            }`}
-          >
+          <div className={`dropdown mega-dropdown ${activeDropdown === 'cosa-facciamo' ? 'active' : ''}`}>
             <button
               className="dropdown-toggle"
               onClick={() => toggleDropdown('cosa-facciamo')}
             >
               {t('cosa-facciamo')}
-              <svg
-                className="dropdown-arrow"
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
+              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="20" height="20">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
               </svg>
             </button>
@@ -203,14 +171,12 @@ export default function Navbar() {
                           display: 'flex',
                           justifyContent: 'space-between',
                           alignItems: 'center',
-                          width: '100%',
+                          width: '100%'
                         }}
                       >
                         <span>{t('settori')}</span>
                         <svg
-                          className={`sidebar-arrow ${
-                            expandedSection === 'settori' ? 'expanded' : ''
-                          }`}
+                          className={`sidebar-arrow ${expandedSection === 'settori' ? 'expanded' : ''}`}
                           viewBox="0 0 24 24"
                           width="14"
                           height="14"
@@ -231,14 +197,12 @@ export default function Navbar() {
                           display: 'flex',
                           justifyContent: 'space-between',
                           alignItems: 'center',
-                          width: '100%',
+                          width: '100%'
                         }}
                       >
                         <span>{t('servizi')}</span>
                         <svg
-                          className={`sidebar-arrow ${
-                            expandedSection === 'servizi' ? 'expanded' : ''
-                          }`}
+                          className={`sidebar-arrow ${expandedSection === 'servizi' ? 'expanded' : ''}`}
                           viewBox="0 0 24 24"
                           width="14"
                           height="14"
@@ -265,22 +229,24 @@ export default function Navbar() {
                     {expandedSection === 'servizi' && (
                       <div className="mega-services-list">
                         {serviziList.map((servizio, index) => {
+                          // Gestione completa dei link dei servizi
                           let href = '#';
-                          if (servizio === 'servizio-reliability')
+                          if (servizio === 'servizio-reliability') {
                             href = '/servizi/reliability';
-                          else if (servizio === 'servizio-maintenance-management')
+                          } else if (servizio === 'servizio-maintenance-management') {
                             href = '/servizi/maintenance';
-                          else if (servizio === 'servizio-asset-management')
+                          } else if (servizio === 'servizio-asset-management') {
                             href = '/servizi/asset-management';
-                          else if (servizio === 'servizio-cmms-digitalization')
+                          } else if (servizio === 'servizio-cmms-digitalization') {
                             href = '/servizi/cmms-digitalization';
-                          else if (servizio === 'servizio-industrial-safety')
+                          } else if (servizio === 'servizio-industrial-safety') {
                             href = '/servizi/industrial-safety';
-                          else if (servizio === 'servizio-management-systems')
+                          } else if (servizio === 'servizio-management-systems') {
                             href = '/servizi/management-systems';
-                          else if (servizio === 'servizio-training')
+                          } else if (servizio === 'servizio-training') {
                             href = '/servizi/training';
-
+                          }
+                          
                           return (
                             <Link
                               key={index}
@@ -295,7 +261,9 @@ export default function Navbar() {
                       </div>
                     )}
 
-                    {!expandedSection && <div className="mega-placeholder"></div>}
+                    {!expandedSection && (
+                      <div className="mega-placeholder"></div>
+                    )}
                   </div>
 
                   {/* Destra */}
@@ -326,23 +294,11 @@ export default function Navbar() {
               className="navbar-icon location dropdown-toggle"
               onClick={() => toggleDropdown('language')}
             >
-              <svg
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-              >
-                <path
-                  d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"
-                  fill="currentColor"
-                />
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" fill="currentColor" />
               </svg>
               <span className="selected-flag">{selectedLanguage.flag}</span>
-              <svg
-                className="dropdown-arrow"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-              >
+              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
               </svg>
             </button>
@@ -351,9 +307,7 @@ export default function Navbar() {
                 {languages.map((language) => (
                   <button
                     key={language.code}
-                    className={`language-option ${
-                      selectedLanguage.code === language.code ? 'active' : ''
-                    }`}
+                    className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
                     onClick={() => selectLanguage(language)}
                   >
                     <span className="flag">{language.flag}</span>
@@ -379,24 +333,27 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
-          <Link href="/chi-siamo">{t('chi-siamo')}</Link>
-          <Link href="/overview">{t('overview')}</Link>
-          <button
-            onClick={() => {
-              setExpandedSection('settori');
-              setIsMenuOpen(false);
-            }}
-          >
-            {t('settori')}
-          </button>
-          <button
-            onClick={() => {
-              setExpandedSection('servizi');
-              setIsMenuOpen(false);
-            }}
-          >
-            {t('servizi')}
-          </button>
+          <Link href="/chi-siamo" onClick={() => setIsMenuOpen(false)}>{t('chi-siamo')}</Link>
+          <Link href="/overview" onClick={() => setIsMenuOpen(false)}>{t('overview')}</Link>
+          <button onClick={() => { setExpandedSection('settori'); setIsMenuOpen(false); }}>{t('settori')}</button>
+          <button onClick={() => { setExpandedSection('servizi'); setIsMenuOpen(false); }}>{t('servizi')}</button>
+
+          {/* Selettore lingua mobile */}
+          <div className="mobile-language-selector">
+            {languages.map((language) => (
+              <button
+                key={language.code}
+                className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
+                onClick={() => {
+                  selectLanguage(language);
+                  setIsMenuOpen(false);
+                }}
+              >
+                <span className="flag">{language.flag}</span>
+                <span>{language.name}</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </nav>
