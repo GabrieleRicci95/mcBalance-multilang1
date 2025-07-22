@@ -7,6 +7,7 @@ import { useTranslation } from '../context/TranslationContext';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [expandedSection, setExpandedSection] = useState(null);
   const { t, currentLanguage, changeLanguage } = useTranslation();
 
   const [selectedLanguage, setSelectedLanguage] = useState({
@@ -23,23 +24,60 @@ export default function Navbar() {
     { code: 'de', flag: '🇩🇪', name: 'Deutsch' }
   ];
 
+  const settoriList = [
+    'settore-pharma',
+    'settore-consumer',
+    'settore-food',
+    'settore-oil-gas',
+    'settore-medical',
+    'settore-educations',
+    'settore-compliance',
+    'settore-standards'
+  ];
+
+  const serviziList = [
+    'servizio-reliability',
+    'servizio-maintenance-management',
+    'servizio-asset-management',
+    'servizio-cmms-digitalization',
+    'servizio-industrial-safety',
+    'servizio-management-systems',
+    'servizio-training'
+  ];
+
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
+    if (menu === 'cosa-facciamo') {
+      setExpandedSection(null);
+    }
   };
 
   const selectLanguage = (language) => {
     setSelectedLanguage(language);
     changeLanguage(language.code);
     setActiveDropdown(null);
-    setIsMenuOpen(false); // chiude menu mobile alla selezione lingua
+    setIsMenuOpen(false); // Chiudi menu anche su mobile dopo selezione lingua
   };
+
+  const toggleSection = (section) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  const getRightPanelContent = () => {
+    return {
+      title: t('nostri-servizi'),
+      description: t('servizi-description')
+    };
+  };
+
+  const rightPanel = getRightPanelContent();
 
   return (
     <nav className="deloitte-navbar">
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-brand">
-          <Link href="/" className="brand-link" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/" className="brand-link">
             <img src="/img/logo-mcbalance.png" alt="McBalance Logo" className="navbar-logo" />
             McBalance
           </Link>
@@ -60,7 +98,39 @@ export default function Navbar() {
             </button>
             {activeDropdown === 'chi-siamo' && (
               <div className="mega-menu">
-                {/* ... contenuto del menu chi siamo ... */}
+                <div className="mega-menu-content">
+                  {/* Sidebar */}
+                  <div className="mega-sidebar mega-sidebar-dynamic">
+                    <div className="sidebar-item">
+                      <Link
+                        href="/chi-siamo"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {t('nostra-storia')}
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Area centrale */}
+                  <div className="mega-center">
+                    <div className="mega-placeholder"></div>
+                  </div>
+
+                  {/* Area destra */}
+                  <div className="mega-right">
+                    <div className="mega-card">
+                      <div className="mega-card-icon">
+                        <div className="mcbalance-icon">
+                          <div className="icon-square red"></div>
+                          <div className="icon-square red"></div>
+                          <div className="icon-square red"></div>
+                        </div>
+                      </div>
+                      <h3>{t('chi-siamo')}</h3>
+                      <p>{t('chi-siamo-card-description')}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -78,7 +148,139 @@ export default function Navbar() {
             </button>
             {activeDropdown === 'cosa-facciamo' && (
               <div className="mega-menu">
-                {/* ... contenuto del menu cosa facciamo ... */}
+                <div className="mega-menu-content">
+                  {/* Sidebar */}
+                  <div className="mega-sidebar mega-sidebar-dynamic">
+                    <div className="sidebar-item">
+                      <Link
+                        href="/overview"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {t('overview')}
+                      </Link>
+                    </div>
+
+                    <div className="sidebar-item">
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleSection('settori');
+                        }}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          width: '100%'
+                        }}
+                      >
+                        <span>{t('settori')}</span>
+                        <svg
+                          className={`sidebar-arrow ${expandedSection === 'settori' ? 'expanded' : ''}`}
+                          viewBox="0 0 24 24"
+                          width="14"
+                          height="14"
+                        >
+                          <path d="M9 6l6 6-6 6z" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    <div className="sidebar-item">
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleSection('servizi');
+                        }}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          width: '100%'
+                        }}
+                      >
+                        <span>{t('servizi')}</span>
+                        <svg
+                          className={`sidebar-arrow ${expandedSection === 'servizi' ? 'expanded' : ''}`}
+                          viewBox="0 0 24 24"
+                          width="14"
+                          height="14"
+                        >
+                          <path d="M9 6l6 6-6 6z" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Contenuto dinamico */}
+                  <div className="mega-center">
+                    {expandedSection === 'settori' && (
+                      <div className="mega-services-list">
+                        {settoriList.map((settore, index) => (
+                          <div key={index} className="mega-service-item">
+                            <span className="bullet">•</span>
+                            <span>{t(settore)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {expandedSection === 'servizi' && (
+                      <div className="mega-services-list">
+                        {serviziList.map((servizio, index) => {
+                          // Gestione completa dei link dei servizi
+                          let href = '#';
+                          if (servizio === 'servizio-reliability') {
+                            href = '/servizi/reliability';
+                          } else if (servizio === 'servizio-maintenance-management') {
+                            href = '/servizi/maintenance';
+                          } else if (servizio === 'servizio-asset-management') {
+                            href = '/servizi/asset-management';
+                          } else if (servizio === 'servizio-cmms-digitalization') {
+                            href = '/servizi/cmms-digitalization';
+                          } else if (servizio === 'servizio-industrial-safety') {
+                            href = '/servizi/industrial-safety';
+                          } else if (servizio === 'servizio-management-systems') {
+                            href = '/servizi/management-systems';
+                          } else if (servizio === 'servizio-training') {
+                            href = '/servizi/training';
+                          }
+                          
+                          return (
+                            <Link
+                              key={index}
+                              href={href}
+                              className="mega-service-item-link"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {t(servizio)}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {!expandedSection && (
+                      <div className="mega-placeholder"></div>
+                    )}
+                  </div>
+
+                  {/* Destra */}
+                  <div className="mega-right">
+                    <div className="mega-card">
+                      <div className="mega-card-icon">
+                        <div className="mcbalance-icon">
+                          <div className="icon-square red"></div>
+                          <div className="icon-square red"></div>
+                          <div className="icon-square red"></div>
+                        </div>
+                      </div>
+                      <h3>{rightPanel.title}</h3>
+                      <p>{rightPanel.description}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -133,38 +335,24 @@ export default function Navbar() {
         <div className="mobile-menu">
           <Link href="/chi-siamo" onClick={() => setIsMenuOpen(false)}>{t('chi-siamo')}</Link>
           <Link href="/overview" onClick={() => setIsMenuOpen(false)}>{t('overview')}</Link>
-          <Link href="/settori" onClick={() => setIsMenuOpen(false)}>{t('settori')}</Link>
-          <Link href="/servizi" onClick={() => setIsMenuOpen(false)}>{t('servizi')}</Link>
+          <button onClick={() => { setExpandedSection('settori'); setIsMenuOpen(false); }}>{t('settori')}</button>
+          <button onClick={() => { setExpandedSection('servizi'); setIsMenuOpen(false); }}>{t('servizi')}</button>
 
-          {/* Selettore lingua con mappamondo */}
+          {/* Selettore lingua mobile */}
           <div className="mobile-language-selector">
-            <button onClick={() => toggleDropdown('language')} className="language-toggle">
-              <svg viewBox="0 0 24 24" width="16" height="16">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" fill="currentColor" />
-              </svg>
-              <span className="selected-flag">{selectedLanguage.flag}</span>
-              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
-            </button>
-
-            {activeDropdown === 'language' && (
-              <div className="dropdown-menu language-menu">
-                {languages.map((language) => (
-                  <button
-                    key={language.code}
-                    className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
-                    onClick={() => {
-                      selectLanguage(language);
-                      setIsMenuOpen(false); // chiude menu mobile dopo selezione
-                    }}
-                  >
-                    <span className="flag">{language.flag}</span>
-                    <span>{language.name}</span>
-                  </button>
-                ))}
-              </div>
-            )}
+            {languages.map((language) => (
+              <button
+                key={language.code}
+                className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
+                onClick={() => {
+                  selectLanguage(language);
+                  setIsMenuOpen(false);
+                }}
+              >
+                <span className="flag">{language.flag}</span>
+                <span>{language.name}</span>
+              </button>
+            ))}
           </div>
         </div>
       )}
