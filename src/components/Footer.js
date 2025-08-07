@@ -18,8 +18,7 @@ export default function Footer() {
           
           {/* Informazioni fiscali */}
           <div className="footer-fiscal-info">
-            <p>Codice Fiscale: 03230700597</p>
-            <p>Partita IVA: 03230700597</p>
+            <p>PI / CF: 03230700597</p>
             <p>Emailpec: <a href="mailto:mcbalance@pec.it">mcbalance@pec.it</a></p>
           </div>
           
