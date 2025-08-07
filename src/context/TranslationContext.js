@@ -62,7 +62,7 @@ const translations = {
     'settori-title': 'I nostri settori di competenza',
     'settori-description': 'McBalance opera con esperienza consolidata nei seguenti settori industriali',
     'settore-pharma': 'Farmaceutico',
-    'settore-consumer': 'Consumo',
+    'settore-consumer': 'Consumer',
     'settore-food': 'Alimentare',
     'settore-oil-gas': 'Petrolio e Gas',
     'settore-medical': 'Medicale',
