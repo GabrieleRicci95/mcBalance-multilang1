@@ -270,6 +270,17 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Contattaci — link semplice senza dropdown */}
+        <div className="dropdown mega-dropdown">
+          <Link
+            href="/contattaci"
+            className="dropdown-toggle"
+            onClick={() => setActiveDropdown(null)}
+          >
+            {t('contattaci')}
+          </Link>
+        </div>
+
         {/* Right Side Icons */}
         <div className="navbar-actions">
           {/* Language Selector - Desktop */}
@@ -317,33 +328,41 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-content">
-          <Link 
-            href="/chi-siamo" 
+          <Link
+            href="/chi-siamo"
             className="mobile-menu-link"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('chi-siamo')}
           </Link>
-          
-          <Link 
-            href="/overview" 
+
+          <Link
+            href="/overview"
             className="mobile-menu-link"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('overview')}
           </Link>
-          
+
+          <Link
+            href="/contattaci"
+            className="mobile-menu-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('contattaci')}
+          </Link>
+
           {/* Settori Mobile Dropdown */}
           <div className="mobile-dropdown">
-            <button 
+            <button
               className="mobile-dropdown-toggle"
               onClick={() => toggleMobileSection('settori')}
             >
               {t('settori')}
-              <svg 
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'settori' ? 'expanded' : ''}`} 
-                viewBox="0 0 24 24" 
-                width="20" 
+              <svg
+                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'settori' ? 'expanded' : ''}`}
+                viewBox="0 0 24 24"
+                width="20"
                 height="20"
               >
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
@@ -362,15 +381,15 @@ export default function Navbar() {
 
           {/* Servizi Mobile Dropdown */}
           <div className="mobile-dropdown">
-            <button 
+            <button
               className="mobile-dropdown-toggle"
               onClick={() => toggleMobileSection('servizi')}
             >
               {t('servizi')}
-              <svg 
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'servizi' ? 'expanded' : ''}`} 
-                viewBox="0 0 24 24" 
-                width="20" 
+              <svg
+                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'servizi' ? 'expanded' : ''}`}
+                viewBox="0 0 24 24"
+                width="20"
                 height="20"
               >
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />

@@ -191,21 +191,16 @@ header .nav-link.active {
   padding-top: 0;
 }
 
+.competenze-bar h1 {
+  padding-left: 40px; /* aumenta per spostare più a destra */
+}
+
 .competenze-bar {
   background-color: #333333;
   color: white;
   padding: 10px 0;
   text-align: left;
   animation: slideDown 0.8s ease-out 1s backwards;
-}
-
-.competenze-bar h2 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: left;
 }
 
 .mission-white-bg {
@@ -329,7 +324,7 @@ footer {
 .site-footer {
   background: #000000;
   color: #eee;
-  padding: 40px 20px;
+  padding: 20px 10px;
   text-align: center;
 }
 
@@ -339,19 +334,19 @@ footer {
 }
 
 .footer-logo {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #ffffff;
 }
 
 .footer-social {
-  margin: 20px 0;
+  margin: 8px 0;
 }
 
 .footer-social a {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .footer-social img {
@@ -370,7 +365,7 @@ footer {
 }
 
 .footer-info {
-  margin: 20px 0;
+  margin: 5px 0;
   line-height: 1.6;
   color: #ffffff;
 }
@@ -380,8 +375,8 @@ footer {
   padding: 12px 24px;
   background: #333333;
   color: #fff;
-  border-radius: 6px;
-  margin-top: 20px;
+  border-radius: 3px;
+  margin-top: 8px;
   transition: background 0.3s;
 }
 
@@ -390,8 +385,8 @@ footer {
 }
 
 .footer-copy {
-  margin-top: 30px;
-  font-size: 14px;
+  margin-top: 8px;
+  font-size: 10px;
   color: #999;
 }
 
@@ -1410,8 +1405,11 @@ footer {
     font-size: 1.4rem;
   }
   
-  .mission-white-bg {
-    padding: 40px 0;
+.mission-white-bg {
+  padding: 40px 0;
+}
+.mission-white-bg h2 {
+  padding-left: 40px;
   }
   
   /* Animazione mobile Chi Siamo */
@@ -3254,4 +3252,170 @@ a.mobile-dropdown-item:hover {
     font-size: 13px;
     padding: 8px 15px;
   }
+}
+/* =========================================================
+   CONTATTI / CONTACT PAGE
+   (scoped: non tocca le altre sezioni del sito)
+========================================================= */
+
+.contact-page {
+  background: #000;
+  color: #fff;
+  padding: 60px 0 100px;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Titolo e sottotitolo */
+.contact-heading h1 {
+  margin: 0 0 6px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.contact-heading p {
+  margin: 0 0 28px;
+  color: #bdbdbd;
+  font-size: 1.05rem;
+}
+
+/* Card form */
+.contact-card {
+  background: #0e0e0e;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow:
+    0 0 0 1px rgba(0, 228, 255, 0.06),
+    0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Griglia */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Colonne che devono occupare tutta la riga */
+.form-row-2 { grid-column: span 2; }
+@media (max-width: 860px) { .form-row-2 { grid-column: auto; } }
+
+/* Campi */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: .95rem;
+  color: #d8d8d8;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #8a8a8a; }
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Focus */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #00e4ff;
+  box-shadow: 0 0 0 3px rgba(0, 228, 255, 0.15);
+  background: #121212;
+}
+
+/* Checkbox consenso */
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .95rem;
+  color: #c9c9c9;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #00e4ff;
+}
+
+/* Azioni */
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.btn-primary {
+  background: #00e4ff;
+  color: #001014;
+  box-shadow: 0 10px 30px rgba(0, 228, 255, .25);
+}
+
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 40px rgba(0, 228, 255, .33); }
+.btn-primary:active { transform: translateY(0); }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+/* Messaggi stato */
+.status { margin-top: 16px; font-size: .95rem; }
+.success-msg { color: #7ef9a2; }
+.error-msg { color: #ff7070; }
+
+/* Hint sotto i campi (es. privacy) */
+.form-hint { font-size: .85rem; color: #9a9a9a; }
+
+/* Accessibilità */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+/* Navbar: rimuovi sottolineatura dai link */
+.deloitte-navbar a,
+.deloitte-navbar a:hover,
+.deloitte-navbar a:focus {
+  text-decoration: none;
 }

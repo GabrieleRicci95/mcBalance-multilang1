@@ -6,37 +6,52 @@ import { createContext, useContext, useState } from 'react';
 const TranslationContext = createContext();
 
 const translations = {
-   it: {
+  it: {
     // Navbar
     'chi-siamo': 'Chi siamo',
     'cosa-facciamo': 'Cosa facciamo',
     'nostre-competenze': 'Le nostre competenze',
     'carriere': 'Carriere',
-    
+    'contattaci': 'Contattaci',
+
+    // Contact page
+    'contact-title': 'Contattaci',
+    'contact-description': 'Compila il modulo qui sotto: ti risponderemo al più presto.',
+    'contact-name': 'Nome e cognome',
+    'contact-email': 'Email',
+    'contact-company': 'Azienda (opzionale)',
+    'contact-subject': 'Oggetto',
+    'contact-message': 'Messaggio',
+    'contact-consent': 'Acconsento al trattamento dei dati secondo l’informativa privacy.',
+    'contact-send': 'Invia',
+    'contact-success': 'Grazie! Ti risponderemo al più presto.',
+    'contact-error': 'Si è verificato un errore. Riprova tra poco.',
+    'contact-or-email': 'Oppure scrivici direttamente a',
+
     // Dropdown Chi siamo
     'nostra-storia': 'La nostra storia',
-    
+
     // Dropdown Cosa facciamo
     'overview': 'Panoramica',
     'settori': 'Settori',
     'servizi': 'Servizi',
     'nostri-servizi': 'I nostri servizi',
     'servizi-description': 'Soluzioni innovative per la crescita aziendale',
-    
+
     // Dropdown Competenze
     'competenze-tecniche': 'Competenze tecniche',
     'trasformazione-digitale': 'Trasformazione digitale',
     'sostenibilita': 'Sostenibilità',
-    
+
     // Dropdown Carriere
     'opportunita-lavoro': 'Opportunità di lavoro',
     'stage-tirocini': 'Stage e tirocini',
     'crescita-professionale': 'Crescita professionale',
-    
+
     // Hero Section
     'hero-title': 'Ti aiutiamo a guardare verso il futuro!',
     'hero-subtitle': 'Pensare, sviluppare, creare, crescere, cambiare e affrontare nuove sfide in equilibrio e in armonia con gli elementi.',
-    
+
     // Mission Section (Homepage)
     'mission-title': 'La nostra missione',
     'mission-p1': 'nasce per dare vita ad attività professionali finalizzate all\'innovazione e al miglioramento continuo.',
@@ -47,17 +62,17 @@ const translations = {
     'mission-p4': ', perché pensiamo di poter aiutare con metodo le organizzazioni nel raggiungimento dei loro e dei nostri obiettivi.',
     'mission-we-are-here': 'Ci siamo',
     'mission-p5': 'Ci piace vedere crescere i nostri progetti e le persone con le quali lavoriamo.',
-    
+
     // Chi siamo page
     'chi-siamo-text': 'McBalance nasce come spin-off delle attività di consulenza e formazione dei soci fondatori, che a partire dall\'inizio degli anni 2000 si sono dedicati ai temi della Manutenzione, dell\'Affidabilità e della Sicurezza in ambito industriale e sia in ambito nazionale che internazionale.',
     'chi-siamo-card-description': 'La nostra storia e i nostri valori',
-    
+
     // Overview page
     'overview-title': 'Il nostro metodo',
-    'overview-paragraph-1': 'Le attività di McBalance sono finalizzate al supporto alle aziende nella implementazione / miglioramento /elaborazione di nuovi processi e pertanto si configurano, nella maggior parte dei casi, come attività di consulenza, sia di direzione che tecnica, e di formazione, sia manageriale che tecnica.',
-    'overview-paragraph-2': 'Tutte le attività sia di breve che di medio-lungo termini seguono i principi della gestione orientata al miglioramento continuo (vedi ISO 9001) e pertanto prevedono sempre una fase preliminare di Pianificazione e Organizzazione (PLAN) e successivi steps di controllo e "aggiustamento" durante lo sviluppo o l\'implementazione dei servizi. In particolare, si preferisce dedicare il giusto tempo al Project Management e seguire i progetti di consulenza con un GANTT specifico e momento di revisione / verifica e riesame.',
-    'overview-paragraph-3': 'Per i settori Pharma e Food, in tutte le fasi delle attività si tiene conto dei requisiti GMP e/o GXP e più in generale per ogni attività si garantisce quanto richiesto dalle normative di legge e dagli standard ISO, IEC, EN, UNI, CEI, regole tecniche aziendali e best practice di riferimento.',
-    
+    'overview-paragraph-1': 'Le attività di McBalance sono finalizzate al supporto alle aziende nella implementazione, nel miglioramento e nell\' elaborazione di nuovi processi e pertanto si configurano, nella maggior parte dei casi, come attività di consulenza, di direzione e tecnica, e di formazione, manageriale e tecnica. ',
+    'overview-paragraph-2': 'Tutte le attività sia di breve che di medio-lungo termini seguono i principi della gestione orientata al miglioramento continuo (vedi ISO 9001) e pertanto prevedono sempre una fase preliminare di Pianificazione e Organizzazione (PLAN) e successivi steps di controllo e "aggiustamento" durante lo sviluppo o l\'implementazione dei servizi. In particolare, si preferisce dedicare il giusto tempo al Project Management e seguire i progetti di consulenza con un GANTT specifico e momenti di revisione / verifica e riesame',
+    'overview-paragraph-3': 'Per i settori Pharma e Food, in tutte le fasi delle attività si tiene conto dei requisiti GMP e/o GXP e più in generale per ogni attività si garantisce quanto richiesto dalle normative di legge e dagli standard ISO, IEC, EN, UNI, CEI, regole tecniche aziendali e best practice di riferimento.',
+
     // Settori page - CORREZIONI QUI
     'settori-title': 'I nostri settori di competenza',
     'settori-description': 'McBalance opera con esperienza consolidata nei seguenti settori industriali',
@@ -69,7 +84,7 @@ const translations = {
     'settore-educations': 'Formazione',
     'settore-compliance': 'Conformità e Sistemi di Gestione',
     'settore-standards': 'Standard e Regolamentazione',
-    
+
     // Servizi page - CORREZIONI QUI
     'servizi-title': 'I nostri servizi',
     'servizio-reliability': 'Affidabilità',
@@ -79,7 +94,7 @@ const translations = {
     'servizio-industrial-safety': 'Sicurezza Industriale',
     'servizio-management-systems': 'Sistemi di Gestione ISO 9001/45001',
     'servizio-training': 'Formazione',
-    
+
     // Reliability page
     'RELIABILITY': 'AFFIDABILITÀ',
     'reliability': 'Affidabilità',
@@ -93,7 +108,7 @@ const translations = {
     'reliability-service-5': 'Sistemi per la Misurazione e Monitoraggio dei parametri affidabilistici (MTTR, MDT, MTBF, MOTBF, Availability, OEE, etc)',
     'reliability-service-6': 'Studi di Human Reliability & Human Errors',
     'reliability-conclusion': 'I nostri studi e le nostre soluzioni sono pensati per aiutare le organizzazioni a migliorare continuamente i propri asset e a garantire la massima sicurezza ed efficienza.',
-    
+
     // Maintenance Management page
     'MAINTENANCE_MANAGEMENT': 'GESTIONE DELLA MANUTENZIONE',
     'maintenance-management': 'Gestione della Manutenzione',
@@ -110,7 +125,7 @@ const translations = {
     'maintenance-management-service-8': 'Modelli per la Gestione delle Competenze del personale',
     'maintenance-management-service-9': 'Modelli per la Gestione del Budget',
     'maintenance-management-conclusion': 'I nostri servizi di gestione della manutenzione sono progettati per trasformare le operazioni di manutenzione in un vantaggio competitivo strategico.',
-    
+
     // Asset Management page
     'ASSET_MANAGEMENT': 'GESTIONE DEGLI ASSET',
     'asset-management': 'Gestione degli Asset',
@@ -122,7 +137,7 @@ const translations = {
     'asset-management-service-3': 'Asset Critical Analysis',
     'asset-management-service-4': 'Audit di prima e seconda parte (ISO 19011)',
     'asset-management-conclusion': 'I nostri servizi di gestione degli asset sono progettati per massimizzare il valore degli investimenti e garantire la sostenibilità operativa a lungo termine.',
-    
+
     // CMMS & Process digitalization page
     'CMMS_DIGITALIZATION': 'CMMS E DIGITALIZZAZIONE DEI PROCESSI',
     'cmms-digitalization': 'CMMS e Digitalizzazione dei Processi',
@@ -133,7 +148,7 @@ const translations = {
     'cmms-digitalization-service-2': 'Sviluppo App per la Safety (es. Near Miss, Gemba, Audit, etc)',
     'cmms-digitalization-service-3': 'Sviluppo e/o Supporto per Applicativi software per la gestione della Manutenzione',
     'cmms-digitalization-conclusion': 'Le nostre soluzioni digitali trasformano i processi tradizionali in sistemi efficienti, tracciabili e orientati al miglioramento continuo.',
-    
+
     // Industrial Safety page
     'INDUSTRIAL_SAFETY': 'SICUREZZA INDUSTRIALE',
     'industrial-safety': 'Sicurezza Industriale',
@@ -148,7 +163,7 @@ const translations = {
     'industrial-safety-service-6': 'Audit interni di sicurezza',
     'industrial-safety-service-7': 'Consulenza personalizzata',
     'industrial-safety-conclusion': 'I nostri servizi di sicurezza industriale sono progettati per creare ambienti di lavoro sicuri, conformi alle normative e orientati alla prevenzione.',
-    
+
     // Management Systems page
     'MANAGEMENT_SYSTEMS': 'SISTEMI DI GESTIONE ISO 9001/45001',
     'management-systems': 'Sistemi di Gestione ISO 9001/45001',
@@ -158,7 +173,7 @@ const translations = {
     'management-systems-service-1': 'Sviluppo ed implementazione Sistemi di Gestione secondo le ISO 9001/14001/45001',
     'management-systems-service-2': 'Sviluppo ed implementazione Sistemi di Gestione per la Parità di Genere secondo UNI/PdR 125',
     'management-systems-conclusion': 'I nostri servizi per i sistemi di gestione garantiscono conformità normativa, miglioramento continuo e eccellenza operativa.',
-    
+
     // Training page
     'TRAINING': 'FORMAZIONE',
     'training': 'Formazione',
@@ -170,7 +185,7 @@ const translations = {
     'training-service-3': 'Corsi di formazione in ambito Attrezzature e Macchine: Direttiva Macchine, Sistemi di Sollevamento',
     'training-service-4': 'Corsi di formazione "Human Reliability and Human Errors"',
     'training-conclusion': 'I nostri programmi formativi sono progettati per sviluppare competenze tecniche avanzate e garantire la crescita professionale del personale.',
-    
+
     // Footer
     'footer-text': '© 2022 McBalance. Tutti i diritti riservati.'
   },
@@ -180,31 +195,46 @@ const translations = {
     'cosa-facciamo': 'What we do',
     'nostre-competenze': 'Our expertise',
     'carriere': 'Careers',
-    
+    'contattaci': 'Contact us',
+
+    // Contact page
+    'contact-title': 'Contact us',
+    'contact-description': 'Fill in the form below and we will get back to you shortly.',
+    'contact-name': 'Full name',
+    'contact-email': 'Email',
+    'contact-company': 'Company (optional)',
+    'contact-subject': 'Subject',
+    'contact-message': 'Message',
+    'contact-consent': 'I consent to the processing of my data according to the privacy policy.',
+    'contact-send': 'Send',
+    'contact-success': 'Thanks! Your message has been sent. We will get back to you soon.',
+    'contact-error': 'Something went wrong. Please try again later.',
+    'contact-or-email': 'Or write to us directly at',
+
     // Dropdown Chi siamo
     'nostra-storia': 'Our story',
-    
+
     // Dropdown Cosa facciamo
     'overview': 'Overview',
     'settori': 'Industries',
     'servizi': 'Services',
     'nostri-servizi': 'Our services',
     'servizi-description': 'Innovative solutions for business growth',
-    
+
     // Dropdown Competenze
     'competenze-tecniche': 'Technical skills',
     'trasformazione-digitale': 'Digital transformation',
     'sostenibilita': 'Sustainability',
-    
+
     // Dropdown Carriere
     'opportunita-lavoro': 'Job opportunities',
     'stage-tirocini': 'Internships',
     'crescita-professionale': 'Professional growth',
-    
+
     // Hero Section
     'hero-title': 'We help you look to the future!',
     'hero-subtitle': 'Think, develop, create, grow, change and face new challenges in balance and harmony with the elements.',
-    
+
     // Mission Section (Homepage)
     'mission-title': 'Our mission',
     'mission-p1': 'was born to give life to professional activities aimed at innovation and continuous improvement.',
@@ -215,17 +245,17 @@ const translations = {
     'mission-p4': ', because we think we can methodically help organizations achieve their and our objectives.',
     'mission-we-are-here': 'We are here',
     'mission-p5': 'We like to see our projects and the people we work with grow.',
-    
+
     // Chi siamo page
     'chi-siamo-text': 'McBalance was born as a spin-off of the consulting and training activities of the founding partners, who since the early 2000s have dedicated themselves to the themes of Maintenance, Reliability and Safety in industrial environments, both nationally and internationally.',
     'chi-siamo-card-description': 'Our story and our values',
-    
+
     // Overview page
     'overview-title': ' Our method',
     'overview-paragraph-1': 'McBalance activities are aimed at supporting companies in the implementation / improvement / development of new processes and therefore are configured, in most cases, as consulting activities, both management and technical, and training, both managerial and technical.',
     'overview-paragraph-2': 'All activities, both short and medium-long term, follow the principles of continuous improvement-oriented management (see ISO 9001) and therefore always include a preliminary Planning and Organization phase (PLAN) and subsequent control and "adjustment" steps during the development or implementation of services. In particular, we prefer to dedicate the right time to Project Management and follow consulting projects with a specific GANTT and review / verification and examination moments.',
     'overview-paragraph-3': 'For the Pharma and Food sectors, in all phases of activities, GMP and/or GXP requirements are taken into account and more generally for every activity we guarantee what is required by legal regulations and ISO, IEC, EN, UNI, CEI standards, company technical rules and reference best practices.',
-    
+
     // Settori page
     'settori-title': 'Our areas of expertise',
     'settori-description': 'McBalance operates with consolidated experience in the following industrial sectors',
@@ -237,7 +267,7 @@ const translations = {
     'settore-educations': 'Education',
     'settore-compliance': 'Compliance & Management Systems',
     'settore-standards': 'Standards & Regulation',
-    
+
     // Servizi page
     'servizi-title': 'Our services',
     'servizio-reliability': 'Reliability',
@@ -247,7 +277,7 @@ const translations = {
     'servizio-industrial-safety': 'Industrial Safety',
     'servizio-management-systems': 'Management Systems ISO 9001/45001',
     'servizio-training': 'Training',
-    
+
     // Reliability page
     'RELIABILITY': 'RELIABILITY',
     'reliability': 'Reliability',
@@ -261,7 +291,7 @@ const translations = {
     'reliability-service-5': 'Systems for Measurement and Monitoring of reliability parameters (MTTR, MDT, MTBF, MOTBF, Availability, OEE, etc)',
     'reliability-service-6': 'Human Reliability & Human Errors Studies',
     'reliability-conclusion': 'Our studies and solutions are designed to help organizations continuously improve their assets and ensure maximum safety and efficiency.',
-    
+
     // Maintenance Management page
     'MAINTENANCE_MANAGEMENT': 'MAINTENANCE MANAGEMENT',
     'maintenance-management': 'Maintenance Management',
@@ -278,7 +308,7 @@ const translations = {
     'maintenance-management-service-8': 'Models for Personnel Skills Management',
     'maintenance-management-service-9': 'Budget Management Models',
     'maintenance-management-conclusion': 'Our maintenance management services are designed to transform maintenance operations into a strategic competitive advantage.',
-    
+
     // Asset Management page
     'ASSET_MANAGEMENT': 'ASSET MANAGEMENT',
     'asset-management': 'Asset Management',
@@ -290,7 +320,7 @@ const translations = {
     'asset-management-service-3': 'Asset Critical Analysis',
     'asset-management-service-4': 'First and second party audits (ISO 19011)',
     'asset-management-conclusion': 'Our asset management services are designed to maximize investment value and ensure long-term operational sustainability.',
-    
+
     // CMMS & Process digitalization page
     'CMMS_DIGITALIZATION': 'CMMS & PROCESS DIGITALIZATION',
     'cmms-digitalization': 'CMMS & Process Digitalization',
@@ -301,7 +331,7 @@ const translations = {
     'cmms-digitalization-service-2': 'Development of Safety Apps (e.g. Near Miss, Gemba, Audit, etc)',
     'cmms-digitalization-service-3': 'Development and/or Support for Maintenance Management Software Applications',
     'cmms-digitalization-conclusion': 'Our digital solutions transform traditional processes into efficient, traceable systems oriented towards continuous improvement.',
-    
+
     // Industrial Safety page
     'INDUSTRIAL_SAFETY': 'INDUSTRIAL SAFETY',
     'industrial-safety': 'Industrial Safety',
@@ -316,7 +346,7 @@ const translations = {
     'industrial-safety-service-6': 'Internal safety audits',
     'industrial-safety-service-7': 'Personalized consulting',
     'industrial-safety-conclusion': 'Our industrial safety services are designed to create safe work environments, compliant with regulations and prevention-oriented.',
-    
+
     // Management Systems page
     'MANAGEMENT_SYSTEMS': 'MANAGEMENT SYSTEMS ISO 9001/45001',
     'management-systems': 'Management Systems ISO 9001/45001',
@@ -326,7 +356,7 @@ const translations = {
     'management-systems-service-1': 'Development and implementation of Management Systems according to ISO 9001/14001/45001',
     'management-systems-service-2': 'Development and implementation of Gender Equality Management Systems according to UNI/PdR 125',
     'management-systems-conclusion': 'Our management systems services ensure regulatory compliance, continuous improvement and operational excellence.',
-    
+
     // Training page
     'TRAINING': 'TRAINING',
     'training': 'Training',
@@ -338,7 +368,7 @@ const translations = {
     'training-service-3': 'Training courses in Equipment and Machinery: Machinery Directive, Lifting Systems',
     'training-service-4': 'Training courses "Human Reliability and Human Errors"',
     'training-conclusion': 'Our training programs are designed to develop advanced technical skills and ensure professional growth of personnel.',
-    
+
     // Footer
     'footer-text': '© 2022 McBalance. All rights reserved.'
   },
@@ -348,31 +378,46 @@ const translations = {
     'cosa-facciamo': 'Qué hacemos',
     'nostre-competenze': 'Nuestra experiencia',
     'carriere': 'Carreras',
-    
+    'contattaci': 'Contáctanos',
+
+    // Contact page
+    'contact-title': 'Contáctanos',
+    'contact-description': 'Completa el formulario y te responderemos lo antes posible.',
+    'contact-name': 'Nombre y apellidos',
+    'contact-email': 'Email',
+    'contact-company': 'Empresa (opcional)',
+    'contact-subject': 'Asunto',
+    'contact-message': 'Mensaje',
+    'contact-consent': 'Consiento el tratamiento de mis datos según la política de privacidad.',
+    'contact-send': 'Enviar',
+    'contact-success': '¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.',
+    'contact-error': 'Se produjo un error. Inténtalo de nuevo más tarde.',
+    'contact-or-email': 'O escríbenos directamente a',
+
     // Dropdown Chi siamo
     'nostra-storia': 'Nuestra historia',
-    
+
     // Dropdown Cosa facciamo
     'overview': 'Resumen',
     'settori': 'Sectores',
     'servizi': 'Servicios',
     'nostri-servizi': 'Nuestros servicios',
     'servizi-description': 'Soluciones innovadoras para el crecimiento empresarial',
-    
+
     // Dropdown Competenze
     'competenze-tecniche': 'Habilidades técnicas',
     'trasformazione-digitale': 'Transformación digital',
     'sostenibilita': 'Sostenibilidad',
-    
+
     // Dropdown Carriere
     'opportunita-lavoro': 'Oportunidades laborales',
     'stage-tirocini': 'Prácticas',
     'crescita-professionale': 'Crecimiento profesional',
-    
+
     // Hero Section
     'hero-title': '¡Te ayudamos a mirar hacia el futuro!',
     'hero-subtitle': 'Pensar, desarrollar, crear, crecer, cambiar y enfrentar nuevos desafíos en equilibrio y armonía con los elementos.',
-    
+
     // Mission Section (Homepage)
     'mission-title': 'Nuestra misión',
     'mission-p1': 'nace para dar vida a actividades profesionales orientadas a la innovación y la mejora continua.',
@@ -383,17 +428,17 @@ const translations = {
     'mission-p4': ', porque pensamos que podemos ayudar metódicamente a las organizaciones a alcanzar sus objetivos y los nuestros.',
     'mission-we-are-here': 'Estamos aquí',
     'mission-p5': 'Nos gusta ver crecer nuestros proyectos y las personas con las que trabajamos.',
-    
+
     // Chi siamo page
     'chi-siamo-text': 'McBalance nace como spin-off de las actividades de consultoría y formación de los socios fundadores, que desde principios de los años 2000 se han dedicado a los temas de Mantenimiento, Fiabilidad y Seguridad en el ámbito industrial, tanto nacional como internacional.',
     'chi-siamo-card-description': 'Nuestra historia y nuestros valores',
-    
+
     // Overview page
     'overview-title': 'Nuestro método',
     'overview-paragraph-1': 'Las actividades de McBalance están dirigidas a apoyar a las empresas en la implementación / mejora / desarrollo de nuevos procesos y por lo tanto se configuran, en la mayoría de los casos, como actividades de consultoría, tanto directiva como técnica, y de formación, tanto gerencial como técnica.',
     'overview-paragraph-2': 'Todas las actividades, tanto de corto como de medio-largo plazo, siguen los principios de gestión orientada a la mejora continua (ver ISO 9001) y por lo tanto siempre incluyen una fase preliminar de Planificación y Organización (PLAN) y pasos posteriores de control y "ajuste" durante el desarrollo o implementación de servicios. En particular, preferimos dedicar el tiempo adecuado al Project Management y seguir los proyectos de consultoría con un GANTT específico y momentos de revisión / verificación y examen.',
     'overview-paragraph-3': 'Para los sectores Pharma y Food, en todas las fases de las actividades se tienen en cuenta los requisitos GMP y/o GXP y más en general para cada actividad garantizamos lo que requieren las normativas legales y los estándares ISO, IEC, EN, UNI, CEI, reglas técnicas empresariales y mejores prácticas de referencia.',
-    
+
     // Settori page
     'settori-title': 'Nuestras áreas de competencia',
     'settori-description': 'McBalance opera con experiencia consolidada en los siguientes sectores industriales',
@@ -405,7 +450,7 @@ const translations = {
     'settore-educations': 'Educación',
     'settore-compliance': 'Cumplimiento y Sistemas de Gestión',
     'settore-standards': 'Estándares y Regulación',
-    
+
     // Servizi page
     'servizi-title': 'Nuestros servicios',
     'servizio-reliability': 'Confiabilidad',
@@ -415,7 +460,7 @@ const translations = {
     'servizio-industrial-safety': 'Seguridad Industrial',
     'servizio-management-systems': 'Sistemas de Gestión ISO 9001/45001',
     'servizio-training': 'Formación',
-    
+
     // Reliability page
     'RELIABILITY': 'CONFIABILIDAD',
     'reliability': 'Confiabilidad',
@@ -429,7 +474,7 @@ const translations = {
     'reliability-service-5': 'Sistemas para Medición y Monitoreo de parámetros de confiabilidad (MTTR, MDT, MTBF, MOTBF, Disponibilidad, OEE, etc)',
     'reliability-service-6': 'Estudios de Confiabilidad Humana y Errores Humanos',
     'reliability-conclusion': 'Nuestros estudios y soluciones están diseñados para ayudar a las organizaciones a mejorar continuamente sus activos y garantizar la máxima seguridad y eficiencia.',
-    
+
     // Maintenance Management page
     'MAINTENANCE_MANAGEMENT': 'GESTIÓN DE MANTENIMIENTO',
     'maintenance-management': 'Gestión de Mantenimiento',
@@ -446,7 +491,7 @@ const translations = {
     'maintenance-management-service-8': 'Modelos para la Gestión de Competencias del Personal',
     'maintenance-management-service-9': 'Modelos para la Gestión del Presupuesto',
     'maintenance-management-conclusion': 'Nuestros servicios de gestión de mantenimiento están diseñados para transformar las operaciones de mantenimiento en una ventaja competitiva estratégica.',
-    
+
     // Asset Management page
     'ASSET_MANAGEMENT': 'GESTIÓN DE ACTIVOS',
     'asset-management': 'Gestión de Activos',
@@ -458,7 +503,7 @@ const translations = {
     'asset-management-service-3': 'Análisis Crítico de Activos',
     'asset-management-service-4': 'Auditorías de primera y segunda parte (ISO 19011)',
     'asset-management-conclusion': 'Nuestros servicios de gestión de activos están diseñados para maximizar el valor de las inversiones y garantizar la sostenibilidad operativa a largo plazo.',
-    
+
     // CMMS & Process digitalization page
     'CMMS_DIGITALIZATION': 'CMMS Y DIGITALIZACIÓN DE PROCESOS',
     'cmms-digitalization': 'CMMS y Digitalización de Procesos',
@@ -469,7 +514,7 @@ const translations = {
     'cmms-digitalization-service-2': 'Desarrollo de Apps para Seguridad (ej. Near Miss, Gemba, Audit, etc)',
     'cmms-digitalization-service-3': 'Desarrollo y/o Soporte para Aplicaciones de software para la gestión del Mantenimiento',
     'cmms-digitalization-conclusion': 'Nuestras soluciones digitales transforman los procesos tradicionales en sistemas eficientes, trazables y orientados a la mejora continua.',
-    
+
     // Industrial Safety page
     'INDUSTRIAL_SAFETY': 'SEGURIDAD INDUSTRIAL',
     'industrial-safety': 'Seguridad Industrial',
@@ -484,7 +529,7 @@ const translations = {
     'industrial-safety-service-6': 'Auditorías internas de seguridad',
     'industrial-safety-service-7': 'Consultoría personalizada',
     'industrial-safety-conclusion': 'Nuestros servicios de seguridad industrial están diseñados para crear ambientes de trabajo seguros, conformes a las normativas y orientados a la prevención.',
-    
+
     // Management Systems page
     'MANAGEMENT_SYSTEMS': 'SISTEMAS DE GESTIÓN ISO 9001/45001',
     'management-systems': 'Sistemas de Gestión ISO 9001/45001',
@@ -494,7 +539,7 @@ const translations = {
     'management-systems-service-1': 'Desarrollo e implementación de Sistemas de Gestión según ISO 9001/14001/45001',
     'management-systems-service-2': 'Desarrollo e implementación de Sistemas de Gestión para la Igualdad de Género según UNI/PdR 125',
     'management-systems-conclusion': 'Nuestros servicios para sistemas de gestión garantizan cumplimiento normativo, mejora continua y excelencia operativa.',
-    
+
     // Training page
     'TRAINING': 'FORMACIÓN',
     'training': 'Formación',
@@ -506,7 +551,7 @@ const translations = {
     'training-service-3': 'Cursos de formación en Equipos y Máquinas: Directiva de Máquinas, Sistemas de Elevación',
     'training-service-4': 'Cursos de formación "Human Reliability and Human Errors"',
     'training-conclusion': 'Nuestros programas formativos están diseñados para desarrollar competencias técnicas avanzadas y garantizar el crecimiento profesional del personal.',
-    
+
     // Footer
     'footer-text': '© 2022 McBalance. Todos los derechos reservados.'
   },
@@ -516,31 +561,46 @@ const translations = {
     'cosa-facciamo': 'Ce que nous faisons',
     'nostre-competenze': 'Notre expertise',
     'carriere': 'Carrières',
-    
+    'contattaci': 'Contactez-nous',
+
+    // Contact page
+    'contact-title': 'Contactez-nous',
+    'contact-description': 'Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.',
+    'contact-name': 'Nom et prénom',
+    'contact-email': 'Email',
+    'contact-company': 'Entreprise (optionnel)',
+    'contact-subject': 'Objet',
+    'contact-message': 'Message',
+    'contact-consent': 'Je consens au traitement de mes données selon la politique de confidentialité.',
+    'contact-send': 'Envoyer',
+    'contact-success': 'Merci ! Votre message a été envoyé. Nous vous répondrons très bientôt.',
+    'contact-error': 'Une erreur est survenue. Veuillez réessayer plus tard.',
+    'contact-or-email': 'Ou écrivez-nous directement à',
+
     // Dropdown Chi siamo
     'nostra-storia': 'Notre histoire',
-    
+
     // Dropdown Cosa facciamo
     'overview': 'Aperçu',
     'settori': 'Secteurs',
     'servizi': 'Services',
     'nostri-servizi': 'Nos services',
     'servizi-description': 'Solutions innovantes pour la croissance des entreprises',
-    
+
     // Dropdown Competenze
     'competenze-tecniche': 'Compétences techniques',
     'trasformazione-digitale': 'Transformation numérique',
     'sostenibilita': 'Durabilité',
-    
+
     // Dropdown Carriere
     'opportunita-lavoro': 'Opportunités d\'emploi',
     'stage-tirocini': 'Stages',
     'crescita-professionale': 'Croissance professionnelle',
-    
+
     // Hero Section
     'hero-title': 'Nous vous aidons à regarder vers l\'avenir !',
     'hero-subtitle': 'Penser, développer, créer, grandir, changer et relever de nouveaux défis en équilibre et en harmonie avec les éléments.',
-    
+
     // Mission Section (Homepage)
     'mission-title': 'Notre mission',
     'mission-p1': 'est né pour donner vie à des activités professionnelles visant l\'innovation et l\'amélioration continue.',
@@ -551,17 +611,17 @@ const translations = {
     'mission-p4': ', car nous pensons pouvoir aider méthodiquement les organisations à atteindre leurs objectifs et les nôtres.',
     'mission-we-are-here': 'Nous sommes là',
     'mission-p5': 'Nous aimons voir grandir nos projets et les personnes avec lesquelles nous travaillons.',
-    
+
     // Chi siamo page
     'chi-siamo-text': 'McBalance est né comme spin-off des activités de conseil et de formation des associés fondateurs, qui depuis le début des années 2000 se sont consacrés aux thèmes de la Maintenance, de la Fiabilité et de la Sécurité dans le domaine industriel, tant au niveau national qu\'international.',
     'chi-siamo-card-description': 'Notre histoire et nos valeurs',
-    
+
     // Overview page
     'overview-title': 'Notre méthode',
     'overview-paragraph-1': 'Les activités de McBalance visent à soutenir les entreprises dans l\'implémentation / amélioration / développement de nouveaux processus et se configurent donc, dans la plupart des cas, comme des activités de conseil, tant de direction que technique, et de formation, tant managériale que technique.',
     'overview-paragraph-2': 'Toutes les activités, tant à court qu\'à moyen-long terme, suivent les principes de gestion orientée vers l\'amélioration continue (voir ISO 9001) et incluent donc toujours une phase préliminaire de Planification et Organisation (PLAN) et des étapes ultérieures de contrôle et d\'"ajustement" pendant le développement ou l\'implémentation des services. En particulier, nous préférons consacrer le temps approprié au Project Management et suivre les projets de conseil avec un GANTT spécifique et des moments de révision / vérification et examen.',
     'overview-paragraph-3': 'Pour les secteurs Pharma et Food, dans toutes les phases des activités, les exigences GMP et/ou GXP sont prises en compte et plus généralement pour chaque activité nous garantissons ce qui est requis par les réglementations légales et les normes ISO, IEC, EN, UNI, CEI, règles techniques d\'entreprise et meilleures pratiques de référence.',
-    
+
     // Settori page
     'settori-title': 'Nos domaines de compétence',
     'settori-description': 'McBalance opère avec une expérience consolidée dans les secteurs industriels suivants',
@@ -573,7 +633,7 @@ const translations = {
     'settore-educations': 'Éducation',
     'settore-compliance': 'Conformité et Systèmes de Gestion',
     'settore-standards': 'Normes et Réglementation',
-    
+
     // Servizi page
     'servizi-title': 'Nos services',
     'servizio-reliability': 'Fiabilité',
@@ -583,7 +643,7 @@ const translations = {
     'servizio-industrial-safety': 'Sécurité Industrielle',
     'servizio-management-systems': 'Systèmes de Gestion ISO 9001/45001',
     'servizio-training': 'Formation',
-    
+
     // Reliability page
     'RELIABILITY': 'FIABILITÉ',
     'reliability': 'Fiabilité',
@@ -597,7 +657,7 @@ const translations = {
     'reliability-service-5': 'Systèmes pour la Mesure et le Monitoring des paramètres de fiabilité (MTTR, MDT, MTBF, MOTBF, Disponibilité, OEE, etc)',
     'reliability-service-6': 'Études de Fiabilité Humaine et Erreurs Humaines',
     'reliability-conclusion': 'Nos études et solutions sont conçues pour aider les organisations à améliorer continuellement leurs actifs et garantir la sécurité et l\'efficacité maximales.',
-    
+
     // Maintenance Management page
     'MAINTENANCE_MANAGEMENT': 'GESTION DE LA MAINTENANCE',
     'maintenance-management': 'Gestion de la Maintenance',
@@ -614,7 +674,7 @@ const translations = {
     'maintenance-management-service-8': 'Modèles pour la Gestion des Compétences du Personnel',
     'maintenance-management-service-9': 'Modèles pour la Gestion du Budget',
     'maintenance-management-conclusion': 'Nos services de gestion de la maintenance sont conçus pour transformer les opérations de maintenance en un avantage concurrentiel stratégique.',
-    
+
     // Asset Management page
     'ASSET_MANAGEMENT': 'GESTION DES ACTIFS',
     'asset-management': 'Gestion des Actifs',
@@ -626,7 +686,7 @@ const translations = {
     'asset-management-service-3': 'Analyse Critique des Actifs',
     'asset-management-service-4': 'Audits de première et seconde partie (ISO 19011)',
     'asset-management-conclusion': 'Nos services de gestion des actifs sont conçus pour maximiser la valeur des investissements et garantir la durabilité opérationnelle à long terme.',
-    
+
     // CMMS & Process digitalization page
     'CMMS_DIGITALIZATION': 'CMMS ET DIGITALISATION DES PROCESSUS',
     'cmms-digitalization': 'CMMS et Digitalisation des Processus',
@@ -637,7 +697,7 @@ const translations = {
     'cmms-digitalization-service-2': 'Développement d\'Apps pour la Sécurité (ex. Near Miss, Gemba, Audit, etc)',
     'cmms-digitalization-service-3': 'Développement et/ou Support pour Applications logicielles pour la gestion de la Maintenance',
     'cmms-digitalization-conclusion': 'Nos solutions numériques transforment les processus traditionnels en systèmes efficaces, traçables et orientés vers l\'amélioration continue.',
-    
+
     // Industrial Safety page
     'INDUSTRIAL_SAFETY': 'SÉCURITÉ INDUSTRIELLE',
     'industrial-safety': 'Sécurité Industrielle',
@@ -652,7 +712,7 @@ const translations = {
     'industrial-safety-service-6': 'Audits internes de sécurité',
     'industrial-safety-service-7': 'Conseil personnalisé',
     'industrial-safety-conclusion': 'Nos services de sécurité industrielle sont conçus pour créer des environnements de travail sûrs, conformes aux réglementations et orientés vers la prévention.',
-    
+
     // Management Systems page
     'MANAGEMENT_SYSTEMS': 'SYSTÈMES DE GESTION ISO 9001/45001',
     'management-systems': 'Systèmes de Gestion ISO 9001/45001',
@@ -662,7 +722,7 @@ const translations = {
     'management-systems-service-1': 'Développement et mise en œuvre de Systèmes de Gestion selon ISO 9001/14001/45001',
     'management-systems-service-2': 'Développement et mise en œuvre de Systèmes de Gestion pour l\'Égalité des Sexes selon UNI/PdR 125',
     'management-systems-conclusion': 'Nos services pour les systèmes de gestion garantissent la conformité réglementaire, l\'amélioration continue et l\'excellence opérationnelle.',
-    
+
     // Training page
     'TRAINING': 'FORMATION',
     'training': 'Formation',
@@ -674,7 +734,7 @@ const translations = {
     'training-service-3': 'Cours de formation en Équipements et Machines : Directive Machines, Systèmes de Levage',
     'training-service-4': 'Cours de formation "Human Reliability and Human Errors"',
     'training-conclusion': 'Nos programmes de formation sont conçus pour développer des compétences techniques avancées et garantir la croissance professionnelle du personnel.',
-    
+
     // Footer
     'footer-text': '© 2022 McBalance. Tous droits réservés.'
   },
@@ -684,31 +744,46 @@ const translations = {
     'cosa-facciamo': 'Was wir tun',
     'nostre-competenze': 'Unsere Expertise',
     'carriere': 'Karrieren',
-    
+    'contattaci': 'Kontakt',
+
+    // Contact page
+    'contact-title': 'Kontakt',
+    'contact-description': 'Füllen Sie das Formular aus – wir melden uns in Kürze.',
+    'contact-name': 'Vor- und Nachname',
+    'contact-email': 'E-Mail',
+    'contact-company': 'Unternehmen (optional)',
+    'contact-subject': 'Betreff',
+    'contact-message': 'Nachricht',
+    'contact-consent': 'Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.',
+    'contact-send': 'Senden',
+    'contact-success': 'Danke! Ihre Nachricht wurde gesendet. Wir melden uns in Kürze.',
+    'contact-error': 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.',
+    'contact-or-email': 'Oder schreiben Sie uns direkt an',
+
     // Dropdown Chi siamo
     'nostra-storia': 'Unsere Geschichte',
-    
+
     // Dropdown Cosa facciamo
     'overview': 'Überblick',
     'settori': 'Branchen',
     'servizi': 'Dienstleistungen',
     'nostri-servizi': 'Unsere Dienstleistungen',
     'servizi-description': 'Innovative Lösungen für Unternehmenswachstum',
-    
+
     // Dropdown Competenze
     'competenze-tecniche': 'Technische Fähigkeiten',
     'trasformazione-digitale': 'Digitale Transformation',
     'sostenibilita': 'Nachhaltigkeit',
-    
+
     // Dropdown Carriere
     'opportunita-lavoro': 'Stellenangebote',
     'stage-tirocini': 'Praktika',
     'crescita-professionale': 'Berufliche Entwicklung',
-    
+
     // Hero Section
     'hero-title': 'Wir helfen Ihnen, in die Zukunft zu blicken!',
     'hero-subtitle': 'Denken, entwickeln, schaffen, wachsen, verändern und neue Herausforderungen in Gleichgewicht und Harmonie mit den Elementen angehen.',
-    
+
     // Mission Section (Homepage)
     'mission-title': 'Unsere Mission',
     'mission-p1': 'entstand, um professionelle Aktivitäten zu schaffen, die auf Innovation und kontinuierliche Verbesserung ausgerichtet sind.',
@@ -719,17 +794,17 @@ const translations = {
     'mission-p4': ', weil wir denken, dass wir Organisationen methodisch dabei helfen können, ihre und unsere Ziele zu erreichen.',
     'mission-we-are-here': 'Wir sind da',
     'mission-p5': 'Wir sehen gerne unsere Projekte und die Menschen, mit denen wir arbeiten, wachsen.',
-    
+
     // Chi siamo page
     'chi-siamo-text': 'McBalance entstand als Spin-off der Beratungs- und Ausbildungsaktivitäten der Gründungspartner, die sich seit Anfang der 2000er Jahre den Themen Wartung, Zuverlässigkeit und Sicherheit im industriellen Bereich sowohl national als auch international widmen.',
     'chi-siamo-card-description': 'Unsere Geschichte und unsere Werte',
-    
+
     // Overview page
     'overview-title': 'Unsere Methode',
     'overview-paragraph-1': 'Die Aktivitäten von McBalance zielen darauf ab, Unternehmen bei der Implementierung / Verbesserung / Entwicklung neuer Prozesse zu unterstützen und konfigurieren sich daher in den meisten Fällen als Beratungsaktivitäten, sowohl Management- als auch technische, und Schulungen, sowohl Management- als auch technische.',
     'overview-paragraph-2': 'Alle Aktivitäten, sowohl kurz- als auch mittel-langfristige, folgen den Prinzipien des kontinuierlichen verbesserungsorientierten Managements (siehe ISO 9001) und umfassen daher immer eine vorläufige Planungs- und Organisationsphase (PLAN) und nachfolgende Kontroll- und "Anpassungs"-Schritte während der Entwicklung oder Implementierung von Dienstleistungen. Insbesondere bevorzugen wir es, die angemessene Zeit dem Projektmanagement zu widmen und Beratungsprojekte mit einem spezifischen GANTT und Überprüfungs- / Verifizierungs- und Prüfungsmomente zu verfolgen.',
     'overview-paragraph-3': 'Für die Pharma- und Food-Sektoren werden in allen Phasen der Aktivitäten GMP- und/oder GXP-Anforderungen berücksichtigt und allgemein für jede Aktivität garantieren wir, was von gesetzlichen Vorschriften und ISO-, IEC-, EN-, UNI-, CEI-Standards, Unternehmenstechnischen Regeln und Referenz-Best-Practices gefordert wird.',
-    
+
     // Settori page
     'settori-title': 'Unsere Kompetenzbereiche',
     'settori-description': 'McBalance arbeitet mit konsolidierter Erfahrung in den folgenden Industriesektoren',
@@ -741,7 +816,7 @@ const translations = {
     'settore-educations': 'Bildung',
     'settore-compliance': 'Compliance & Management-Systeme',
     'settore-standards': 'Standards & Regulierung',
-    
+
     // Servizi page
     'servizi-title': 'Unsere Dienstleistungen',
     'servizio-reliability': 'Zuverlässigkeit',
@@ -751,7 +826,7 @@ const translations = {
     'servizio-industrial-safety': 'Industriesicherheit',
     'servizio-management-systems': 'Managementsysteme ISO 9001/45001',
     'servizio-training': 'Schulung',
-    
+
     // Reliability page
     'RELIABILITY': 'ZUVERLÄSSIGKEIT',
     'reliability': 'Zuverlässigkeit',
@@ -765,7 +840,7 @@ const translations = {
     'reliability-service-5': 'Systeme zur Messung und Überwachung von Zuverlässigkeitsparametern (MTTR, MDT, MTBF, MOTBF, Verfügbarkeit, OEE, etc)',
     'reliability-service-6': 'Studien zu menschlicher Zuverlässigkeit und menschlichen Fehlern',
     'reliability-conclusion': 'Unsere Studien und Lösungen sind darauf ausgelegt, Organisationen dabei zu helfen, ihre Anlagen kontinuierlich zu verbessern und maximale Sicherheit und Effizienz zu gewährleisten.',
-    
+
     // Maintenance Management page
     'MAINTENANCE_MANAGEMENT': 'WARTUNGSMANAGEMENT',
     'maintenance-management': 'Wartungsmanagement',
@@ -782,7 +857,7 @@ const translations = {
     'maintenance-management-service-8': 'Modelle für Personalkompetenzverwaltung',
     'maintenance-management-service-9': 'Budget-Management-Modelle',
     'maintenance-management-conclusion': 'Unsere Wartungsmanagement-Dienstleistungen sind darauf ausgelegt, Wartungsoperationen in einen strategischen Wettbewerbsvorteil zu verwandeln.',
-    
+
     // Asset Management page
     'ASSET_MANAGEMENT': 'ANLAGENMANAGEMENT',
     'asset-management': 'Anlagenmanagement',
@@ -794,7 +869,7 @@ const translations = {
     'asset-management-service-3': 'Kritische Anlagenanalyse',
     'asset-management-service-4': 'Erst- und Zweitparteien-Audits (ISO 19011)',
     'asset-management-conclusion': 'Unsere Anlagenmanagement-Dienstleistungen sind darauf ausgelegt, den Investitionswert zu maximieren und langfristige operative Nachhaltigkeit zu gewährleisten.',
-    
+
     // CMMS & Process digitalization page
     'CMMS_DIGITALIZATION': 'CMMS UND PROZESSDIGITALISIERUNG',
     'cmms-digitalization': 'CMMS und Prozessdigitalisierung',
@@ -805,7 +880,7 @@ const translations = {
     'cmms-digitalization-service-2': 'Entwicklung von Sicherheits-Apps (z.B. Near Miss, Gemba, Audit, etc)',
     'cmms-digitalization-service-3': 'Entwicklung und/oder Support für Softwareanwendungen für Wartungsmanagement',
     'cmms-digitalization-conclusion': 'Unsere digitalen Lösungen transformieren traditionelle Prozesse in effiziente, nachverfolgbare Systeme, die auf kontinuierliche Verbesserung ausgerichtet sind.',
-    
+
     // Industrial Safety page
     'INDUSTRIAL_SAFETY': 'INDUSTRIESICHERHEIT',
     'industrial-safety': 'Industriesicherheit',
@@ -820,7 +895,7 @@ const translations = {
     'industrial-safety-service-6': 'Interne Sicherheitsaudits',
     'industrial-safety-service-7': 'Personalisierte Beratung',
     'industrial-safety-conclusion': 'Unsere Industriesicherheitsdienstleistungen sind darauf ausgelegt, sichere Arbeitsumgebungen zu schaffen, die den Vorschriften entsprechen und präventionsorientiert sind.',
-    
+
     // Management Systems page
     'MANAGEMENT_SYSTEMS': 'MANAGEMENTSYSTEME ISO 9001/45001',
     'management-systems': 'Managementsysteme ISO 9001/45001',
@@ -830,7 +905,7 @@ const translations = {
     'management-systems-service-1': 'Entwicklung und Implementierung von Managementsystemen nach ISO 9001/14001/45001',
     'management-systems-service-2': 'Entwicklung und Implementierung von Managementsystemen für Geschlechtergleichstellung nach UNI/PdR 125',
     'management-systems-conclusion': 'Unsere Managementsystem-Dienstleistungen gewährleisten Regelkonformität, kontinuierliche Verbesserung und operative Exzellenz.',
-    
+
     // Training page
     'TRAINING': 'AUSBILDUNG',
     'training': 'Ausbildung',
@@ -842,7 +917,7 @@ const translations = {
     'training-service-3': 'Ausbildungskurse in Ausrüstung und Maschinen: Maschinenrichtlinie, Hebesysteme',
     'training-service-4': 'Ausbildungskurse "Human Reliability and Human Errors"',
     'training-conclusion': 'Unsere Ausbildungsprogramme sind darauf ausgelegt, fortgeschrittene technische Fähigkeiten zu entwickeln und die berufliche Entwicklung des Personals zu gewährleisten.',
-    
+
     // Footer
     'footer-text': '© 2022 McBalance. Alle Rechte vorbehalten.'
   }
