@@ -1,92 +1,58 @@
 'use client';
 
-import { useTranslation } from '../../context/TranslationContext';
-import { useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useTranslation } from '../context/TranslationContext';
 
-export default function ChiSiamoPage() {
+export default function Navbar() {
+  const pathname = usePathname();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    // Aggiungi classe per triggare animazioni
-    document.body.classList.add('page-loaded');
-    
-    // Animazione al scroll per elementi aggiuntivi (opzionale)
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Osserva elementi con animazione scroll
-    const elements = document.querySelectorAll('.scroll-animate');
-    elements.forEach(el => observer.observe(el));
-
-    return () => {
-      document.body.classList.remove('page-loaded');
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <>
-      {/* Small Hero Section - Titolo rimosso */}
-      <section className="small-hero animate-hero">
-        <div className="hero-overlay">
-          {/* Titolo rimosso */}
-        </div>
-      </section>
+    <header className="navbar">
+      <div className="logo">
+        <Link href="/">
+          <span>McBalance</span>
+        </Link>
+      </div>
+      
+      <nav className="main-nav">
+        <ul>
+          {/* Chi siamo - con submenu */}
+          <li className="nav-item dropdown">
+            <span className="nav-link">{t('chi-siamo')}</span>
+            <ul className="dropdown-menu">
+              <li className={`sidebar-item ${pathname === '/chi-siamo' ? 'active' : ''}`}>
+                <Link href="/chi-siamo">{t('la-nostra-storia')}</Link>
+              </li>
+              <li className={`sidebar-item ${pathname === '/chi-siamo/comitato' ? 'active' : ''}`}>
+                <Link href="/chi-siamo/comitato">{t('comitato')}</Link>
+              </li>
+            </ul>
+          </li>
 
-      {/* Content Section con immagine full width */}
-      <section id="chi-siamo-content" style={{ 
-        padding: 0, 
-        position: 'relative',
-        minHeight: '70vh',
-        backgroundImage: 'url(/img/electric-hand.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}>
-        {/* Overlay scuro per leggibilità */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%)'
-        }}></div>
-        
-        {/* Container per il testo */}
-        <div className="container" style={{ 
-          position: 'relative', 
-          minHeight: '70vh',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '80px 20px'
-        }}>
-          <div style={{
-            maxWidth: '700px',
-            color: 'white'
-          }}>
-            <p className="lead animate-fade-up delay-1" style={{ 
-              fontSize: '1.3rem',
-              lineHeight: '1.8',
-              textShadow: '2px 2px 6px rgba(0,0,0,0.9)',
-              fontWeight: '400'
-            }}>
-              {t('chi-siamo-text')}
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+          {/* Cosa facciamo - puoi adattarlo allo stesso modo */}
+          <li className="nav-item dropdown">
+            <span className="nav-link">{t('cosa-facciamo')}</span>
+            <ul className="dropdown-menu">
+              <li className={`sidebar-item ${pathname === '/servizi' ? 'active' : ''}`}>
+                <Link href="/servizi">{t('servizi')}</Link>
+              </li>
+              <li className={`sidebar-item ${pathname === '/settori' ? 'active' : ''}`}>
+                <Link href="/settori">{t('settori')}</Link>
+              </li>
+              <li className={`sidebar-item ${pathname === '/overview' ? 'active' : ''}`}>
+                <Link href="/overview">{t('overview')}</Link>
+              </li>
+            </ul>
+          </li>
+
+          {/* Contattaci */}
+          <li className={`nav-item ${pathname === '/contattaci' ? 'active' : ''}`}>
+            <Link href="/contattaci">{t('contattaci')}</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }
