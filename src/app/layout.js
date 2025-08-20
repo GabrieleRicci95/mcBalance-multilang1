@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { TranslationProvider } from '../..context/TranslationContext';
+import { TranslationProvider } from '../context/TranslationContext';
 
 export const metadata = {
   title: 'McBalance',
