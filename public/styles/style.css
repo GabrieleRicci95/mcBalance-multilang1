@@ -3419,3 +3419,36 @@ a.mobile-dropdown-item:hover {
 .deloitte-navbar a:focus {
   text-decoration: none;
 }
+.comitato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.comitato-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.comitato-card:hover {
+  transform: scale(1.02);
+}
+
+.comitato-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #333;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.comitato-info p {
+  margin: 0.5rem 0 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
