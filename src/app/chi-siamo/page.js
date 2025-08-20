@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from '../context/TranslationContext';
+import { useTranslation } from '../../../src/context/TranslationContext';
 
 export default function Navbar() {
   const pathname = usePathname();
