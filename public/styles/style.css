@@ -802,7 +802,7 @@ footer {
   border-left: 3px solid transparent;
 }
 
-.sidebar-item:hover a,
+.sidebar-item a:hover,
 .sidebar-item.active a {
   background-color: #3a3a3a;
   color: red;
