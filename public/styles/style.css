@@ -803,7 +803,7 @@ footer {
 }
 
 .sidebar-item a:hover,
-.sidebar-item.active a {
+.sidebar-item a.active {
   background-color: #3a3a3a;
   color: red;
   border-left-color: red;
