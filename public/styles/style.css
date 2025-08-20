@@ -3452,3 +3452,14 @@ a.mobile-dropdown-item:hover {
   color: #aaa;
   font-size: 0.9rem;
 }
+.sidebar-item a:hover {
+  background-color: #3a3a3a;
+  color: red;
+  border-left-color: red;
+}
+
+.sidebar-item.active a {
+  background-color: #3a3a3a;
+  color: red;
+  border-left-color: red;
+}
