@@ -125,6 +125,14 @@ export default function Navbar() {
                       >
                         {t('nostra-storia')}
                       </Link>
+                      <div className="sidebar-item">
+                        <Link
+                          href="/chi-siamo/comitato"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          Comitato tecnico scientifico e di indirizzo
+                        </Link>
+                      </div>
                     </div>
                   </div>
                   <div className="mega-center">
@@ -335,7 +343,13 @@ export default function Navbar() {
           >
             {t('chi-siamo')}
           </Link>
-
+          <Link
+            href="/chi-siamo/comitato"
+            className="mobile-menu-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Comitato tecnico scientifico e di indirizzo
+          </Link>
           <Link
             href="/overview"
             className="mobile-menu-link"
