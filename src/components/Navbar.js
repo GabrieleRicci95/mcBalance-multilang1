@@ -126,6 +126,16 @@ export default function Navbar() {
                         {t('nostra-storia')}
                       </Link>
                     </div>
+
+                    <div className="sidebar-item">
+                      <Link
+                        href="/comitato-scientifico"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Comitato tecnico scientifico di indirizzo
+                      </Link>
+                    </div>
+
                   </div>
                   <div className="mega-center">
                     <div className="mega-placeholder"></div>

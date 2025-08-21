@@ -8,82 +8,34 @@ export default function ChiSiamoPage() {
 
   useEffect(() => {
     // Aggiungi classe per triggare animazioni
-    document.body.classList.add('page-loaded');
-    
-    // Animazione al scroll per elementi aggiuntivi (opzionale)
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Osserva elementi con animazione scroll
-    const elements = document.querySelectorAll('.scroll-animate');
-    elements.forEach(el => observer.observe(el));
+    document.body.classList.add('chi-siamo-loaded');
 
     return () => {
-      document.body.classList.remove('page-loaded');
-      observer.disconnect();
+      document.body.classList.remove('chi-siamo-loaded');
     };
   }, []);
 
   return (
     <>
-      {/* Small Hero Section - Titolo rimosso */}
-      <section className="small-hero animate-hero">
-        <div className="hero-overlay">
-          {/* Titolo rimosso */}
+      {/* Hero Section con immagine di sfondo */}
+      <section className="hero-background chi-siamo-hero">
+        {/* Immagine di sfondo */}
+        <div className="hero-background-image">
+          <img src="/img/electric-hand.jpg" alt="Chi Siamo" />
         </div>
-      </section>
-
-      {/* Content Section con immagine full width */}
-      <section id="chi-siamo-content" style={{ 
-        padding: 0, 
-        position: 'relative',
-        minHeight: '70vh',
-        backgroundImage: 'url(/img/electric-hand.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}>
-        {/* Overlay scuro per leggibilità */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%)'
-        }}></div>
         
-        {/* Container per il testo */}
-        <div className="container" style={{ 
-          position: 'relative', 
-          minHeight: '70vh',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '80px 20px'
+        {/* Overlay scuro */}
+        <div className="hero-background-overlay"></div>
+        
+        {/* Contenuto sopra l'immagine - SENZA TITOLO */}
+        <div className="hero-background-content" style={{
+          maxWidth: '1400px',
+          width: '100%',
+          textAlign: 'left',
+          padding: '80px 40px 40px 40px'
         }}>
-          <div style={{
-            maxWidth: '700px',
-            color: 'white'
-          }}>
-            <p className="lead animate-fade-up delay-1" style={{ 
-              fontSize: '1.3rem',
-              lineHeight: '1.8',
-              textShadow: '2px 2px 6px rgba(0,0,0,0.9)',
-              fontWeight: '400'
-            }}>
-              {t('chi-siamo-text')}
-            </p>
+          <div className="chi-siamo-text chi-siamo-animate-text">
+            <p className="lead">{t('chi-siamo-text')}</p>
           </div>
         </div>
       </section>

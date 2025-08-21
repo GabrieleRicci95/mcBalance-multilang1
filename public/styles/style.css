@@ -3419,3 +3419,1517 @@ a.mobile-dropdown-item:hover {
 .deloitte-navbar a:focus {
   text-decoration: none;
 }
+/* Nasconde tutte le linee ::after rosse solo nella pagina Comitato Scientifico */
+body.no-title-line h1::after,
+body.no-title-line .section-title::after,
+body.no-title-line h2::after {
+  display: none !important;
+}
+/* ------------------------------------------- */
+/* ======================================================
+   HERO UNIVERSALE CON IMMAGINE DI SFONDO
+   (per tutte le pagine tranne homepage)
+   AGGIUNGI QUESTO ALLA FINE DI style.css
+====================================================== */
+
+/* Hero section con immagine di sfondo */
+.hero-background {
+  position: relative;
+  min-height: 85vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Immagine di sfondo full width */
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.2) brightness(0.7); /* Scurisce leggermente per leggibilità testo */
+}
+
+/* Overlay per migliorare leggibilità */
+.hero-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Overlay semi-trasparente */
+  z-index: 2;
+}
+
+/* Contenuto sopra l'immagine */
+.hero-background-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-background-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-background-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Animazione di entrata */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .hero-background {
+    min-height: 70vh;
+  }
+  
+  .hero-background-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-background-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-background-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-background-content p {
+    font-size: 1rem;
+  }
+}
+
+/* ======================================================
+   OVERRIDE PER PAGINA OVERVIEW
+====================================================== */
+
+/* Hero section specifica per Overview */
+.overview-hero {
+  min-height: 70vh !important; /* Ridotto per lasciare spazio */
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important; /* Allinea in alto invece che al centro */
+  justify-content: center;
+  padding-top: 60px; /* Spazio per la navbar */
+}
+
+/* Immagine di sfondo con attachment fixed per effetto parallasse */
+.overview-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.overview-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed; /* Solo l'immagine è fixed */
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.overview-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Contenuto */
+.overview-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem; /* Spazio dal top */
+}
+
+/* Testo con dimensioni ridotte */
+.overview-text {
+  text-align: left !important;
+  max-width: 900px;
+}
+
+.overview-text h2 {
+  font-size: 2rem !important; /* Ridotto da default */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+.overview-text p {
+  font-size: 1rem !important; /* Ridotto da 1.1rem */
+  line-height: 1.6 !important; /* Ridotto da 1.8 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+.overview-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Assicura che il body non nasconda il footer */
+body.overview-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.overview-loaded main {
+  flex: 1 0 auto;
+}
+
+body.overview-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .overview-hero {
+    min-height: 60vh !important;
+  }
+  
+  .overview-text h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .overview-text p {
+    font-size: 0.9rem !important;
+  }
+  
+  .overview-hero .hero-background-content {
+    padding: 60px 20px 20px 20px !important;
+  }
+}
+/* ------------------------------------------- */
+
+/* ======================================================
+   OVERRIDE PER PAGINA RELIABILITY
+====================================================== */
+
+/* Hero section specifica per Reliability */
+.reliability-hero {
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important; /* Rimuove qualsiasi sfondo */
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.reliability-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important; /* Assicura sfondo trasparente */
+}
+
+/* Immagine di sfondo con attachment fixed */
+.reliability-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.reliability-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.reliability-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.reliability-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important; /* Nessuno sfondo sul testo */
+}
+
+.reliability-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+.reliability-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Fix per il link Contattaci */
+.reliability-text a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.reliability-text a:hover {
+  color: #cccccc !important;
+}
+
+/* Lista con pallini bianchi */
+.reliability-text ul {
+  list-style-type: disc !important; /* Forza i pallini */
+  padding-left: 2rem !important; /* Aumenta l'indentazione */
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.reliability-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important; /* Assicura pallini su ogni li */
+  display: list-item !important; /* Forza il display list-item */
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.reliability-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.reliability-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body:has(.reliability-hero) {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(.reliability-hero) main {
+  flex: 1 0 auto;
+}
+
+body:has(.reliability-hero) footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reliability-hero {
+    min-height: auto !important;
+  }
+  
+  .reliability-text h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .reliability-text p,
+  .reliability-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .reliability-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   LINEA ROSSA SOTTO TITOLO AFFIDABILITÀ
+====================================================== */
+
+/* Aggiunge la linea rossa sotto il titolo */
+.reliability-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata */
+.reliability-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+/* Animazione della linea */
+@keyframes redLineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA ASSET MANAGEMENT
+====================================================== */
+
+/* Hero section specifica per Asset Management */
+.asset-management-hero {
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.asset-management-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.asset-management-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.asset-management-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.asset-management-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.asset-management-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+.asset-management-text h2 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.asset-management-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.asset-management-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi */
+.asset-management-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.asset-management-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.asset-management-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.asset-management-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.asset-management-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.asset-management-loaded main {
+  flex: 1 0 auto;
+}
+
+body.asset-management-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .asset-management-hero {
+    min-height: auto !important;
+  }
+  
+  .asset-management-text h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .asset-management-text p,
+  .asset-management-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .asset-management-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA INDUSTRIAL SAFETY
+====================================================== */
+
+/* Hero section specifica per Industrial Safety */
+.industrial-safety-hero {
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.industrial-safety-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.industrial-safety-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.industrial-safety-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.industrial-safety-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.industrial-safety-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+.industrial-safety-text h2 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.industrial-safety-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.industrial-safety-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi */
+.industrial-safety-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.industrial-safety-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.industrial-safety-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.industrial-safety-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.industrial-safety-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.industrial-safety-loaded main {
+  flex: 1 0 auto;
+}
+
+body.industrial-safety-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .industrial-safety-hero {
+    min-height: auto !important;
+  }
+  
+  .industrial-safety-text h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .industrial-safety-text p,
+  .industrial-safety-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .industrial-safety-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA TRAINING
+====================================================== */
+
+/* Hero section specifica per Training */
+.training-hero {
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.training-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.training-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.training-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.training-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.training-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+/* Nota: Training usa h1 invece di h2 */
+.training-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.training-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.training-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi */
+.training-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.training-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.training-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.training-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.training-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.training-loaded main {
+  flex: 1 0 auto;
+}
+
+body.training-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .training-hero {
+    min-height: auto !important;
+  }
+  
+  .training-text h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .training-text p,
+  .training-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .training-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA MAINTENANCE MANAGEMENT
+====================================================== */
+
+/* Hero section specifica per Maintenance Management */
+.maintenance-management-hero {
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.maintenance-management-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.maintenance-management-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.maintenance-management-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.maintenance-management-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.maintenance-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+/* Nota: Maintenance Management usa h1 */
+.maintenance-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.maintenance-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.maintenance-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi - 9 elementi */
+.maintenance-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.maintenance-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.maintenance-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.maintenance-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.maintenance-management-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.maintenance-management-loaded main {
+  flex: 1 0 auto;
+}
+
+body.maintenance-management-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maintenance-management-hero {
+    min-height: auto !important;
+  }
+  
+  .maintenance-text h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .maintenance-text p,
+  .maintenance-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .maintenance-management-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA CMMS DIGITALIZATION
+====================================================== */
+
+/* Hero section specifica per CMMS Digitalization */
+.cmms-digitalization-hero {
+  min-height: 70vh !important; /* Ridotto perché ha meno contenuto */
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.cmms-digitalization-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.cmms-digitalization-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cmms-digitalization-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.cmms-digitalization-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.cmms-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+/* CMMS usa h1 */
+.cmms-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.cmms-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.cmms-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi - solo 3 elementi */
+.cmms-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.cmms-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.cmms-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.cmms-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.cmms-digitalization-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.cmms-digitalization-loaded main {
+  flex: 1 0 auto;
+}
+
+body.cmms-digitalization-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cmms-digitalization-hero {
+    min-height: auto !important;
+  }
+  
+  .cmms-text h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .cmms-text p,
+  .cmms-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .cmms-digitalization-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA MANAGEMENT SYSTEMS
+====================================================== */
+
+/* Hero section specifica per Management Systems */
+.management-systems-hero {
+  min-height: 70vh !important; /* Ridotto perché ha meno contenuto */
+  position: relative !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.management-systems-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.management-systems-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.management-systems-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay */
+.management-systems-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Testo con dimensioni ridotte */
+.management-text {
+  text-align: left !important;
+  max-width: 900px;
+  background: transparent !important;
+}
+
+/* Management Systems usa h1 */
+.management-text h1 {
+  font-size: 2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 1.5rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.management-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+.management-text p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  text-align: left !important;
+  margin: 0 0 1rem 0;
+}
+
+/* Lista con pallini bianchi - solo 2 elementi */
+.management-text ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin: 1rem 0;
+  color: #ffffff !important;
+}
+
+.management-text ul li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  list-style-type: disc !important;
+  display: list-item !important;
+}
+
+/* Rimuove qualsiasi pseudo-elemento che potrebbe interferire */
+.management-text ul li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Colore dei pallini */
+.management-text ul li::marker {
+  color: #ffffff !important;
+}
+
+/* Assicura che il footer sia visibile */
+body.management-systems-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.management-systems-loaded main {
+  flex: 1 0 auto;
+}
+
+body.management-systems-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .management-systems-hero {
+    min-height: auto !important;
+  }
+  
+  .management-text h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .management-text p,
+  .management-text ul li {
+    font-size: 0.9rem !important;
+  }
+  
+  .management-systems-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER PAGINA CHI SIAMO
+   Aggiungi questo dopo il CSS generale nel file style.css
+====================================================== */
+
+/* Hero section specifica per Chi Siamo */
+.chi-siamo-hero {
+  min-height: 70vh !important;
+  position: relative !important;
+  display: flex;
+  align-items: center !important; /* Centra verticalmente il contenuto */
+  justify-content: center;
+  padding-top: 60px;
+  background: transparent !important;
+}
+
+/* Rimuove lo sfondo grigio dal contenuto */
+.chi-siamo-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  background: transparent !important;
+}
+
+/* Immagine di sfondo con attachment fixed */
+.chi-siamo-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.chi-siamo-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Overlay con gradiente */
+.chi-siamo-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%);
+  z-index: 2;
+}
+
+/* Testo Chi Siamo */
+.chi-siamo-text {
+  text-align: left !important;
+  max-width: 700px;
+  background: transparent !important;
+}
+
+.chi-siamo-text h1 {
+  font-size: 2.5rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: left !important;
+  margin: 0 0 2rem 0;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Linea rossa animata sotto il titolo */
+.chi-siamo-text h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ff0000;
+  animation: redLineExpand 1s ease-out 0.5s forwards;
+}
+
+/* Paragrafo lead con stile particolare */
+.chi-siamo-text .lead {
+  font-size: 1.3rem !important;
+  line-height: 1.8 !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  color: #ffffff !important;
+  text-align: left !important;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+
+/* Animazione fade in up */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Assicura che il footer sia visibile */
+body.chi-siamo-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.chi-siamo-loaded main {
+  flex: 1 0 auto;
+}
+
+body.chi-siamo-loaded footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chi-siamo-hero {
+    min-height: auto !important;
+    padding: 3rem 0;
+  }
+  
+  .chi-siamo-text h1 {
+    font-size: 2rem !important;
+  }
+  
+  .chi-siamo-text .lead {
+    font-size: 1.1rem !important;
+  }
+  
+  .chi-siamo-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}

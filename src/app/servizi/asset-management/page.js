@@ -7,47 +7,43 @@ export default function AssetManagementPage() {
 
   useEffect(() => {
     // Aggiungi classe per triggare animazioni
-    document.body.classList.add('page-loaded');
+    document.body.classList.add('asset-management-loaded');
 
     return () => {
-      document.body.classList.remove('page-loaded');
+      document.body.classList.remove('asset-management-loaded');
     };
   }, []);
 
   return (
     <>
-      {/* Small Hero Section */}
-      <section className="small-hero">
-        <div className="hero-overlay">
-          {/* Titolo rimosso */}
+      {/* Hero Section con immagine di sfondo */}
+      <section className="hero-background asset-management-hero">
+        {/* Immagine di sfondo */}
+        <div className="hero-background-image">
+          <img src="/img/marc-olivier.jpg" alt="Asset Management" />
         </div>
-      </section>
-
-      {/* Content Section */}
-      <section id="asset-management-content" className="py-5">
-        <div className="container">
-          <div className="overview-layout">
-            {/* Testo a sinistra */}
-            <div className="overview-text">
-              <h2>{t('ASSET_MANAGEMENT')}</h2>
-              <p>{t('asset-management-description')}</p>
-              <p>{t('asset-management-services-intro')}</p>
-              <ul>
-                <li>{t('asset-management-service-1')}</li>
-                <li>{t('asset-management-service-2')}</li>
-                <li>{t('asset-management-service-3')}</li>
-                <li>{t('asset-management-service-4')}</li>
-              </ul>
-              <p>{t('asset-management-conclusion')}</p>
-            </div>
-            
-            {/* Immagine a destra */}
-            <div className="overview-image-container">
-              <img
-                src="/img/marc-olivier.jpg"
-                alt="Asset Management"
-              />
-            </div>
+        
+        {/* Overlay scuro */}
+        <div className="hero-background-overlay"></div>
+        
+        {/* Contenuto sopra l'immagine */}
+        <div className="hero-background-content" style={{
+          maxWidth: '1400px',
+          width: '100%',
+          textAlign: 'left',
+          padding: '80px 40px 40px 40px'
+        }}>
+          <div className="asset-management-text asset-management-animate-text">
+            <h2>{t('ASSET_MANAGEMENT')}</h2>
+            <p>{t('asset-management-description')}</p>
+            <p>{t('asset-management-services-intro')}</p>
+            <ul>
+              <li>{t('asset-management-service-1')}</li>
+              <li>{t('asset-management-service-2')}</li>
+              <li>{t('asset-management-service-3')}</li>
+              <li>{t('asset-management-service-4')}</li>
+            </ul>
+            <p>{t('asset-management-conclusion')}</p>
           </div>
         </div>
       </section>
