@@ -5703,47 +5703,54 @@ p {
   }
 }
 /* ======================================================
-   RIMOZIONE FORZATA CONTATTACI SU MOBILE
+   FIX NAVBAR PER TUTTI I DISPOSITIVI MOBILI
 ====================================================== */
 
-@media (max-width: 768px) {
-  /* Riorganizza navbar */
-  .navbar-container,
-  .deloitte-navbar .navbar-container,
-  header .navbar-container {
+/* Per TUTTI i dispositivi mobili, incluso landscape */
+@media (max-width: 1024px) {
+  /* Struttura navbar */
+  .navbar-container {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     padding: 0 1rem !important;
   }
   
-  /* Logo a sinistra */
+  /* Logo sempre a sinistra */
   .navbar-brand {
     order: 1 !important;
-    flex: 0 0 auto !important;
   }
   
-  /* NASCONDE TUTTI I LINK CHE NON SONO IL LOGO */
-  .navbar-container > a:not(.navbar-brand),
-  .navbar-container > *:not(.navbar-brand):not(.mobile-menu-toggle),
-  header a[href*="contatt"],
-  header a:contains("Contattaci"),
-  .deloitte-navbar a[href*="contatt"] {
+  /* RIMUOVE Contattaci */
+  a[href="/contattaci"],
+  a[href="/contact"],
+  .navbar-container > a:not(.navbar-brand):not(.mobile-menu-toggle),
+  .navbar-container > a:nth-child(2),
+  .navbar-container > :nth-child(2):not(.mobile-menu-toggle) {
     display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
   }
   
-  /* Menu hamburger a destra */
+  /* Menu hamburger sempre visibile e a destra */
   .mobile-menu-toggle {
     display: flex !important;
-    order: 2 !important;
+    order: 3 !important;
     margin-left: auto !important;
+    flex-direction: column;
+    gap: 3px;
+    padding: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
   
-  /* Nasconde menu desktop e actions */
+  .mobile-menu-toggle span {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+  }
+  
+  /* Nasconde menu desktop */
   .navbar-menu,
   .navbar-actions,
   .dropdown {
@@ -5751,9 +5758,16 @@ p {
   }
 }
 
-/* Selettore estremo se ancora non funziona */
-@media (max-width: 768px) {
-  .navbar-container > *:nth-child(2):not(.mobile-menu-toggle) {
-    display: none !important;
+/* Fix specifico per portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+}
+
+/* Fix specifico per landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .mobile-menu-toggle {
+    display: flex !important;
   }
 }
