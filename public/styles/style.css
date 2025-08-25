@@ -5837,3 +5837,39 @@ p {
     visibility: visible !important;
   }
 }
+/* ======================================================
+   DEBUG E FIX MENU HAMBURGER
+====================================================== */
+
+@media (max-width: 1024px) {
+  /* Forza TUTTI i possibili selettori per il menu hamburger */
+  .mobile-menu-toggle,
+  .hamburger,
+  .menu-toggle,
+  .navbar-toggler,
+  .burger,
+  .mobile-toggle,
+  button[aria-label*="menu"],
+  button[aria-label*="Menu"],
+  [class*="menu-toggle"],
+  [class*="hamburger"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: rgba(255, 0, 0, 0.5) !important; /* Rosso semi-trasparente per debug */
+    border: 2px solid yellow !important; /* Bordo giallo per debug */
+    z-index: 99999 !important;
+  }
+  
+  /* Se usa un'icona SVG o FontAwesome */
+  .mobile-menu-toggle svg,
+  .mobile-menu-toggle i,
+  .navbar-toggler-icon {
+    display: block !important;
+    color: white !important;
+    font-size: 24px !important;
+  }
+}
