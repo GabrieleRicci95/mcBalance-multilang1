@@ -16,7 +16,7 @@ const translations = {
 
     // Contact page
     'contact-title': 'Contattaci',
-    'contact-description': 'Compila il modulo qui sotto: ti risponderemo al più presto.',
+    'contact-description': 'Compila il modulo qui sotto, ti risponderemo al più presto.',
     'contact-name': 'Nome e cognome',
     'contact-email': 'Email',
     'contact-company': 'Azienda (opzionale)',
@@ -27,6 +27,13 @@ const translations = {
     'contact-success': 'Grazie! Ti risponderemo al più presto.',
     'contact-error': 'Si è verificato un errore. Riprova tra poco.',
     'contact-or-email': 'Oppure scrivici direttamente a',
+
+    // Contact page - PLACEHOLDER
+    'contact-name-placeholder': 'Mario Rossi',
+    'contact-email-placeholder': 'nome@azienda.it',
+    'contact-company-placeholder': 'McBalance Srl',
+    'contact-subject-placeholder': 'Richiesta informazioni',
+    'contact-message-placeholder': 'Scrivi qui il tuo messaggio...',
 
     // Dropdown Chi siamo
     'nostra-storia': 'La nostra storia',
@@ -49,8 +56,8 @@ const translations = {
     'crescita-professionale': 'Crescita professionale',
 
     // Hero Section
-    'hero-title': 'Ti aiutiamo a guardare verso il futuro!',
-    'hero-subtitle': 'Pensare, sviluppare, creare, crescere, cambiare e affrontare nuove sfide in equilibrio e in armonia con gli elementi.',
+    'hero-title': 'Insieme per Innovare',
+    'hero-subtitle': 'Crescere e affrontare nuove sfide con equilibrio e metodo.',
 
     // Mission Section (Homepage)
     'mission-title': 'La nostra missione',
@@ -199,7 +206,7 @@ const translations = {
 
     // Contact page
     'contact-title': 'Contact us',
-    'contact-description': 'Fill in the form below and we will get back to you shortly.',
+    'contact-description': 'Fill in the form below, and we will get back to you shortly.',
     'contact-name': 'Full name',
     'contact-email': 'Email',
     'contact-company': 'Company (optional)',
@@ -210,6 +217,13 @@ const translations = {
     'contact-success': 'Thanks! Your message has been sent. We will get back to you soon.',
     'contact-error': 'Something went wrong. Please try again later.',
     'contact-or-email': 'Or write to us directly at',
+
+    // Contact page - PLACEHOLDER
+    'contact-name-placeholder': 'John Doe',
+    'contact-email-placeholder': 'name@company.com',
+    'contact-company-placeholder': 'McBalance Ltd',
+    'contact-subject-placeholder': 'Information request',
+    'contact-message-placeholder': 'Write your message here...',
 
     // Dropdown Chi siamo
     'nostra-storia': 'Our story',
@@ -232,8 +246,8 @@ const translations = {
     'crescita-professionale': 'Professional growth',
 
     // Hero Section
-    'hero-title': 'We help you look to the future!',
-    'hero-subtitle': 'Think, develop, create, grow, change and face new challenges in balance and harmony with the elements.',
+    'hero-title': 'Together for Innovation',
+    'hero-subtitle': 'Growing and facing new challenges with balance and method.',
 
     // Mission Section (Homepage)
     'mission-title': 'Our mission',
@@ -382,7 +396,7 @@ const translations = {
 
     // Contact page
     'contact-title': 'Contáctanos',
-    'contact-description': 'Completa el formulario y te responderemos lo antes posible.',
+    'contact-description': 'Completa el formulario, y te responderemos lo antes posible.',
     'contact-name': 'Nombre y apellidos',
     'contact-email': 'Email',
     'contact-company': 'Empresa (opcional)',
@@ -393,6 +407,13 @@ const translations = {
     'contact-success': '¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.',
     'contact-error': 'Se produjo un error. Inténtalo de nuevo más tarde.',
     'contact-or-email': 'O escríbenos directamente a',
+
+    // Contact page - PLACEHOLDER
+    'contact-name-placeholder': 'Juan Pérez',
+    'contact-email-placeholder': 'nombre@empresa.com',
+    'contact-company-placeholder': 'McBalance España',
+    'contact-subject-placeholder': 'Solicitud de información',
+    'contact-message-placeholder': 'Escribe aquí tu mensaje...',
 
     // Dropdown Chi siamo
     'nostra-storia': 'Nuestra historia',
@@ -415,8 +436,8 @@ const translations = {
     'crescita-professionale': 'Crecimiento profesional',
 
     // Hero Section
-    'hero-title': '¡Te ayudamos a mirar hacia el futuro!',
-    'hero-subtitle': 'Pensar, desarrollar, crear, crecer, cambiar y enfrentar nuevos desafíos en equilibrio y armonía con los elementos.',
+    'hero-title': 'Juntos para Innovar',
+    'hero-subtitle': 'Crecer y afrontar nuevos desafíos con equilibrio y método.',
 
     // Mission Section (Homepage)
     'mission-title': 'Nuestra misión',
@@ -565,7 +586,7 @@ const translations = {
 
     // Contact page
     'contact-title': 'Contactez-nous',
-    'contact-description': 'Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.',
+    'contact-description': 'Remplissez le formulaire ci-dessous, et nous vous répondrons rapidement.',
     'contact-name': 'Nom et prénom',
     'contact-email': 'Email',
     'contact-company': 'Entreprise (optionnel)',
@@ -576,6 +597,13 @@ const translations = {
     'contact-success': 'Merci ! Votre message a été envoyé. Nous vous répondrons très bientôt.',
     'contact-error': 'Une erreur est survenue. Veuillez réessayer plus tard.',
     'contact-or-email': 'Ou écrivez-nous directement à',
+
+    // Contact page - PLACEHOLDER
+    'contact-name-placeholder': 'Jean Dupont',
+    'contact-email-placeholder': 'nom@entreprise.fr',
+    'contact-company-placeholder': 'McBalance France',
+    'contact-subject-placeholder': 'Demande d\'information',
+    'contact-message-placeholder': 'Écrivez votre message ici...',
 
     // Dropdown Chi siamo
     'nostra-storia': 'Notre histoire',
@@ -598,8 +626,8 @@ const translations = {
     'crescita-professionale': 'Croissance professionnelle',
 
     // Hero Section
-    'hero-title': 'Nous vous aidons à regarder vers l\'avenir !',
-    'hero-subtitle': 'Penser, développer, créer, grandir, changer et relever de nouveaux défis en équilibre et en harmonie avec les éléments.',
+    'hero-title': 'Ensemble pour Innover',
+    'hero-subtitle': 'Grandir et relever de nouveaux défis avec équilibre et méthode.',
 
     // Mission Section (Homepage)
     'mission-title': 'Notre mission',
@@ -748,7 +776,7 @@ const translations = {
 
     // Contact page
     'contact-title': 'Kontakt',
-    'contact-description': 'Füllen Sie das Formular aus – wir melden uns in Kürze.',
+    'contact-description': 'Füllen Sie das Formular aus, wir melden uns in Kürze.',
     'contact-name': 'Vor- und Nachname',
     'contact-email': 'E-Mail',
     'contact-company': 'Unternehmen (optional)',
@@ -759,6 +787,13 @@ const translations = {
     'contact-success': 'Danke! Ihre Nachricht wurde gesendet. Wir melden uns in Kürze.',
     'contact-error': 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.',
     'contact-or-email': 'Oder schreiben Sie uns direkt an',
+
+    // Contact page - PLACEHOLDER
+    'contact-name-placeholder': 'Max Mustermann',
+    'contact-email-placeholder': 'name@unternehmen.de',
+    'contact-company-placeholder': 'McBalance Deutschland',
+    'contact-subject-placeholder': 'Informationsanfrage',
+    'contact-message-placeholder': 'Schreiben Sie hier Ihre Nachricht...',
 
     // Dropdown Chi siamo
     'nostra-storia': 'Unsere Geschichte',
@@ -781,8 +816,8 @@ const translations = {
     'crescita-professionale': 'Berufliche Entwicklung',
 
     // Hero Section
-    'hero-title': 'Wir helfen Ihnen, in die Zukunft zu blicken!',
-    'hero-subtitle': 'Denken, entwickeln, schaffen, wachsen, verändern und neue Herausforderungen in Gleichgewicht und Harmonie mit den Elementen angehen.',
+    'hero-title': 'Gemeinsam für Innovation',
+    'hero-subtitle': 'Wachsen und neue Herausforderungen mit Gleichgewicht und Methode meistern.',
 
     // Mission Section (Homepage)
     'mission-title': 'Unsere Mission',

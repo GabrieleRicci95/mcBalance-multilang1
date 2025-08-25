@@ -6,8 +6,11 @@ import { useEffect } from 'react';
 export default function HomePage() {
   const { t } = useTranslation();
 
-  // Animazione al scroll per la sezione Mission
   useEffect(() => {
+    // Aggiungi classe per triggare animazioni
+    document.body.classList.add('homepage-loaded');
+
+    // Animazione al scroll per la sezione Mission
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -100px 0px'
@@ -27,30 +30,80 @@ export default function HomePage() {
       paragraphs.forEach(p => observer.observe(p));
     }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      document.body.classList.remove('homepage-loaded');
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <>
-      {/* Hero Section with Image */}
-      <section className="hero-with-image">
-        <div className="container">
-          <div className="hero-content-wrapper">
-            {/* Testo centrato */}
-            <div className="hero-text-center">
-              <h1>{t('hero-title')}</h1>
-              <p>{t('hero-subtitle')}</p>
-            </div>
-            
-            {/* Immagine affiancata */}
-            <div className="hero-image">
-              <img 
-                src="/img/crystal-sphere.jpg" 
-                alt="Crystal sphere reflecting future" 
-                className="sphere-image"
-              />
-            </div>
-          </div>
+      {/* Hero Section con immagine di sfondo full */}
+      <section className="hero-fullscreen-bg" style={{ 
+        height: '100vh', 
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#000000',
+        overflow: 'hidden'
+      }}>
+        {/* Immagine di sfondo assoluta */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}>
+          <img 
+            src="/img/earth-space.png" 
+            alt="Earth from space showing city lights"
+            style={{ 
+              width: '120%',
+              height: '120%',
+              objectFit: 'contain',
+              objectPosition: 'center',
+              
+            }}
+          />
+        </div>
+
+        {/* Overlay leggero per migliorare leggibilità */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)',
+          zIndex: 2
+        }}></div>
+
+        {/* Testo a sinistra sopra l'immagine */}
+        <div style={{
+          position: 'relative',
+          zIndex: 3,
+          paddingLeft: '5rem',
+          maxWidth: '800px'
+        }}>
+          <h1 style={{ 
+            fontSize: '3.5rem', 
+            marginBottom: '1.5rem',
+            fontWeight: '700',
+            color: 'white',
+            textShadow: '2px 2px 6px rgba(0,0,0,0.9)'
+          }}>
+            {t('hero-title')}
+          </h1>
+          <p style={{ 
+            fontSize: '1.5rem',
+            lineHeight: '1.8',
+            color: 'white',
+            textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+          }}>
+            {t('hero-subtitle')}
+          </p>
         </div>
       </section>
 

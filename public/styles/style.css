@@ -3429,7 +3429,6 @@ body.no-title-line h2::after {
 /* ======================================================
    HERO UNIVERSALE CON IMMAGINE DI SFONDO
    (per tutte le pagine tranne homepage)
-   AGGIUNGI QUESTO ALLA FINE DI style.css
 ====================================================== */
 
 /* Hero section con immagine di sfondo */
@@ -3456,8 +3455,8 @@ body.no-title-line h2::after {
 .hero-background-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: contrast(1.2) brightness(0.7); /* Scurisce leggermente per leggibilità testo */
+  object-fit: contain;
+  filter: contrast(1.2) brightness(1); /* Scurisce leggermente per leggibilità testo */
 }
 
 /* Overlay per migliorare leggibilità */
@@ -4796,7 +4795,6 @@ body.management-systems-loaded footer {
 }
 /* ======================================================
    OVERRIDE PER PAGINA CHI SIAMO
-   Aggiungi questo dopo il CSS generale nel file style.css
 ====================================================== */
 
 /* Hero section specifica per Chi Siamo */
@@ -4931,5 +4929,698 @@ body.chi-siamo-loaded footer {
   
   .chi-siamo-hero .hero-background-content {
     padding: 60px 20px 40px 20px !important;
+  }
+}
+/* ======================================================
+   OVERRIDE PER HOMEPAGE
+====================================================== */
+
+/* Hero section specifica per Homepage */
+.homepage-hero {
+  min-height: 100vh !important; /* Altezza piena viewport */
+  position: relative !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  background: transparent !important;
+  overflow: hidden; /* Previene overflow */
+}
+
+/* Immagine di sfondo con attachment fixed */
+.homepage-hero .hero-background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Immagine del mondo - assicura che si veda tutta */
+.homepage-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important; /* Mostra tutta l'immagine */
+  object-position: center center !important; /* Centra l'immagine */
+}
+
+/* Overlay - molto leggero per non scurire ulteriormente */
+.homepage-hero .hero-background-overlay {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* Ridotto ancora di più */
+  z-index: 2;
+}
+
+/* Contenuto centrato per homepage */
+.homepage-hero .hero-background-content {
+  position: relative !important;
+  z-index: 3 !important;
+  text-align: center !important;
+}
+
+/* Wrapper per il testo hero */
+.hero-text-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-text-wrapper h1 {
+  font-size: 2.8rem !important;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* NO linea rossa sulla homepage - forza rimozione */
+.homepage-hero h1::after,
+.hero-text-wrapper h1::after,
+.homepage-loaded h1::after,
+.homepage-loaded .hero-text-wrapper h1::after {
+  display: none !important;
+  content: none !important;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem !important;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Animazione fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Assicura che il footer sia visibile */
+body.homepage-loaded {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.homepage-loaded main {
+  flex: 1 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .homepage-hero {
+    min-height: 70vh !important;
+  }
+  
+  .hero-text-wrapper h1 {
+    font-size: 2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .homepage-hero .hero-background-content {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+
+/* ======================================================
+   RIMUOVI LINEA ROSSA DALLA PAGINA CONTATTACI  
+====================================================== */
+
+.contact-heading h1::after {
+  display: none !important;
+}
+
+/* O se il selettore sopra non funziona, prova questo più specifico */
+.contact-page .contact-heading h1::after {
+  display: none !important;
+}
+
+/* ======================================================
+   PAGINA CONTATTACI - SFONDO SOLO SU QUESTA PAGINA
+====================================================== */
+
+/* RIMUOVI COMPLETAMENTE IL BACKGROUND DAL BODY GLOBALE */
+body {
+  background-image: none !important;
+  background-color: #000000 !important;
+}
+
+/* APPLICA L'IMMAGINE DI SFONDO SOLO ALLA SEZIONE CONTATTI */
+.contact-page {
+  background-image: url('/img/sfondo_contatti.jpg') !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 8rem 2rem 4rem 2rem !important;
+  min-height: 100vh !important;
+}
+
+/* Overlay con gradiente SOLO per la sezione contatti */
+.contact-page::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 0, 0, 0.3) 0%,     /* Trasparente per mostrare la foto */
+    rgba(0, 0, 0, 0.7) 70%,    /* Gradualmente più scuro */
+    rgba(0, 0, 0, 0.8) 100%    /* Scuro per il form */
+  ) !important;
+  z-index: -1 !important;
+}
+
+/* NASCONDI completamente la sezione hero */
+.contact-hero {
+  display: none !important;
+}
+
+/* RIMUOVI L'OVERLAY GLOBALE DEL BODY */
+body::before {
+  display: none !important;
+}
+
+/* Form PIÙ TRASPARENTE e PIÙ PICCOLO */
+.contact-card {
+  background: rgba(0, 0, 0, 0.25) !important; /* Molto trasparente */
+  backdrop-filter: blur(15px) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: scale(0.9) !important;
+}
+
+/* Rimuovi pseudo-elementi dal card */
+.contact-card::before,
+.contact-card::after {
+  display: none !important;
+}
+
+/* Header del form - PIÙ COMPATTO */
+.contact-card-header {
+  margin-bottom: 1.5rem !important;
+  text-align: left !important;
+  border: none !important;
+}
+
+.contact-card-header::before,
+.contact-card-header::after {
+  display: none !important;
+}
+
+.contact-card-header h1 {
+  font-size: 2rem !important;
+  color: white !important;
+  margin-bottom: 0.3rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+
+/* RIMUOVI LINEA ROSSA DAL TITOLO CONTATTI */
+.contact-card-header h1::before,
+.contact-card-header h1::after {
+  display: none !important;
+}
+
+.contact-card-header p {
+  font-size: 1rem !important;
+  color: #cccccc !important;
+  margin: 0 !important;
+}
+
+/* Footer per pagina contatti */
+.contact-page ~ footer {
+  background: rgba(0, 0, 0, 0.9) !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* ======================================================
+   RIMUOVI TUTTE LE RIGHE ROSSE DAI CAMPI
+====================================================== */
+
+/* Rimuovi bordi rossi da tutti gli elementi nella pagina contatti */
+.contact-page * {
+  border-color: transparent !important;
+}
+
+.contact-page *::before,
+.contact-page *::after {
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Sostituisci bordi rossi con bordi bianchi sui campi input */
+.contact-page input,
+.contact-page textarea,
+.contact-page select {
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: white !important;
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus,
+.contact-page select:focus {
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
+  outline: none !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Placeholder più leggibile */
+.contact-page input::placeholder,
+.contact-page textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Label più visibili */
+.contact-page label {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+/* Rimuovi elementi HR, divider, separator */
+.contact-page hr,
+.contact-page .divider,
+.contact-page .separator {
+  display: none !important;
+}
+
+/* Rimuovi pseudo-elementi dai form group */
+.contact-page .form-group::before,
+.contact-page .form-group::after {
+  display: none !important;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 6rem 1rem 3rem 1rem !important;
+  }
+  
+  .contact-card {
+    transform: scale(1) !important;
+    padding: 1.2rem !important;
+  }
+  
+  .contact-card-header h1 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* ======================================================
+   FIX POSIZIONE MONDO HOMEPAGE - MOSTRA TUTTO
+====================================================== */
+
+/* Se contain lascia spazi vuoti neri, aggiungi uno sfondo */
+.hero-with-image .hero-background-image {
+  background-color: #000000 !important; /* Sfondo nero per gli spazi vuoti */
+}
+
+/* Se l'immagine è troppo piccola con contain, aumenta l'altezza della hero */
+.hero-with-image {
+  min-height: 100vh !important; /* Altezza piena per dare più spazio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Assicura che l'immagine hero si veda completamente */
+.hero-with-image .hero-background-image img,
+.homepage-hero .hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important; /* Mostra tutta l'immagine senza tagliarla */
+  object-position: center center !important;
+}
+
+/* ======================================================
+   FIX FOOTER NERO PER HOMEPAGE - FORZATO
+====================================================== */
+
+/* FORZA il footer nero per homepage con massima specificità */
+html body:has(.hero-with-image) footer,
+html body:has(.hero-with-image) .site-footer,
+html body.homepage-loaded footer,
+html body.homepage-loaded .site-footer,
+html body footer.homepage-footer,
+html body .site-footer.homepage-footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* FORZA tutti i testi bianchi nel footer della homepage */
+html body:has(.hero-with-image) .site-footer *,
+html body:has(.hero-with-image) footer *,
+html body.homepage-loaded .site-footer *,
+html body.homepage-loaded footer *,
+html body footer.homepage-footer *,
+html body .site-footer.homepage-footer * {
+  color: #ffffff !important;
+}
+
+/* FORZA link bianchi nel footer homepage */
+html body:has(.hero-with-image) .site-footer a,
+html body:has(.hero-with-image) footer a,
+html body.homepage-loaded .site-footer a,
+html body.homepage-loaded footer a {
+  color: #ffffff !important;
+}
+
+/* FORZA icone social bianche per homepage */
+html body:has(.hero-with-image) .footer-social img,
+html body.homepage-loaded .footer-social img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* ALTERNATIVA: Se il selettore :has() non funziona, usa questo */
+.hero-with-image ~ footer,
+.hero-with-image ~ .site-footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.hero-with-image ~ footer *,
+.hero-with-image ~ .site-footer * {
+  color: #ffffff !important;
+}
+
+/* REGOLA BRUTALE: Footer nero per TUTTE le pagine che contengono 'hero-with-image' */
+body footer,
+body .site-footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Eccezione: Footer bianco solo per pagine specifiche che NON sono homepage */
+body:has(.small-hero) footer,
+body:has(.small-hero) .site-footer {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body:has(.small-hero) footer *,
+body:has(.small-hero) .site-footer * {
+  color: #000000 !important;
+}
+/* ======================================================
+   FIX SOLO PER IMMAGINE MONDO HOMEPAGE
+====================================================== */
+
+/* Applica le modifiche SOLO alla homepage con hero-with-image */
+body:has(.hero-with-image) .hero-with-image {
+  min-height: 100vh !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* Contenitore immagine SOLO per homepage */
+body:has(.hero-with-image) .hero-image {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+/* Immagine del mondo SOLO nella homepage */
+body:has(.hero-with-image) .hero-image .sphere-image {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Testo sopra l'immagine SOLO nella homepage */
+body:has(.hero-with-image) .hero-content-wrapper {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body:has(.hero-with-image) .hero-text-center {
+  background: rgba(0, 0, 0, 0.7) !important;
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+}
+
+/* Se :has() non funziona nel browser, usa questo approccio alternativo */
+.hero-with-image {
+  min-height: 100vh !important;
+  padding: 0 !important;
+}
+
+.hero-with-image .hero-image {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+.hero-with-image .hero-image .sphere-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.hero-with-image .hero-content-wrapper {
+  position: relative !important;
+  z-index: 2 !important;
+}
+/* ======================================================
+   HERO FULLSCREEN BACKGROUND - MONDO COMPLETO
+====================================================== */
+
+.hero-fullscreen-bg {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+/* Immagine di sfondo */
+.hero-fullscreen-bg > div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-fullscreen-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Overlay gradiente */
+.hero-fullscreen-bg > div:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  z-index: 2;
+}
+
+/* Contenuto testo */
+.hero-fullscreen-bg > div:last-child {
+  position: relative;
+  z-index: 3;
+  padding-left: 5rem;
+  max-width: 800px;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.hero-fullscreen-bg h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+}
+
+.hero-fullscreen-bg p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+}
+
+/* Animazioni */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 992px) {
+  .hero-fullscreen-bg > div:last-child {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+  .hero-fullscreen-bg h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-fullscreen-bg p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-fullscreen-bg > div:last-child {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .hero-fullscreen-bg h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-fullscreen-bg p {
+    font-size: 1.2rem;
+  }
+  
+  /* Gradiente più forte su mobile per leggibilità */
+  .hero-fullscreen-bg > div:nth-child(2) {
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-fullscreen-bg > div:last-child {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .hero-fullscreen-bg h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-fullscreen-bg p {
+    font-size: 1rem;
+  }
+}
+
+/* ======================================================
+   SUPPORTO PER SCHERMI ULTRAWIDE
+====================================================== */
+
+@media (min-aspect-ratio: 21/9) {
+  .hero-fullscreen-bg img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 21/9) {
+  .hero-fullscreen-bg img {
+    object-fit: contain;
+  }
+}
+
+/* Per schermi molto alti (telefoni in verticale) */
+@media (max-aspect-ratio: 9/16) {
+  .hero-fullscreen-bg img {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+}
+/* ======================================================
+   ANIMAZIONI GLOBALI UNIFORMI PER TUTTI I TITOLI
+====================================================== */
+
+/* Animazione universale per tutti i titoli */
+h1, h2, h3, h4, h5, h6 {
+  opacity: 1 !important; /* Cambiato da 0 a 1 */
+  animation: universalTitleFade 1s ease-out forwards !important;
+}
+
+/* Animazione universale */
+@keyframes universalTitleFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix specifico per hero fullscreen */
+.hero-fullscreen-bg h1 {
+  opacity: 1 !important;
+  animation: universalTitleFade 1s ease-out forwards !important;
+}
+
+/* Per i paragrafi - animazione uniforme */
+p {
+  opacity: 1 !important; /* Cambiato da 0 a 1 */
+  animation: universalTextFade 0.8s ease-out 0.4s forwards !important;
+}
+
+@keyframes universalTextFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
