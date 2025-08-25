@@ -5703,49 +5703,57 @@ p {
   }
 }
 /* ======================================================
-   FIX COMPLETO NAVBAR MOBILE
+   RIMOZIONE FORZATA CONTATTACI SU MOBILE
 ====================================================== */
 
 @media (max-width: 768px) {
-  /* Layout navbar mobile */
-  .navbar-container {
+  /* Riorganizza navbar */
+  .navbar-container,
+  .deloitte-navbar .navbar-container,
+  header .navbar-container {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width: 100% !important;
     padding: 0 1rem !important;
   }
   
-  /* Logo e testo McBalance a sinistra */
+  /* Logo a sinistra */
   .navbar-brand {
-    display: flex !important;
-    align-items: center !important;
     order: 1 !important;
-    margin-right: auto !important;
+    flex: 0 0 auto !important;
   }
   
-  /* Nasconde completamente Contattaci */
-  a[href="/contattaci"],
-  a[href="/contact"],
-  .nav-link:contains("Contattaci"),
-  .navbar-container > a:not(.navbar-brand):not(.mobile-menu-toggle) {
+  /* NASCONDE TUTTI I LINK CHE NON SONO IL LOGO */
+  .navbar-container > a:not(.navbar-brand),
+  .navbar-container > *:not(.navbar-brand):not(.mobile-menu-toggle),
+  header a[href*="contatt"],
+  header a:contains("Contattaci"),
+  .deloitte-navbar a[href*="contatt"] {
     display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
   }
   
-  /* Menu hamburger sempre a destra */
+  /* Menu hamburger a destra */
   .mobile-menu-toggle {
     display: flex !important;
     order: 2 !important;
     margin-left: auto !important;
   }
   
-  /* Nasconde il menu desktop */
-  .navbar-menu {
+  /* Nasconde menu desktop e actions */
+  .navbar-menu,
+  .navbar-actions,
+  .dropdown {
     display: none !important;
   }
-  
-  /* Nasconde altri elementi non necessari */
-  .navbar-actions {
+}
+
+/* Selettore estremo se ancora non funziona */
+@media (max-width: 768px) {
+  .navbar-container > *:nth-child(2):not(.mobile-menu-toggle) {
     display: none !important;
   }
 }
