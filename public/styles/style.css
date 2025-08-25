@@ -5703,38 +5703,49 @@ p {
   }
 }
 /* ======================================================
-   FIX NAVBAR MOBILE - MENU HAMBURGER E CONTATTACI
+   FIX COMPLETO NAVBAR MOBILE
 ====================================================== */
 
 @media (max-width: 768px) {
-  /* Assicura che il menu hamburger sia visibile */
-  .mobile-menu-toggle {
+  /* Layout navbar mobile */
+  .navbar-container {
     display: flex !important;
-    order: 2; /* Lo mette a destra */
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
   }
   
-  /* Nasconde SOLO il link Contattaci, non il menu */
-  a[href="/contattaci"]:not(.mobile-menu-toggle),
-  .navbar-container > a[href="/contattaci"],
-  .navbar-actions > a[href="/contattaci"] {
+  /* Logo e testo McBalance a sinistra */
+  .navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    order: 1 !important;
+    margin-right: auto !important;
+  }
+  
+  /* Nasconde completamente Contattaci */
+  a[href="/contattaci"],
+  a[href="/contact"],
+  .nav-link:contains("Contattaci"),
+  .navbar-container > a:not(.navbar-brand):not(.mobile-menu-toggle) {
     display: none !important;
   }
   
-  /* Riorganizza il layout navbar */
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Logo a sinistra */
-  .navbar-brand {
-    order: 1;
-  }
-  
-  /* Menu hamburger a destra */
+  /* Menu hamburger sempre a destra */
   .mobile-menu-toggle {
-    order: 2;
-    margin-left: auto;
+    display: flex !important;
+    order: 2 !important;
+    margin-left: auto !important;
+  }
+  
+  /* Nasconde il menu desktop */
+  .navbar-menu {
+    display: none !important;
+  }
+  
+  /* Nasconde altri elementi non necessari */
+  .navbar-actions {
+    display: none !important;
   }
 }
