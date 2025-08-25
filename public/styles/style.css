@@ -5702,3 +5702,38 @@ p {
     padding: 1.5rem !important;
   }
 }
+/* ======================================================
+   NASCONDE CONTATTACI SU MOBILE
+====================================================== */
+
+@media (max-width: 768px) {
+  /* Nasconde il link Contattaci nella navbar mobile */
+  .navbar-container a[href="/contattaci"],
+  .navbar-container a[href="/contact"],
+  .navbar-container a:contains("Contattaci"),
+  .navbar-menu a[href="/contattaci"],
+  .navbar-actions a[href="/contattaci"],
+  header a[href="/contattaci"] {
+    display: none !important;
+  }
+  
+  /* Se Contattaci è in una lista */
+  .navbar-menu li:has(a[href="/contattaci"]) {
+    display: none !important;
+  }
+  
+  /* Se ha una classe specifica */
+  .nav-link.contattaci,
+  .navbar-link.contattaci,
+  .contact-link {
+    display: none !important;
+  }
+}
+
+/* Mostra di nuovo su desktop */
+@media (min-width: 769px) {
+  .navbar-container a[href="/contattaci"],
+  .nav-link.contattaci {
+    display: inline-block !important;
+  }
+}
