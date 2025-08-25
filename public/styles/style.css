@@ -5703,37 +5703,25 @@ p {
   }
 }
 /* ======================================================
-   NASCONDE CONTATTACI SU MOBILE
+   RIMUOVE CONTATTACI DA NAVBAR MOBILE
 ====================================================== */
 
 @media (max-width: 768px) {
-  /* Nasconde il link Contattaci nella navbar mobile */
-  .navbar-container a[href="/contattaci"],
-  .navbar-container a[href="/contact"],
-  .navbar-container a:contains("Contattaci"),
-  .navbar-menu a[href="/contattaci"],
-  .navbar-actions a[href="/contattaci"],
-  header a[href="/contattaci"] {
+  /* Nasconde specificamente il link Contattaci */
+  .navbar-container > a:last-child,
+  .navbar-container > .navbar-link:last-child,
+  header nav > a:last-child,
+  header .navbar > a:last-child {
     display: none !important;
   }
   
-  /* Se Contattaci è in una lista */
-  .navbar-menu li:has(a[href="/contattaci"]) {
-    display: none !important;
+  /* Se è dentro un contenitore flex */
+  .navbar-container {
+    justify-content: space-between !important;
   }
   
-  /* Se ha una classe specifica */
-  .nav-link.contattaci,
-  .navbar-link.contattaci,
-  .contact-link {
+  /* Rimuove spazio extra */
+  .navbar-container > *:last-child:not(.mobile-menu-toggle) {
     display: none !important;
-  }
-}
-
-/* Mostra di nuovo su desktop */
-@media (min-width: 769px) {
-  .navbar-container a[href="/contattaci"],
-  .nav-link.contattaci {
-    display: inline-block !important;
   }
 }
