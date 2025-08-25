@@ -5624,3 +5624,72 @@ p {
     transform: translateY(0);
   }
 }
+/* ======================================================
+   MOBILE FIX - HERO HOMEPAGE
+====================================================== */
+
+@media (max-width: 768px) {
+  /* Hero section mobile */
+  .hero-fullscreen-bg {
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* Fix per Safari iOS */
+  }
+  
+  /* Immagine di sfondo mobile */
+  .hero-fullscreen-bg img {
+    width: auto !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    object-fit: cover !important; /* Cambia da contain a cover su mobile */
+    object-position: right center !important; /* Posiziona il mondo a destra */
+  }
+  
+  /* Gradiente più forte su mobile */
+  .hero-fullscreen-bg > div:nth-child(2) {
+    background: linear-gradient(
+      to right, 
+      rgba(0,0,0,0.9) 0%, 
+      rgba(0,0,0,0.7) 50%, 
+      rgba(0,0,0,0.4) 100%
+    ) !important;
+  }
+  
+  /* Testo mobile */
+  .hero-fullscreen-bg > div:last-child {
+    padding: 2rem !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-fullscreen-bg h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-fullscreen-bg p {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-fullscreen-bg h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero-fullscreen-bg p {
+    font-size: 1rem !important;
+  }
+  
+  .hero-fullscreen-bg > div:last-child {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Fix per iPhone notch */
+@supports (padding: max(0px)) {
+  .hero-fullscreen-bg {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+}
