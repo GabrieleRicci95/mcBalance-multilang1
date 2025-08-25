@@ -5703,25 +5703,38 @@ p {
   }
 }
 /* ======================================================
-   RIMUOVE CONTATTACI DA NAVBAR MOBILE
+   FIX NAVBAR MOBILE - MENU HAMBURGER E CONTATTACI
 ====================================================== */
 
 @media (max-width: 768px) {
-  /* Nasconde specificamente il link Contattaci */
-  .navbar-container > a:last-child,
-  .navbar-container > .navbar-link:last-child,
-  header nav > a:last-child,
-  header .navbar > a:last-child {
+  /* Assicura che il menu hamburger sia visibile */
+  .mobile-menu-toggle {
+    display: flex !important;
+    order: 2; /* Lo mette a destra */
+  }
+  
+  /* Nasconde SOLO il link Contattaci, non il menu */
+  a[href="/contattaci"]:not(.mobile-menu-toggle),
+  .navbar-container > a[href="/contattaci"],
+  .navbar-actions > a[href="/contattaci"] {
     display: none !important;
   }
   
-  /* Se è dentro un contenitore flex */
+  /* Riorganizza il layout navbar */
   .navbar-container {
-    justify-content: space-between !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  /* Rimuove spazio extra */
-  .navbar-container > *:last-child:not(.mobile-menu-toggle) {
-    display: none !important;
+  /* Logo a sinistra */
+  .navbar-brand {
+    order: 1;
+  }
+  
+  /* Menu hamburger a destra */
+  .mobile-menu-toggle {
+    order: 2;
+    margin-left: auto;
   }
 }
