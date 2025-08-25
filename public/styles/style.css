@@ -5838,38 +5838,87 @@ p {
   }
 }
 /* ======================================================
-   DEBUG E FIX MENU HAMBURGER
+   FIX NAVBAR MOBILE - VERSIONE CORRETTA
 ====================================================== */
 
 @media (max-width: 1024px) {
-  /* Forza TUTTI i possibili selettori per il menu hamburger */
-  .mobile-menu-toggle,
-  .hamburger,
-  .menu-toggle,
-  .navbar-toggler,
-  .burger,
-  .mobile-toggle,
-  button[aria-label*="menu"],
-  button[aria-label*="Menu"],
-  [class*="menu-toggle"],
-  [class*="hamburger"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    width: 40px !important;
-    height: 40px !important;
-    background-color: rgba(255, 0, 0, 0.5) !important; /* Rosso semi-trasparente per debug */
-    border: 2px solid yellow !important; /* Bordo giallo per debug */
-    z-index: 99999 !important;
+  /* Nasconde SOLO il link Contattaci nel desktop menu */
+  .navbar-container > .dropdown:has(a[href="/contattaci"]) {
+    display: none !important;
   }
   
-  /* Se usa un'icona SVG o FontAwesome */
-  .mobile-menu-toggle svg,
-  .mobile-menu-toggle i,
-  .navbar-toggler-icon {
-    display: block !important;
-    color: white !important;
-    font-size: 24px !important;
+  /* Assicura che il menu hamburger sia visibile */
+  .mobile-menu-toggle {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
+  
+  /* Nasconde il menu desktop */
+  .navbar-menu {
+    display: none !important;
+  }
+  
+  /* Nasconde il language selector desktop */
+  .desktop-language {
+    display: none !important;
+  }
+}
+
+/* Stili per il menu hamburger */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Animazione menu aperto */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu mobile */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a1a1a;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  display: block;
+  transform: translateX(0);
 }
