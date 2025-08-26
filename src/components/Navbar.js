@@ -1,14 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from '../context/TranslationContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [expandedSection, setExpandedSection] = useState(null);
-  const [mobileExpandedSection, setMobileExpandedSection] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null); // desktop mega dropdown
+  const [expandedSection, setExpandedSection] = useState(null); // desktop mega center
+  const [mobileExpandedSection, setMobileExpandedSection] = useState(null); // 'chi' | 'cosa' | null
+  const pathname = usePathname();
+
   const { t, changeLanguage } = useTranslation();
 
   const [selectedLanguage, setSelectedLanguage] = useState({
@@ -46,6 +49,13 @@ export default function Navbar() {
     'servizio-training'
   ];
 
+  // Chiudi il menu mobile quando cambi pagina
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setMobileExpandedSection(null);
+    setActiveDropdown(null);
+  }, [pathname]);
+
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
     if (menu === 'cosa-facciamo') setExpandedSection(null);
@@ -60,10 +70,6 @@ export default function Navbar() {
 
   const toggleSection = (section) => {
     setExpandedSection(expandedSection === section ? null : section);
-  };
-
-  const toggleMobileSection = (section) => {
-    setMobileExpandedSection(mobileExpandedSection === section ? null : section);
   };
 
   const getRightPanelContent = () => ({
@@ -97,19 +103,19 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Toggle mobile: POSIZIONATO QUI (fuori da .navbar-actions/.navbar-menu) */}
+        {/* Toggle mobile: fuori da .navbar-actions/.navbar-menu */}
         <button
           id="mobile-toggle"
           className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
           aria-label={isMenuOpen ? 'Chiudi menu' : 'Apri menu'}
-          aria-controls="mobile-menu"
+          aria-controls="mcb-mobile-menu"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span></span><span></span><span></span>
         </button>
 
-        {/* Menu desktop */}
+        {/* ===== DESKTOP MENU ===== */}
         <div className="navbar-menu left-menu">
           {/* Chi siamo */}
           <div className={`dropdown mega-dropdown ${activeDropdown === 'chi-siamo' ? 'active' : ''}`}>
@@ -243,7 +249,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Contattaci — link semplice a destra (desktop) */}
+        {/* Contattaci — link semplice (desktop a destra) */}
         <div className="dropdown mega-dropdown">
           <Link href="/contattaci" className="dropdown-toggle" onClick={() => setActiveDropdown(null)}>
             {t('contattaci')}
@@ -277,21 +283,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MENU MOBILE (clean) */}
+      {/* ===== MENU MOBILE PULITO (3 voci) ===== */}
       <div
-        id="mobile-menu"
+        id="mcb-mobile-menu"
         className={`mcb-mobile ${isMenuOpen ? 'open' : ''}`}
         role="dialog"
         aria-modal="true"
+        aria-label="Menu mobile"
       >
-        <nav className="mcb-m-list" aria-label="Menu mobile">
-
-          {/* Chi siamo */}
+        <nav className="mcb-m-list">
+          {/* Chi siamo (accordion) */}
           <button
             className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'chi' ? 'open' : ''}`}
-            onClick={() =>
-              setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')
-            }
+            onClick={() => setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')}
             aria-expanded={mobileExpandedSection === 'chi'}
             aria-controls="mcb-acc-chi"
             type="button"
@@ -310,12 +314,10 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Cosa facciamo */}
+          {/* Cosa facciamo (accordion) */}
           <button
             className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'cosa' ? 'open' : ''}`}
-            onClick={() =>
-              setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')
-            }
+            onClick={() => setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')}
             aria-expanded={mobileExpandedSection === 'cosa'}
             aria-controls="mcb-acc-cosa"
             type="button"
@@ -337,7 +339,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Contattaci */}
+          {/* Contattaci (link diretto) */}
           <Link
             href="/contattaci"
             className="mcb-m-item mcb-link"
