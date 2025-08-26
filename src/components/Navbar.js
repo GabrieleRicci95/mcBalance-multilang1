@@ -101,6 +101,18 @@ export default function Navbar() {
           </Link>
         </div>
 
+        {/* Toggle mobile spostato QUI */}
+        <button
+          id="mobile-toggle"
+          className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
+          aria-label={isMenuOpen ? 'Chiudi menu' : 'Apri menu'}
+          aria-controls="mobile-menu"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span></span><span></span><span></span>
+        </button>
+
         {/* Desktop Menu */}
         <div className="navbar-menu left-menu">
           {/* Chi siamo */}
@@ -119,23 +131,15 @@ export default function Navbar() {
                 <div className="mega-menu-content">
                   <div className="mega-sidebar mega-sidebar-dynamic">
                     <div className="sidebar-item">
-                      <Link
-                        href="/chi-siamo"
-                        onClick={() => setActiveDropdown(null)}
-                      >
+                      <Link href="/chi-siamo" onClick={() => setActiveDropdown(null)}>
                         {t('nostra-storia')}
                       </Link>
                     </div>
-
                     <div className="sidebar-item">
-                      <Link
-                        href="/comitato-scientifico"
-                        onClick={() => setActiveDropdown(null)}
-                      >
+                      <Link href="/comitato-scientifico" onClick={() => setActiveDropdown(null)}>
                         Comitato tecnico scientifico di indirizzo
                       </Link>
                     </div>
-
                   </div>
                   <div className="mega-center">
                     <div className="mega-placeholder"></div>
@@ -174,34 +178,18 @@ export default function Navbar() {
                 <div className="mega-menu-content">
                   <div className="mega-sidebar mega-sidebar-dynamic">
                     <div className="sidebar-item">
-                      <Link
-                        href="/overview"
-                        onClick={() => setActiveDropdown(null)}
-                      >
+                      <Link href="/overview" onClick={() => setActiveDropdown(null)}>
                         {t('overview')}
                       </Link>
                     </div>
                     <div className="sidebar-item">
                       <a
                         href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          toggleSection('settori');
-                        }}
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          width: '100%'
-                        }}
+                        onClick={(e) => { e.preventDefault(); toggleSection('settori'); }}
+                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
                       >
                         <span>{t('settori')}</span>
-                        <svg
-                          className={`sidebar-arrow ${expandedSection === 'settori' ? 'expanded' : ''}`}
-                          viewBox="0 0 24 24"
-                          width="14"
-                          height="14"
-                        >
+                        <svg className={`sidebar-arrow ${expandedSection === 'settori' ? 'expanded' : ''}`} viewBox="0 0 24 24" width="14" height="14">
                           <path d="M9 6l6 6-6 6z" fill="currentColor" />
                         </svg>
                       </a>
@@ -209,24 +197,11 @@ export default function Navbar() {
                     <div className="sidebar-item">
                       <a
                         href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          toggleSection('servizi');
-                        }}
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          width: '100%'
-                        }}
+                        onClick={(e) => { e.preventDefault(); toggleSection('servizi'); }}
+                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
                       >
                         <span>{t('servizi')}</span>
-                        <svg
-                          className={`sidebar-arrow ${expandedSection === 'servizi' ? 'expanded' : ''}`}
-                          viewBox="0 0 24 24"
-                          width="14"
-                          height="14"
-                        >
+                        <svg className={`sidebar-arrow ${expandedSection === 'servizi' ? 'expanded' : ''}`} viewBox="0 0 24 24" width="14" height="14">
                           <path d="M9 6l6 6-6 6z" fill="currentColor" />
                         </svg>
                       </a>
@@ -246,20 +221,13 @@ export default function Navbar() {
                     {expandedSection === 'servizi' && (
                       <div className="mega-services-list">
                         {serviziList.map((servizio, index) => (
-                          <Link
-                            key={index}
-                            href={getServiceLink(servizio)}
-                            className="mega-service-item-link"
-                            onClick={() => setActiveDropdown(null)}
-                          >
+                          <Link key={index} href={getServiceLink(servizio)} className="mega-service-item-link" onClick={() => setActiveDropdown(null)}>
                             {t(servizio)}
                           </Link>
                         ))}
                       </div>
                     )}
-                    {!expandedSection && (
-                      <div className="mega-placeholder"></div>
-                    )}
+                    {!expandedSection && <div className="mega-placeholder"></div>}
                   </div>
                   <div className="mega-right">
                     <div className="mega-card">
@@ -280,41 +248,24 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Contattaci — link semplice senza dropdown */}
+        {/* Contattaci — link semplice */}
         <div className="dropdown mega-dropdown">
-          <Link
-            href="/contattaci"
-            className="dropdown-toggle"
-            onClick={() => setActiveDropdown(null)}
-          >
+          <Link href="/contattaci" className="dropdown-toggle" onClick={() => setActiveDropdown(null)}>
             {t('contattaci')}
           </Link>
         </div>
 
         {/* Right Side Icons */}
         <div className="navbar-actions">
-          {/* Language Selector - Desktop */}
+          {/* Language Selector Desktop */}
           <div className="dropdown desktop-language">
-            <button
-              className="navbar-icon location dropdown-toggle"
-              onClick={() => toggleDropdown('language')}
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" fill="currentColor" />
-              </svg>
+            <button className="navbar-icon location dropdown-toggle" onClick={() => toggleDropdown('language')}>
               <span className="selected-flag">{selectedLanguage.flag}</span>
-              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
             </button>
             {activeDropdown === 'language' && (
               <div className="dropdown-menu language-menu">
                 {languages.map((language) => (
-                  <button
-                    key={language.code}
-                    className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
-                    onClick={() => selectLanguage(language)}
-                  >
+                  <button key={language.code} className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`} onClick={() => selectLanguage(language)}>
                     <span className="flag">{language.flag}</span>
                     <span>{language.name}</span>
                   </button>
@@ -322,68 +273,25 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+      <div id="mobile-menu" className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-content">
-          <Link
-            href="/chi-siamo"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('chi-siamo')}
-          </Link>
-
-          <Link
-            href="/overview"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('overview')}
-          </Link>
-
-          <Link
-            href="/contattaci"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('contattaci')}
-          </Link>
+          <Link href="/chi-siamo" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('chi-siamo')}</Link>
+          <Link href="/overview" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('overview')}</Link>
+          <Link href="/contattaci" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('contattaci')}</Link>
 
           {/* Settori Mobile Dropdown */}
           <div className="mobile-dropdown">
-            <button
-              className="mobile-dropdown-toggle"
-              onClick={() => toggleMobileSection('settori')}
-            >
+            <button className="mobile-dropdown-toggle" onClick={() => toggleMobileSection('settori')}>
               {t('settori')}
-              <svg
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'settori' ? 'expanded' : ''}`}
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
             </button>
             {mobileExpandedSection === 'settori' && (
               <div className="mobile-dropdown-content">
                 {settoriList.map((settore, index) => (
-                  <div key={index} className="mobile-dropdown-item">
-                    {t(settore)}
-                  </div>
+                  <div key={index} className="mobile-dropdown-item">{t(settore)}</div>
                 ))}
               </div>
             )}
@@ -391,29 +299,13 @@ export default function Navbar() {
 
           {/* Servizi Mobile Dropdown */}
           <div className="mobile-dropdown">
-            <button
-              className="mobile-dropdown-toggle"
-              onClick={() => toggleMobileSection('servizi')}
-            >
+            <button className="mobile-dropdown-toggle" onClick={() => toggleMobileSection('servizi')}>
               {t('servizi')}
-              <svg
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'servizi' ? 'expanded' : ''}`}
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
             </button>
             {mobileExpandedSection === 'servizi' && (
               <div className="mobile-dropdown-content">
                 {serviziList.map((servizio, index) => (
-                  <Link
-                    key={index}
-                    href={getServiceLink(servizio)}
-                    className="mobile-dropdown-item"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <Link key={index} href={getServiceLink(servizio)} className="mobile-dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     {t(servizio)}
                   </Link>
                 ))}
@@ -425,11 +317,7 @@ export default function Navbar() {
           <div className="mobile-language-selector">
             <div className="mobile-language-title">{t('seleziona-lingua')}</div>
             {languages.map((language) => (
-              <button
-                key={language.code}
-                className={`mobile-language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
-                onClick={() => selectLanguage(language)}
-              >
+              <button key={language.code} className={`mobile-language-option ${selectedLanguage.code === language.code ? 'active' : ''}`} onClick={() => selectLanguage(language)}>
                 <span className="flag">{language.flag}</span>
                 <span>{language.name}</span>
               </button>
