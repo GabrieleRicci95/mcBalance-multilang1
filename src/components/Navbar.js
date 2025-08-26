@@ -7,11 +7,10 @@ import { useTranslation } from '../context/TranslationContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null); // desktop mega dropdown
-  const [expandedSection, setExpandedSection] = useState(null); // desktop mega center
+  const [activeDropdown, setActiveDropdown] = useState(null);           // desktop mega dropdown
+  const [expandedSection, setExpandedSection] = useState(null);         // desktop mega center
   const [mobileExpandedSection, setMobileExpandedSection] = useState(null); // 'chi' | 'cosa' | null
   const pathname = usePathname();
-
   const { t, changeLanguage } = useTranslation();
 
   const [selectedLanguage, setSelectedLanguage] = useState({
@@ -49,12 +48,23 @@ export default function Navbar() {
     'servizio-training'
   ];
 
-  // Chiudi il menu mobile quando cambi pagina
+  // 1) Chiudi sempre il menu quando cambi pagina
   useEffect(() => {
     setIsMenuOpen(false);
     setMobileExpandedSection(null);
     setActiveDropdown(null);
   }, [pathname]);
+
+  // 2) Blocca/riabilita lo scroll del body quando il menu mobile è aperto
+  useEffect(() => {
+    const body = document.body;
+    if (isMenuOpen) {
+      body.classList.add('mcb-no-scroll');
+    } else {
+      body.classList.remove('mcb-no-scroll');
+    }
+    return () => body.classList.remove('mcb-no-scroll');
+  }, [isMenuOpen]);
 
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
@@ -103,7 +113,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Toggle mobile: fuori da .navbar-actions/.navbar-menu */}
+        {/* Toggle mobile */}
         <button
           id="mobile-toggle"
           className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
@@ -140,9 +150,7 @@ export default function Navbar() {
                       </Link>
                     </div>
                   </div>
-                  <div className="mega-center">
-                    <div className="mega-placeholder"></div>
-                  </div>
+                  <div className="mega-center"><div className="mega-placeholder"></div></div>
                   <div className="mega-right">
                     <div className="mega-card">
                       <div className="mega-card-icon">
@@ -249,17 +257,17 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Contattaci — link semplice (desktop a destra) */}
+        {/* Contattaci (desktop) */}
         <div className="dropdown mega-dropdown">
           <Link href="/contattaci" className="dropdown-toggle" onClick={() => setActiveDropdown(null)}>
             {t('contattaci')}
           </Link>
         </div>
 
-        {/* Area destra (lingue desktop) */}
+        {/* Lingue desktop */}
         <div className="navbar-actions">
           <div className="dropdown desktop-language">
-            <button className="navbar-icon location dropdown-toggle" onClick={() => toggleDropdown('language')}>
+            <button className="navbar-icon location dropdown-toggle" onClick={() => setActiveDropdown('language')}>
               <span className="selected-flag">{selectedLanguage.flag}</span>
               <svg className="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
@@ -283,7 +291,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ===== MENU MOBILE PULITO (3 voci) ===== */}
+      {/* ===== MENU MOBILE (3 voci) ===== */}
       <div
         id="mcb-mobile-menu"
         className={`mcb-mobile ${isMenuOpen ? 'open' : ''}`}
@@ -292,7 +300,7 @@ export default function Navbar() {
         aria-label="Menu mobile"
       >
         <nav className="mcb-m-list">
-          {/* Chi siamo (accordion) */}
+          {/* Chi siamo */}
           <button
             className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'chi' ? 'open' : ''}`}
             onClick={() => setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')}
@@ -314,7 +322,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Cosa facciamo (accordion) */}
+          {/* Cosa facciamo */}
           <button
             className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'cosa' ? 'open' : ''}`}
             onClick={() => setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')}
@@ -339,12 +347,11 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Contattaci (link diretto) */}
+          {/* Contattaci */}
           <Link
             href="/contattaci"
             className="mcb-m-item mcb-link"
             onClick={() => setIsMenuOpen(false)}
-            data-test="mobile-contattaci"
           >
             {t('contattaci') || 'Contattaci'}
           </Link>
