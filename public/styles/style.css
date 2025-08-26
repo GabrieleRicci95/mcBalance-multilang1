@@ -5945,3 +5945,52 @@ p {
     border-bottom: 1px solid #333;
   }
 }
+/* ===== Mobile menu: accordions ===== */
+.mobile-accordion { border-bottom: 1px solid #333; }
+
+.mobile-accordion-toggle {
+  width: 100%;
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-accordion-toggle .acc-caret {
+  transition: transform .2s ease;
+}
+.mobile-accordion-toggle.open .acc-caret {
+  transform: rotate(180deg);
+}
+
+.mobile-accordion-panel {
+  padding: 0 8px 8px 8px;
+}
+
+.mobile-subitem,
+.mobile-menu-link {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mobile-subitem { opacity: .95; }
+.mobile-subitem:hover,
+.mobile-menu-link:hover { background: #222; }
+
+/* Forza visibilità di "Contattaci" se qualche regola lo nasconde */
+@media (max-width:1024px){
+  .mobile-menu .mobile-menu-link-contattaci {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #fff !important;
+    pointer-events: auto !important;
+  }
+}

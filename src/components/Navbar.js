@@ -280,101 +280,66 @@ export default function Navbar() {
       {/* MENU MOBILE */}
       <div id="mobile-menu" className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-content">
-          {/* Link diretti */}
-          <Link
-            href="/chi-siamo"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('chi-siamo') || 'Chi siamo'}
-          </Link>
 
-          {/* Comitato – voce dedicata in mobile */}
-          <Link
-            href="/comitato-scientifico"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-            data-test="mobile-comitato"
-          >
-            {t('comitato-tecnico-scientifico') || 'Comitato tecnico scientifico di indirizzo'}
-          </Link>
+          {/* === Chi siamo (accordion) === */}
+          <div className="mobile-accordion">
+            <button
+              className={`mobile-accordion-toggle ${mobileExpandedSection === 'chi' ? 'open' : ''}`}
+              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')}
+              aria-expanded={mobileExpandedSection === 'chi'}
+              aria-controls="acc-chi"
+            >
+              {t('chi-siamo') || 'Chi siamo'}
+              <span className="acc-caret" aria-hidden>▾</span>
+            </button>
+            {mobileExpandedSection === 'chi' && (
+              <div id="acc-chi" className="mobile-accordion-panel">
+                <Link href="/chi-siamo" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
+                  {t('nostra-storia') || 'La nostra storia'}
+                </Link>
+                <Link href="/comitato-scientifico" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
+                  {t('comitato-tecnico-scientifico') || 'Comitato tecnico scientifico di indirizzo'}
+                </Link>
+              </div>
+            )}
+          </div>
 
-          <Link
-            href="/overview"
-            className="mobile-menu-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('overview') || 'Panoramica'}
-          </Link>
+          {/* === Cosa facciamo (accordion) === */}
+          <div className="mobile-accordion">
+            <button
+              className={`mobile-accordion-toggle ${mobileExpandedSection === 'cosa' ? 'open' : ''}`}
+              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')}
+              aria-expanded={mobileExpandedSection === 'cosa'}
+              aria-controls="acc-cosa"
+            >
+              {t('cosa-facciamo') || 'Cosa facciamo'}
+              <span className="acc-caret" aria-hidden>▾</span>
+            </button>
+            {mobileExpandedSection === 'cosa' && (
+              <div id="acc-cosa" className="mobile-accordion-panel">
+                <Link href="/overview" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
+                  {t('overview') || 'Panoramica'}
+                </Link>
+                <Link href="/settori" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
+                  {t('settori') || 'Settori'}
+                </Link>
+                <Link href="/servizi" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
+                  {t('servizi') || 'Servizi'}
+                </Link>
+              </div>
+            )}
+          </div>
 
-          {/* >>> CONTATTACI (forzato con fallback) <<< */}
+          {/* === Contattaci (link diretto) === */}
           <Link
             href="/contattaci"
             className="mobile-menu-link mobile-menu-link-contattaci"
             onClick={() => setIsMenuOpen(false)}
-            data-test="mobile-contattaci"
           >
             {t('contattaci') || 'Contattaci'}
           </Link>
 
-          {/* Dropdown Settori */}
-          <div className="mobile-dropdown">
-            <button
-              className="mobile-dropdown-toggle"
-              onClick={() => toggleMobileSection('settori')}
-            >
-              {t('settori') || 'Settori'}
-              <svg
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'settori' ? 'expanded' : ''}`}
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
-            </button>
-            {mobileExpandedSection === 'settori' && (
-              <div className="mobile-dropdown-content">
-                {settoriList.map((settore, index) => (
-                  <div key={index} className="mobile-dropdown-item">{t(settore)}</div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Dropdown Servizi */}
-          <div className="mobile-dropdown">
-            <button
-              className="mobile-dropdown-toggle"
-              onClick={() => toggleMobileSection('servizi')}
-            >
-              {t('servizi') || 'Servizi'}
-              <svg
-                className={`mobile-dropdown-arrow ${mobileExpandedSection === 'servizi' ? 'expanded' : ''}`}
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-              >
-                <path d="M7 10l5 5 5-5z" fill="currentColor" />
-              </svg>
-            </button>
-            {mobileExpandedSection === 'servizi' && (
-              <div className="mobile-dropdown-content">
-                {serviziList.map((servizio, index) => (
-                  <Link
-                    key={index}
-                    href={getServiceLink(servizio)}
-                    className="mobile-dropdown-item"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {t(servizio)}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Selettore lingua mobile */}
+          {/* === Selettore lingua === */}
           <div className="mobile-language-selector">
             <div className="mobile-language-title">{t('seleziona-lingua') || 'Seleziona lingua'}</div>
             {languages.map((language) => (
