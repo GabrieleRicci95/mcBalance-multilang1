@@ -289,6 +289,16 @@ export default function Navbar() {
             {t('chi-siamo') || 'Chi siamo'}
           </Link>
 
+          {/* Comitato – voce dedicata in mobile */}
+          <Link
+            href="/comitato-scientifico"
+            className="mobile-menu-link"
+            onClick={() => setIsMenuOpen(false)}
+            data-test="mobile-comitato"
+          >
+            {t('comitato-tecnico-scientifico') || 'Comitato tecnico scientifico di indirizzo'}
+          </Link>
+
           <Link
             href="/overview"
             className="mobile-menu-link"
@@ -297,7 +307,7 @@ export default function Navbar() {
             {t('overview') || 'Panoramica'}
           </Link>
 
-          {/* >>> CONTATTACI con fallback testuale <<< */}
+          {/* >>> CONTATTACI (forzato con fallback) <<< */}
           <Link
             href="/contattaci"
             className="mobile-menu-link mobile-menu-link-contattaci"

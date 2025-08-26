@@ -5930,3 +5930,18 @@ p {
   border-bottom: 1px solid #333;
 }
 .mobile-menu-link:hover { background: #222; }
+
+@media (max-width:1024px){
+  .mobile-menu .mobile-menu-link[href="/contattaci"],
+  .mobile-menu a[href="/contattaci"],
+  .mobile-menu .mobile-menu-link-contattaci {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #fff !important;
+    pointer-events: auto !important;
+    height: auto !important;
+    padding: 14px 20px;
+    border-bottom: 1px solid #333;
+  }
+}
