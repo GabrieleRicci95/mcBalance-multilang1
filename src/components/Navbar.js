@@ -9,7 +9,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedSection, setExpandedSection] = useState(null);
   const [mobileExpandedSection, setMobileExpandedSection] = useState(null);
-  const { t, currentLanguage, changeLanguage } = useTranslation();
+  const { t, changeLanguage } = useTranslation();
 
   const [selectedLanguage, setSelectedLanguage] = useState({
     code: 'it',
@@ -48,9 +48,7 @@ export default function Navbar() {
 
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
-    if (menu === 'cosa-facciamo') {
-      setExpandedSection(null);
-    }
+    if (menu === 'cosa-facciamo') setExpandedSection(null);
   };
 
   const selectLanguage = (language) => {
@@ -68,12 +66,10 @@ export default function Navbar() {
     setMobileExpandedSection(mobileExpandedSection === section ? null : section);
   };
 
-  const getRightPanelContent = () => {
-    return {
-      title: t('nostri-servizi'),
-      description: t('servizi-description')
-    };
-  };
+  const getRightPanelContent = () => ({
+    title: t('nostri-servizi'),
+    description: t('servizi-description')
+  });
 
   const getServiceLink = (servizio) => {
     const links = {
@@ -101,7 +97,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Toggle mobile spostato QUI */}
+        {/* Toggle mobile: POSIZIONATO QUI (fuori da .navbar-actions/.navbar-menu) */}
         <button
           id="mobile-toggle"
           className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
@@ -113,14 +109,11 @@ export default function Navbar() {
           <span></span><span></span><span></span>
         </button>
 
-        {/* Desktop Menu */}
+        {/* Menu desktop */}
         <div className="navbar-menu left-menu">
           {/* Chi siamo */}
           <div className={`dropdown mega-dropdown ${activeDropdown === 'chi-siamo' ? 'active' : ''}`}>
-            <button
-              className="dropdown-toggle"
-              onClick={() => toggleDropdown('chi-siamo')}
-            >
+            <button className="dropdown-toggle" onClick={() => toggleDropdown('chi-siamo')}>
               {t('chi-siamo')}
               <svg className="dropdown-arrow" viewBox="0 0 24 24" width="20" height="20">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
@@ -164,10 +157,7 @@ export default function Navbar() {
 
           {/* Cosa facciamo */}
           <div className={`dropdown mega-dropdown ${activeDropdown === 'cosa-facciamo' ? 'active' : ''}`}>
-            <button
-              className="dropdown-toggle"
-              onClick={() => toggleDropdown('cosa-facciamo')}
-            >
+            <button className="dropdown-toggle" onClick={() => toggleDropdown('cosa-facciamo')}>
               {t('cosa-facciamo')}
               <svg className="dropdown-arrow" viewBox="0 0 24 24" width="20" height="20">
                 <path d="M7 10l5 5 5-5z" fill="currentColor" />
@@ -221,7 +211,12 @@ export default function Navbar() {
                     {expandedSection === 'servizi' && (
                       <div className="mega-services-list">
                         {serviziList.map((servizio, index) => (
-                          <Link key={index} href={getServiceLink(servizio)} className="mega-service-item-link" onClick={() => setActiveDropdown(null)}>
+                          <Link
+                            key={index}
+                            href={getServiceLink(servizio)}
+                            className="mega-service-item-link"
+                            onClick={() => setActiveDropdown(null)}
+                          >
                             {t(servizio)}
                           </Link>
                         ))}
@@ -248,24 +243,30 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Contattaci — link semplice */}
+        {/* Contattaci — link semplice a destra (desktop) */}
         <div className="dropdown mega-dropdown">
           <Link href="/contattaci" className="dropdown-toggle" onClick={() => setActiveDropdown(null)}>
             {t('contattaci')}
           </Link>
         </div>
 
-        {/* Right Side Icons */}
+        {/* Area destra (lingue desktop) */}
         <div className="navbar-actions">
-          {/* Language Selector Desktop */}
           <div className="dropdown desktop-language">
             <button className="navbar-icon location dropdown-toggle" onClick={() => toggleDropdown('language')}>
               <span className="selected-flag">{selectedLanguage.flag}</span>
+              <svg className="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M7 10l5 5 5-5z" fill="currentColor" />
+              </svg>
             </button>
             {activeDropdown === 'language' && (
               <div className="dropdown-menu language-menu">
                 {languages.map((language) => (
-                  <button key={language.code} className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`} onClick={() => selectLanguage(language)}>
+                  <button
+                    key={language.code}
+                    className={`language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
+                    onClick={() => selectLanguage(language)}
+                  >
                     <span className="flag">{language.flag}</span>
                     <span>{language.name}</span>
                   </button>
@@ -276,17 +277,29 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MENU MOBILE */}
       <div id="mobile-menu" className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-content">
-          <Link href="/chi-siamo" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('chi-siamo')}</Link>
-          <Link href="/overview" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('overview')}</Link>
-          <Link href="/contattaci" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>{t('contattaci')}</Link>
+          {/* Link diretti */}
+          <Link href="/chi-siamo" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>
+            {t('chi-siamo')}
+          </Link>
 
-          {/* Settori Mobile Dropdown */}
+          <Link href="/overview" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>
+            {t('overview')}
+          </Link>
+
+          <Link href="/contattaci" className="mobile-menu-link" onClick={() => setIsMenuOpen(false)}>
+            {t('contattaci')}
+          </Link>
+
+          {/* Dropdown Settori */}
           <div className="mobile-dropdown">
             <button className="mobile-dropdown-toggle" onClick={() => toggleMobileSection('settori')}>
               {t('settori')}
+              <svg className={`mobile-dropdown-arrow ${mobileExpandedSection === 'settori' ? 'expanded' : ''}`} viewBox="0 0 24 24" width="20" height="20">
+                <path d="M7 10l5 5 5-5z" fill="currentColor" />
+              </svg>
             </button>
             {mobileExpandedSection === 'settori' && (
               <div className="mobile-dropdown-content">
@@ -297,15 +310,23 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Servizi Mobile Dropdown */}
+          {/* Dropdown Servizi */}
           <div className="mobile-dropdown">
             <button className="mobile-dropdown-toggle" onClick={() => toggleMobileSection('servizi')}>
               {t('servizi')}
+              <svg className={`mobile-dropdown-arrow ${mobileExpandedSection === 'servizi' ? 'expanded' : ''}`} viewBox="0 0 24 24" width="20" height="20">
+                <path d="M7 10l5 5 5-5z" fill="currentColor" />
+              </svg>
             </button>
             {mobileExpandedSection === 'servizi' && (
               <div className="mobile-dropdown-content">
                 {serviziList.map((servizio, index) => (
-                  <Link key={index} href={getServiceLink(servizio)} className="mobile-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                  <Link
+                    key={index}
+                    href={getServiceLink(servizio)}
+                    className="mobile-dropdown-item"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     {t(servizio)}
                   </Link>
                 ))}
@@ -317,7 +338,11 @@ export default function Navbar() {
           <div className="mobile-language-selector">
             <div className="mobile-language-title">{t('seleziona-lingua')}</div>
             {languages.map((language) => (
-              <button key={language.code} className={`mobile-language-option ${selectedLanguage.code === language.code ? 'active' : ''}`} onClick={() => selectLanguage(language)}>
+              <button
+                key={language.code}
+                className={`mobile-language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
+                onClick={() => selectLanguage(language)}
+              >
                 <span className="flag">{language.flag}</span>
                 <span>{language.name}</span>
               </button>
