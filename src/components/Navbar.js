@@ -277,83 +277,76 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MENU MOBILE */}
-      <div id="mobile-menu" className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
-        <div className="mobile-menu-content">
+      {/* MENU MOBILE (clean) */}
+      <div
+        id="mobile-menu"
+        className={`mcb-mobile ${isMenuOpen ? 'open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+      >
+        <nav className="mcb-m-list" aria-label="Menu mobile">
 
-          {/* === Chi siamo (accordion) === */}
-          <div className="mobile-accordion">
-            <button
-              className={`mobile-accordion-toggle ${mobileExpandedSection === 'chi' ? 'open' : ''}`}
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')}
-              aria-expanded={mobileExpandedSection === 'chi'}
-              aria-controls="acc-chi"
-            >
-              {t('chi-siamo') || 'Chi siamo'}
-              <span className="acc-caret" aria-hidden>▾</span>
-            </button>
-            {mobileExpandedSection === 'chi' && (
-              <div id="acc-chi" className="mobile-accordion-panel">
-                <Link href="/chi-siamo" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
-                  {t('nostra-storia') || 'La nostra storia'}
-                </Link>
-                <Link href="/comitato-scientifico" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
-                  {t('comitato-tecnico-scientifico') || 'Comitato tecnico scientifico di indirizzo'}
-                </Link>
-              </div>
-            )}
-          </div>
+          {/* Chi siamo */}
+          <button
+            className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'chi' ? 'open' : ''}`}
+            onClick={() =>
+              setMobileExpandedSection(mobileExpandedSection === 'chi' ? null : 'chi')
+            }
+            aria-expanded={mobileExpandedSection === 'chi'}
+            aria-controls="mcb-acc-chi"
+            type="button"
+          >
+            <span>{t('chi-siamo') || 'Chi siamo'}</span>
+            <span className="mcb-caret" aria-hidden>▾</span>
+          </button>
+          {mobileExpandedSection === 'chi' && (
+            <div id="mcb-acc-chi" className="mcb-acc-panel">
+              <Link href="/chi-siamo" className="mcb-subitem" onClick={() => setIsMenuOpen(false)}>
+                {t('nostra-storia') || 'La nostra storia'}
+              </Link>
+              <Link href="/comitato-scientifico" className="mcb-subitem" onClick={() => setIsMenuOpen(false)}>
+                {t('comitato-tecnico-scientifico') || 'Comitato tecnico scientifico di indirizzo'}
+              </Link>
+            </div>
+          )}
 
-          {/* === Cosa facciamo (accordion) === */}
-          <div className="mobile-accordion">
-            <button
-              className={`mobile-accordion-toggle ${mobileExpandedSection === 'cosa' ? 'open' : ''}`}
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')}
-              aria-expanded={mobileExpandedSection === 'cosa'}
-              aria-controls="acc-cosa"
-            >
-              {t('cosa-facciamo') || 'Cosa facciamo'}
-              <span className="acc-caret" aria-hidden>▾</span>
-            </button>
-            {mobileExpandedSection === 'cosa' && (
-              <div id="acc-cosa" className="mobile-accordion-panel">
-                <Link href="/overview" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
-                  {t('overview') || 'Panoramica'}
-                </Link>
-                <Link href="/settori" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
-                  {t('settori') || 'Settori'}
-                </Link>
-                <Link href="/servizi" className="mobile-subitem" onClick={() => setIsMenuOpen(false)}>
-                  {t('servizi') || 'Servizi'}
-                </Link>
-              </div>
-            )}
-          </div>
+          {/* Cosa facciamo */}
+          <button
+            className={`mcb-m-item mcb-acc ${mobileExpandedSection === 'cosa' ? 'open' : ''}`}
+            onClick={() =>
+              setMobileExpandedSection(mobileExpandedSection === 'cosa' ? null : 'cosa')
+            }
+            aria-expanded={mobileExpandedSection === 'cosa'}
+            aria-controls="mcb-acc-cosa"
+            type="button"
+          >
+            <span>{t('cosa-facciamo') || 'Cosa facciamo'}</span>
+            <span className="mcb-caret" aria-hidden>▾</span>
+          </button>
+          {mobileExpandedSection === 'cosa' && (
+            <div id="mcb-acc-cosa" className="mcb-acc-panel">
+              <Link href="/overview" className="mcb-subitem" onClick={() => setIsMenuOpen(false)}>
+                {t('overview') || 'Panoramica'}
+              </Link>
+              <Link href="/settori" className="mcb-subitem" onClick={() => setIsMenuOpen(false)}>
+                {t('settori') || 'Settori'}
+              </Link>
+              <Link href="/servizi" className="mcb-subitem" onClick={() => setIsMenuOpen(false)}>
+                {t('servizi') || 'Servizi'}
+              </Link>
+            </div>
+          )}
 
-          {/* === Contattaci (link diretto) === */}
+          {/* Contattaci */}
           <Link
             href="/contattaci"
-            className="mobile-menu-link mobile-menu-link-contattaci"
+            className="mcb-m-item mcb-link"
             onClick={() => setIsMenuOpen(false)}
+            data-test="mobile-contattaci"
           >
             {t('contattaci') || 'Contattaci'}
           </Link>
-
-          {/* === Selettore lingua === */}
-          <div className="mobile-language-selector">
-            <div className="mobile-language-title">{t('seleziona-lingua') || 'Seleziona lingua'}</div>
-            {languages.map((language) => (
-              <button
-                key={language.code}
-                className={`mobile-language-option ${selectedLanguage.code === language.code ? 'active' : ''}`}
-                onClick={() => selectLanguage(language)}
-              >
-                <span className="flag">{language.flag}</span>
-                <span>{language.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+        </nav>
       </div>
     </nav>
   );
