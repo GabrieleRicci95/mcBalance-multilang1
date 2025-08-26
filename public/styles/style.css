@@ -5625,145 +5625,236 @@ p {
   }
 }
 /* ======================================================
-  
+   MOBILE MENU OTTIMIZZATO - MCBALANCE
 ====================================================== */
 
-
-/* ===== Mobile overlay pulito (classi mcb-*) ===== */
-.mcb-mobile {
-  display: none;
-  position: fixed; inset: 60px 0 0 0; /* sotto la navbar */
-  background: #1a1a1a; z-index: 2000;
-  transform: translateX(100%); transition: transform .25s ease;
-  overflow-y: auto;
+/* Reset e base styles */
+* {
+  box-sizing: border-box;
 }
-.mcb-mobile.open { display: block; transform: translateX(0); }
 
-.mcb-m-list { padding: 8px 0 24px; }
-
-.mcb-m-item {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 20px; font-size: 16px; color: #fff; text-decoration: none;
-  border-bottom: 1px solid #2a2a2a; background: transparent;
+/* Blocca scroll body quando menu aperto */
+.mcb-no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
 }
-.mcb-link:hover { background: #222; }
 
-/* Accordion */
-.mcb-acc { cursor: pointer; border: 0; }
-.mcb-caret { transition: transform .2s ease; }
-.mcb-acc.open .mcb-caret { transform: rotate(180deg); }
-
-.mcb-acc-panel { padding: 6px 0 10px; background: #161616; }
-.mcb-subitem {
-  display: block; padding: 12px 28px; color: #fff; text-decoration: none;
-}
-.mcb-subitem:hover { background: #202020; }
-
-/* Mostra hamburger e nasconde menu desktop a <=1024px (se non l'hai già) */
-@media (max-width:1024px){
-  .navbar-menu { display: none !important; }
-  .mobile-menu-toggle { display: flex !important; }
-}
-/* ===== Mobile overlay pulito (classi mcb-*) ===== */
+/* Mobile overlay principale */
 .mcb-mobile {
   display: none;
   position: fixed;
-  inset: 60px 0 0 0;            /* sotto la navbar */
+  top: 60px; /* Altezza navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: #1a1a1a;
   z-index: 2000;
   transform: translateX(100%);
-  transition: transform .25s ease;
+  transition: transform 0.25s ease;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll iOS */
 }
-.mcb-mobile.open { display: block; transform: translateX(0); }
 
-.mcb-m-list { padding: 8px 0 24px; }
+.mcb-mobile.open {
+  display: block;
+  transform: translateX(0);
+}
 
+/* Container lista menu */
+.mcb-m-list {
+  padding: 20px 0;
+  min-height: 100%;
+}
+
+/* Voci menu principali */
 .mcb-m-item {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  font-size: 16px;
+  padding: 16px 24px;
+  font-size: 17px;
+  font-weight: 500;
   color: #fff;
   text-decoration: none;
   border-bottom: 1px solid #2a2a2a;
   background: transparent;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-align: left;
 }
 
-/* Evita testo tagliato nelle voci */
-.mcb-m-item { line-height: 1.35; letter-spacing: normal; }
+/* Fix per testo lungo */
 .mcb-m-item > span:first-child {
-  flex: 1 1 auto;
-  min-width: 0;
-  white-space: normal;
-  overflow: visible;
+  flex: 1;
+  padding-right: 16px;
+  line-height: 1.4;
 }
 
-.mcb-link:hover { background: #222; }
+/* Hover states */
+.mcb-m-item:hover,
+.mcb-m-item:active {
+  background: #252525;
+}
 
-/* Accordion */
-.mcb-acc { cursor: pointer; border: 0; }
-.mcb-caret { transition: transform .2s ease; }
-.mcb-acc.open .mcb-caret { transform: rotate(180deg); }
+/* Icona freccia accordion */
+.mcb-caret {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  color: #999;
+}
 
+.mcb-acc.open .mcb-caret {
+  transform: rotate(180deg);
+}
+
+/* Pannello accordion espanso */
 .mcb-acc-panel {
-  padding: 6px 0 10px;
   background: #161616;
+  border-bottom: 1px solid #2a2a2a;
 }
 
+/* Sottovoci menu */
 .mcb-subitem {
   display: block;
-  padding: 12px 28px;
-  color: #fff;
+  padding: 14px 32px 14px 48px;
+  color: #e0e0e0;
   text-decoration: none;
-  line-height: 1.35;
-  white-space: normal;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: all 0.2s ease;
 }
-.mcb-subitem:hover { background: #202020; }
 
-/* Mostra hamburger e nasconde menu desktop a <=1024px (se non c'è già) */
-@media (max-width:1024px){
-  .navbar-menu { display: none !important; }
-  .mobile-menu-toggle { display: flex !important; }
+.mcb-subitem:hover,
+.mcb-subitem:active {
+  background: #202020;
+  color: #fff;
+  padding-left: 52px;
 }
-/* Blocca lo scroll della pagina quando il menu mobile è aperto */
-.mcb-no-scroll { overflow: hidden !important; height: 100% !important; }
 
-/* Overlay mobile pulito */
-.mcb-mobile{
-  display:none; position:fixed; inset:60px 0 0 0; background:#1a1a1a;
-  z-index:2000; transform:translateX(100%); transition:transform .25s ease;
-  overflow-y:auto; pointer-events:none;
+/* Hamburger menu button */
+.mobile-menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2001;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
-.mcb-mobile.open{ display:block; transform:translateX(0); pointer-events:auto; }
 
-.mcb-m-list{ padding:8px 0 24px; }
-.mcb-m-item{
-  width:100%; display:flex; align-items:center; justify-content:space-between;
-  padding:14px 20px; font-size:16px; color:#fff; text-decoration:none;
-  border-bottom:1px solid #2a2a2a; background:transparent;
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
 }
-.mcb-m-item{ line-height:1.35; letter-spacing:normal; }
-.mcb-m-item > span:first-child{ flex:1 1 auto; min-width:0; white-space:normal; overflow:visible; }
 
-.mcb-link:hover{ background:#222; }
-
-/* Accordion */
-.mcb-acc{ cursor:pointer; border:0; }
-.mcb-caret{ transition:transform .2s ease; }
-.mcb-acc.open .mcb-caret{ transform:rotate(180deg); }
-
-.mcb-acc-panel{ padding:6px 0 10px; background:#161616; }
-.mcb-subitem{
-  display:block; padding:12px 28px; color:#fff; text-decoration:none;
-  line-height:1.35; white-space:normal;
+.mobile-menu-toggle span:nth-child(1) {
+  top: 16px;
 }
-.mcb-subitem:hover{ background:#202020; }
 
-/* Visibilità hamburger e nascondi menu desktop su mobile (se non già presente) */
-@media (max-width:1024px){
-  .navbar-menu{ display:none !important; }
-  .mobile-menu-toggle{ display:flex !important; }
+.mobile-menu-toggle span:nth-child(2) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+  bottom: 16px;
+}
+
+/* Animazione X quando menu aperto */
+.mobile-menu-toggle.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  bottom: 50%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+/* Media queries per tablet e mobile */
+@media (max-width: 1024px) {
+  .navbar-menu {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  
+  .desktop-language {
+    display: none !important;
+  }
+}
+
+/* Ottimizzazioni per schermi piccoli */
+@media (max-width: 480px) {
+  .mcb-m-item {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+  
+  .mcb-subitem {
+    padding: 12px 28px 12px 40px;
+    font-size: 15px;
+  }
+  
+  .mcb-subitem:hover,
+  .mcb-subitem:active {
+    padding-left: 44px;
+  }
+}
+
+/* Fix per iPhone notch */
+@supports (padding: max(0px)) {
+  .mcb-mobile {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Animazioni smooth per iOS */
+@media (prefers-reduced-motion: no-preference) {
+  .mcb-mobile,
+  .mcb-m-item,
+  .mcb-caret,
+  .mobile-menu-toggle span {
+    transition-duration: 0.25s;
+  }
+}
+
+/* Focus states per accessibilità */
+.mcb-m-item:focus,
+.mcb-subitem:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: -2px;
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* Previeni zoom su input focus (iOS) */
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
