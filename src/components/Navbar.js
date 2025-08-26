@@ -444,26 +444,107 @@ export default function Navbar() {
               >
                 {t('overview')}
               </Link>
-              <Link 
-                href="/settori" 
-                className="mcb-subitem" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setMobileExpandedSection(null);
-                }}
-              >
-                {t('settori')}
-              </Link>
-              <Link 
-                href="/servizi" 
-                className="mcb-subitem" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setMobileExpandedSection(null);
-                }}
-              >
-                {t('servizi')}
-              </Link>
+              
+              {/* Settori con sub-menu */}
+              <div className="mcb-nested-accordion">
+                <button
+                  className="mcb-subitem mcb-nested-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setExpandedSection(expandedSection === 'settori-mobile' ? null : 'settori-mobile');
+                  }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    width: '100%',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <span>{t('settori')}</span>
+                  <span 
+                    className="mcb-nested-caret" 
+                    style={{
+                      transform: expandedSection === 'settori-mobile' ? 'rotate(180deg)' : 'rotate(0)',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  >
+                    ▾
+                  </span>
+                </button>
+                {expandedSection === 'settori-mobile' && (
+                  <div className="mcb-nested-panel" style={{ background: '#0f0f0f' }}>
+                    {settoriList.map((settore, index) => (
+                      <div key={index} className="mcb-nested-item" style={{
+                        padding: '10px 48px',
+                        color: '#ccc',
+                        fontSize: '14px'
+                      }}>
+                        {t(settore)}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Servizi con sub-menu */}
+              <div className="mcb-nested-accordion">
+                <button
+                  className="mcb-subitem mcb-nested-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setExpandedSection(expandedSection === 'servizi-mobile' ? null : 'servizi-mobile');
+                  }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    width: '100%',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <span>{t('servizi')}</span>
+                  <span 
+                    className="mcb-nested-caret" 
+                    style={{
+                      transform: expandedSection === 'servizi-mobile' ? 'rotate(180deg)' : 'rotate(0)',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  >
+                    ▾
+                  </span>
+                </button>
+                {expandedSection === 'servizi-mobile' && (
+                  <div className="mcb-nested-panel" style={{ background: '#0f0f0f' }}>
+                    {serviziList.map((servizio, index) => (
+                      <Link
+                        key={index}
+                        href={getServiceLink(servizio)}
+                        className="mcb-nested-link"
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setMobileExpandedSection(null);
+                          setExpandedSection(null);
+                        }}
+                        style={{
+                          display: 'block',
+                          padding: '10px 48px',
+                          color: '#ccc',
+                          textDecoration: 'none',
+                          fontSize: '14px',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        {t(servizio)}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
