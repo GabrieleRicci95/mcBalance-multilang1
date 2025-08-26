@@ -5881,3 +5881,25 @@ p {
 .mobile-menu-toggle.active span:nth-child(3){
   transform: rotate(-45deg) translate(5px, -5px);
 }
+/* Assicura che i link del menu mobile siano visibili */
+.mobile-menu-link {
+  display: block;
+  padding: 14px 20px;
+  font-size: 16px;
+  color: #ffffff !important;   /* colore testo visibile */
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.mobile-menu-link:hover {
+  background-color: #222;
+}
+
+/* Titolo lingua mobile */
+.mobile-language-title {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+}
